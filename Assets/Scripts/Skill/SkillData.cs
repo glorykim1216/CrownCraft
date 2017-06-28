@@ -1,0 +1,28 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using SimpleJSON;
+public class SkillData  // 스킬시전 범위
+{
+    string StrKey = string.Empty;
+    float Range = 0;
+    List<string> SkillList = new List<string>();
+
+    public float RANGE { get { return Range; } }
+    public List<string> SKILL_LIST { get { return SkillList; } }    // Skill Template Key
+
+    public SkillData(string _strKey, JSONNode nodeData)
+    {
+        StrKey = _strKey;
+        Range = nodeData["RANGE"].AsFloat;
+
+        JSONArray arrSkill = nodeData["SKILL"].AsArray;
+        if(arrSkill != null)
+        {
+            for(int i=0; i< arrSkill.Count; i++)
+            {
+                SkillList.Add(arrSkill[i]);
+            }
+        }
+    }
+}
