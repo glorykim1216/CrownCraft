@@ -72,7 +72,10 @@ public class CardDrag : MonoBehaviour
                     {
                         // 프리펩 생성
                         go = Resources.Load("Prefabs/" + StrOrgSprite) as GameObject;
-                        Instantiate(go, hit.point, go.transform.rotation);
+                        //go.GetComponent<Actor>().TEAM_TYPE = eTeamType.TEAM_2;
+                        GameObject temp = Instantiate(go, hit.point, go.transform.rotation);
+                        //temp.transform.FindChild("Toon Knight-Brown").FindChild("Knight").GetComponent<SkinnedMeshRenderer>().materials[0].mainTexture = Resources.Load("Textures/ToonKnightBlue") as Texture;
+                        
                         Debug.Log(hit.point);
                     }
                 }

@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class UI_Manager : MonoSingleton<UI_Manager>
 {
+    Transform CardDeckUI;
     UI_ManaBar manaBarUI;
     // Use this for initialization
     void Start()
     {
-         manaBarUI = transform.FindChild("PF_UI_CARDDECK/ManaBar").GetComponent<UI_ManaBar>();
+        CardDeckUI = transform.FindChild("PF_UI_CARDDECK");
+        manaBarUI = CardDeckUI.FindChild("ManaBar").GetComponent<UI_ManaBar>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void SetMana(float mana)
     {

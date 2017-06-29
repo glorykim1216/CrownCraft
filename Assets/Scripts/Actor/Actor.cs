@@ -16,6 +16,7 @@ public class Actor : BaseObject
     public eTeamType TEAM_TYPE
     {
         get { return TeamType; }
+        set { TeamType = value; }
     }
 
     // TeamType
@@ -77,7 +78,7 @@ public class Actor : BaseObject
             ai.Target = this;           // target
 
             // TestCode
-            if (transform.name.Equals("Knight (1)"))
+            if (TeamType == eTeamType.TEAM_2)
                 ai.GetComponent<NormalAI>().Team(2);
             else
                 ai.GetComponent<NormalAI>().Team(1);
