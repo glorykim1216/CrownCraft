@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4500664, g: 0.49754614, b: 0.5616737, a: 1}
+  m_IndirectSpecularColor: {r: 0.4500664, g: 0.4975462, b: 0.56167364, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -964,8 +964,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 687576958}
+  - component: {fileID: 687576959}
   m_Layer: 5
-  m_Name: PF_UI_MainGame
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -985,6 +986,17 @@ Transform:
   m_Father: {fileID: 439133849}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &687576959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 687576957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6fee5ff52e8a194d8238d14046e9f44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &690151363
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,7 +1203,7 @@ GameObject:
   m_Component:
   - component: {fileID: 739540366}
   m_Layer: 5
-  m_Name: CardDeck
+  m_Name: PF_UI_CARDDECK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1886,6 +1898,7 @@ GameObject:
   - component: {fileID: 1304363259}
   - component: {fileID: 1304363260}
   - component: {fileID: 1304363261}
+  - component: {fileID: 1304363262}
   m_Layer: 5
   m_Name: ManaBar
   m_TagString: Untagged
@@ -1975,6 +1988,17 @@ MonoBehaviour:
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
   useSortingOrder: 0
+--- !u!114 &1304363262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1304363258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fe37b5a420b9c94596c7e54f1dede61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1333695981
 GameObject:
   m_ObjectHideFlags: 0
@@ -2372,6 +2396,46 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 80, y: 110, z: 0}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1774351615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1774351617}
+  - component: {fileID: 1774351616}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1774351616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774351615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4578f612277aef46a6333dba408abbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1774351617
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1774351615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1784136002
 Prefab:
   m_ObjectHideFlags: 0
