@@ -2,19 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_CardDeck : MonoBehaviour
+public class UI_CardDeck : BaseObject
 {
-    public Transform []Cards = new Transform[4];
+    public Transform[] Cards = new Transform[4];
+
+
     void Start()
     {
-        Cards[0] = transform.FindChild("Cards").FindChild("Card_1");
-        Cards[1] = transform.FindChild("Cards").FindChild("Card_2");
-        Cards[2] = transform.FindChild("Cards").FindChild("Card_3");
-        Cards[3] = transform.FindChild("Cards").FindChild("Card_4");
+        Transform trans = FindInChild("Cards");
+
+        for (int i = 0; i < 4; i++)
+        {
+            Cards[i] = trans.FindChild("Card_" + i);
+        }
     }
 
     void Update()
     {
 
+    }
+
+    public void NextCard()
+    {
+        
     }
 }

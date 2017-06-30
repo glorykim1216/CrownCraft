@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardDrag : MonoBehaviour
+public class CardDrag : BaseObject
 {
     GameObject go = null;
     public Transform ShrinkPoint;
@@ -13,22 +13,18 @@ public class CardDrag : MonoBehaviour
     Vector3 OrgScale;
 
     Color OrgColor;
-    Collider col;
 
     bool IsField = false;
 
     string StrOrgSprite;
 
-    private void Awake()
+    void Start()
     {
         OrgPos = this.transform.position;
         OrgScale = this.transform.localScale;
-        StrOrgSprite = this.gameObject.GetComponent<UISprite>().spriteName;
+        StrOrgSprite = SelfComponent<UISprite>().spriteName;// this.gameObject.GetComponent<UISprite>().spriteName;
 
-        _sprite = GetComponent<UISprite>();
-        col = gameObject.GetComponent<Collider>();
-
-
+        _sprite = SelfComponent<UISprite>();
     }
 
     // 마우스 오버
@@ -101,7 +97,7 @@ public class CardDrag : MonoBehaviour
                 // 카드 이미지 변경
                 IsField = true;
                 transform.localScale = OrgScale;
-                gameObject.GetComponent<UISprite>().spriteName = StrOrgSprite + "PF";
+                SelfComponent<UISprite>().spriteName = StrOrgSprite + "PF";
             }
         }
         else
@@ -111,7 +107,7 @@ public class CardDrag : MonoBehaviour
                 // 카드 이미지 복구
                 IsField = false;
                 transform.localScale = Vector3.zero;
-                gameObject.GetComponent<UISprite>().spriteName = StrOrgSprite;
+                SelfComponent<UISprite>().spriteName = StrOrgSprite;
             }
         }
     }
