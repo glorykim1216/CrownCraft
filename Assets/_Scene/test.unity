@@ -346,6 +346,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114401712048480856, guid: a4b0106d7ea06ee49bcf2122503bceba,
+        type: 2}
+      propertyPath: TemplateKey
+      value: ARCHERS
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a4b0106d7ea06ee49bcf2122503bceba, type: 2}
   m_IsPrefabParent: 0
@@ -541,7 +546,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeamType: 0
-  TemplateKey: MONSTER_2
+  TemplateKey: KNIGHT
   bEnableBoard: 1
 --- !u!114 &334196663
 MonoBehaviour:
@@ -1129,6 +1134,10 @@ Prefab:
     - target: {fileID: 4572846819496594, guid: 01b3b8fa76e566748bd2c9aff589d1dc, type: 2}
       propertyPath: m_LocalRotation.w
       value: 0.010324803
+      objectReference: {fileID: 0}
+    - target: {fileID: 1918986685307546, guid: 01b3b8fa76e566748bd2c9aff589d1dc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 01b3b8fa76e566748bd2c9aff589d1dc, type: 2}
@@ -2187,7 +2196,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3004
+  startingRenderQueue: 3005
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -2240,7 +2249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeamType: 0
-  TemplateKey: CHARACTER_1
+  TemplateKey: ARCHERS
   bEnableBoard: 1
 --- !u!114 &1333695983
 MonoBehaviour:
@@ -2942,6 +2951,10 @@ Prefab:
       propertyPath: m_Mass
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1543557404567182, guid: 85a3ac102f4577c4fb16bc34d8a22567, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85a3ac102f4577c4fb16bc34d8a22567, type: 2}
   m_IsPrefabParent: 0
@@ -3119,7 +3132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeamType: 1
-  TemplateKey: MONSTER_2
+  TemplateKey: KNIGHT
   bEnableBoard: 1
 --- !u!114 &1972356185
 MonoBehaviour:
@@ -3295,6 +3308,11 @@ Prefab:
         type: 2}
       propertyPath: TeamType
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114416459826522156, guid: 2d6bdc8d3d3c1e942b4568dc747d8c24,
+        type: 2}
+      propertyPath: TemplateKey
+      value: KNIGHT
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2d6bdc8d3d3c1e942b4568dc747d8c24, type: 2}

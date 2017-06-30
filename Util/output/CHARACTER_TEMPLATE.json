@@ -1,0 +1,34 @@
+{
+	"CHARACTER_TEMPLATER": {
+		"KNIGHT": {
+			"LEVEL": 1,
+			"HP": 660,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+				"MELEE_1"
+			]
+		},
+		"ARCHERS": {
+			"LEVEL": 1,
+			"HP": 120,
+			"ATTACK": 41,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 5,
+			"TARGET": "GOURNDAIR",
+			"COUNT": 2,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+				"RANGE_1"
+			]
+		}
+	}
+}

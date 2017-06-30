@@ -17,9 +17,16 @@ public enum eStateType
 
 public enum eStatusData
 {
-    MAX_HP,
+	LEVEL,
+    HP,
     ATTACK,
-    DEFFENCE,
+    COST,
+	SPEED,
+	RANGE,
+	TARGET,
+	COUNT,
+	TRANSPORT,
+	TYPE,
     MAX,
 }
 

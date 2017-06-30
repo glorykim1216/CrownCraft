@@ -34,7 +34,7 @@ public class GameCharacter
         if (CurrentHP < 0)
             CurrentHP = 0;
 
-        double maxHP = CharacterStatus.GetStatusData(eStatusData.MAX_HP);
+        double maxHP = CharacterStatus.GetStatusData(eStatusData.HP);
         if (CurrentHP > maxHP)
             CurrentHP = maxHP;
 
@@ -48,7 +48,7 @@ public class GameCharacter
     {
         TemplateData = _templateData;
         CharacterStatus.AddStatusData(ConstValue.CharacterStatusDataKey, TemplateData.STATUS);
-        CurrentHP = CharacterStatus.GetStatusData(eStatusData.MAX_HP);
+        CurrentHP = CharacterStatus.GetStatusData(eStatusData.HP);
     }
 
     public void AddSkill(SkillData skillData)
