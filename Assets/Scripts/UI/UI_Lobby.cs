@@ -43,29 +43,24 @@ public class UI_Lobby : BaseObject
        
     }
 
-    private void Start()
-    {
-        Transform trans = FindInChild("LOBBYGROUND");
-        trans.GetComponent<UIPanel>().clipOffset.Set(720.0f, 0.0f);
-    }
-
-
     void CardGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
         trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(-720.0f, 0.0f);
     }
 
     void BattleGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
         trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-        //trans.GetComponent<UIPanel>().clipOffset.Set(0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(0.0f, 0.0f);
     }
 
     void GachaGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
         trans.localPosition = new Vector3(-720.0f, 0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
     }
 }

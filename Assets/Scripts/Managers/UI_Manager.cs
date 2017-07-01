@@ -14,7 +14,7 @@ public class UI_Manager : MonoSingleton<UI_Manager>
     void Start()
     {
         CardDeckUI = transform.FindChild("PF_UI_CARDDECK").GetComponent<UI_CardDeck>();
-        manaBarUI = transform.FindChild("UI_ManaBar").GetComponent<UI_ManaBar>();
+        manaBarUI = CardDeckUI.transform.FindChild("UI_ManaBar").GetComponent<UI_ManaBar>();
 
         // List Shuffle
         for (int i = 0; i < 8; i++)
