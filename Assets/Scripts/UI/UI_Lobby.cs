@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class UI_Lobby : BaseObject
 {
+    // LobbyIcon btn
     UIButton CardBtn = null;
     UIButton BattleBtn = null;
     UIButton GachaBtn = null;
 
+    // GachaGround Btn
+    UIButton BoxBtn = null;
+
     private void Awake()
     {
+        // LobbyIcon Btn
+        //----------------------------------------------------
         Transform trans = FindInChild("CardBtn");
         if (trans == null)
         {
@@ -20,6 +26,8 @@ public class UI_Lobby : BaseObject
         EventDelegate.Add(CardBtn.onClick,
             new EventDelegate(this, "CardGround"));
 
+        // LobbyIcon Btn
+        //----------------------------------------------------
         trans = FindInChild("BattleBtn");
         if (trans == null)
         {
@@ -30,6 +38,8 @@ public class UI_Lobby : BaseObject
         EventDelegate.Add(BattleBtn.onClick,
             new EventDelegate(this, "BattleGround"));
 
+        // LobbyIcon Btn
+        //----------------------------------------------------
         trans = FindInChild("GachaBtn");
         if (trans == null)
         {
@@ -40,32 +50,46 @@ public class UI_Lobby : BaseObject
         EventDelegate.Add(GachaBtn.onClick,
             new EventDelegate(this, "GachaGround"));
 
-       
+        // GachaGround Btn
+        //-----------------------------------------------------
+        trans = FindInChild("ChestUIBtn");
+        if(trans == null)
+        {
+            Debug.LogError("ChestUIBtn is Not Founded");
+            return;
+        }
+        BoxBtn = trans.GetComponent<UIButton>();
+        EventDelegate.Add(GachaBtn.onClick, new EventDelegate(this, "BoxOpen"));
     }
-
-    private void Start()
-    {
-        Transform trans = FindInChild("LOBBYGROUND");
-        trans.GetComponent<UIPanel>().clipOffset.Set(720.0f, 0.0f);
-    }
-
 
     void CardGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
         trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(-720.0f, 0.0f);
     }
 
     void BattleGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
         trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-        //trans.GetComponent<UIPanel>().clipOffset.Set(0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(0.0f, 0.0f);
     }
 
     void GachaGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
         trans.localPosition = new Vector3(-720.0f, 0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
+        //GameObject go = UITools.Instance.ShowUI(eUIType.ChestCamera);
+        //UI_CardPopup popup = go.GetComponent<UI_CardPopup>();
+    }
+
+    void BoxOpen()
+    {
+        GameObject Chest = Resources.Load("Prefabs/UI/ChestCamera/Chest") as GameObject;
+        Transform chest = Chest.transform.FindChild("Chest_cover");
+        //FindInChild("Chest_cover");
+        chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
     }
 }
