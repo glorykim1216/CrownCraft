@@ -23,11 +23,15 @@ public enum eStatusData
     COST,
 	SPEED,
 	RANGE,
-	TARGET,
 	COUNT,
+    MAX,
+}
+public enum eStatusDataStr
+{
+	TARGET,
 	TRANSPORT,
 	TYPE,
-    MAX,
+	MAX,
 }
 
 public enum eTeamType

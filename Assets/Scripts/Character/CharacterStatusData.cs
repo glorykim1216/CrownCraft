@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 실제 캐릭터에 적용 클래
+// 실제 캐릭터에 적용 클래스  //최신화 데이터 
+// Status를 통해 계산되어서 적용할 준비를한다.
 public class CharacterStatusData
 {
     Dictionary<string, StatusData> DicStatus = new Dictionary<string, StatusData>();
