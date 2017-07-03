@@ -409,10 +409,10 @@ MonoBehaviour:
     y: 711
     width: 190
     height: 24
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
+    borderLeft: 5
+    borderRight: 5
+    borderTop: 5
+    borderBottom: 5
     paddingLeft: 0
     paddingRight: 0
     paddingTop: 0

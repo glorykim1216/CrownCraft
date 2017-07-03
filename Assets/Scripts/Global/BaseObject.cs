@@ -72,7 +72,7 @@ public class BaseObject : MonoBehaviour
     }
     Transform _FindInChild(string strName, Transform trans)
     {
-        if (trans.name == strName)
+        if (trans.name.Equals(strName))
             return trans;
         for (int i = 0; i < trans.childCount; i++)
         {

@@ -93,21 +93,24 @@ public enum eSceneType
 {
     SCENE_NONE,
     SCENE_LOGO,
-    SCENE_GAME,
     SCENE_LOBBY,
+    SCENE_GAME,
 }
 
 public enum eUIType
 {
     // PF -> prefab
-
     PF_UI_LOGO,
     PF_UI_LOADING,
+    PF_UI_CARD,
+    PF_UI_CARDDECK,
+    PF_UI_CARDPOPUP,
     PF_UI_LOBBY,
-    PF_UI_INVENTORY,
     PF_UI_POPUP,
     PF_UI_STAGE,
-    PF_UI_GACHA,
+    ChestCamera,
+    //PF_UI_INVENTORY,
+    //PF_UI_GACHA,
 }
 
 public enum eSlotType
