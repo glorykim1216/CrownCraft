@@ -26,13 +26,6 @@ public enum eStatusData
 	COUNT,
     MAX,
 }
-public enum eStatusDataStr
-{
-	TARGET,
-	TRANSPORT,
-	TYPE,
-	MAX,
-}
 
 public enum eTeamType
 {
