@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1309757530360736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -590, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4874935280775366}
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991271979384022}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -590, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4874935280775366}
@@ -170,7 +170,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1186301418079396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -403, z: 0}
+  m_LocalPosition: {x: 0, y: 547, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4598761040505246}
@@ -183,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1777917116484282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -600, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4256719033780398}
@@ -219,7 +219,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.08628891, g: 0.091474704, b: 0.83823526, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
   mWidth: 720
   mHeight: 1280
@@ -242,8 +242,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114087443413279800, guid: d16d79e500e775a48ad5a48fe46ac7e6, type: 2}
-  mSpriteName: dropdownMid
+  mAtlas: {fileID: 114651233227274880, guid: 51f922aa7b7c72244a4b40c220d5c9e3, type: 2}
+  mSpriteName: LoadingPattern4
   mFillCenter: 1
 --- !u!114 &114431054561444010
 MonoBehaviour:
@@ -351,16 +351,16 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0, g: 0, b: 0, a: 1}
+  mColor: {r: 0.7794118, g: 0.63396376, b: 0.25216264, a: 0.734}
   mPivot: 4
-  mWidth: 720
+  mWidth: 780
   mHeight: 100
   mDepth: 1
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 7.2
+  aspectRatio: 7.8
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -374,8 +374,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114087443413279800, guid: d16d79e500e775a48ad5a48fe46ac7e6, type: 2}
-  mSpriteName: dropdownMid
+  mAtlas: {fileID: 114148474472740592, guid: f765d7d4a1dc34240bc3386c7d90028a, type: 2}
+  mSpriteName: progressbar_foreground_large_theme8
   mFillCenter: 1
 --- !u!114 &114819433152170740
 MonoBehaviour:
@@ -405,16 +405,16 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 0.22794116, g: 0.3291074, b: 1, a: 1}
+  mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 720
+  mWidth: 780
   mHeight: 100
   mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 7.2
+  aspectRatio: 7.8
   mType: 1
   mFillDirection: 4
   mFillAmount: 1
@@ -422,14 +422,14 @@ MonoBehaviour:
   mFlip: 0
   mApplyGradient: 1
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
-  mGradientBottom: {r: 0.14424741, g: 0.16994087, b: 0.6764706, a: 1}
+  mGradientBottom: {r: 0.9558824, g: 0.524475, b: 0.33034167, a: 1}
   centerType: 1
   leftType: 1
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114087443413279800, guid: d16d79e500e775a48ad5a48fe46ac7e6, type: 2}
-  mSpriteName: dropdownMid
+  mAtlas: {fileID: 114148474472740592, guid: f765d7d4a1dc34240bc3386c7d90028a, type: 2}
+  mSpriteName: progressbar_foreground_large_theme8
   mFillCenter: 1
 --- !u!114 &114844389398692634
 MonoBehaviour:
@@ -459,7 +459,7 @@ MonoBehaviour:
     relative: 1
     absolute: 0
   updateAnchors: 1
-  mColor: {r: 1, g: 1, b: 1, a: 1}
+  mColor: {r: 0.04310345, g: 0.36764705, b: 0, a: 1}
   mPivot: 4
   mWidth: 633
   mHeight: 100
@@ -472,7 +472,7 @@ MonoBehaviour:
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
   mFont: {fileID: 0}
-  mText: Loading
+  mText: CrownCraft
   mFontSize: 100
   mFontStyle: 0
   mAlignment: 0
