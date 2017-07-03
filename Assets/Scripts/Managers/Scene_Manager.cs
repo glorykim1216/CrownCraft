@@ -1,9 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Scene_Manager : MonoBehaviour
-{ 
+public class Scene_Manager : MonoSingleton<Scene_Manager>
+{
     // 동기인지 비동기인지
     bool IsAsyc = true;
     AsyncOperation Operation = null;
@@ -34,6 +35,7 @@ public class Scene_Manager : MonoBehaviour
         if (Operation != null)
         {
             StackTime += Time.deltaTime;
+
             // Loding UI Set
             // UI_Tools.Instance.ShowLoadingUI(Operation.progress);
             UITools.Instance.ShowLoadingUI(StackTime / 2f);
@@ -64,16 +66,16 @@ public class Scene_Manager : MonoBehaviour
             DisableScene(CurrentState);
 
             if (IsAsyc)
-            { // 비동기 로드
-                // Operation - 중간매개체 
-                //Operation = SceneManager.LoadSceneAsync(NextState.ToString("F"));
+            {   // 비동기 로드
+                //Operation - 중간매개체 
+                Operation = SceneManager.LoadSceneAsync(NextState.ToString("F"));
                 StackTime = 0.0f;
                 // Loading UI Set
                 UITools.Instance.ShowLoadingUI(0.0f);
             }
             else
-            { // 동기 로드
-                //SceneManager.LoadScene(NextState.ToString("F"));
+            {   // 동기 로드
+                SceneManager.LoadScene(NextState.ToString("F"));
                 CurrentState = NextState;
                 NextState = eSceneType.SCENE_NONE;
                 ComplateLoad(CurrentState);
@@ -89,16 +91,12 @@ public class Scene_Manager : MonoBehaviour
                 break;
             case eSceneType.SCENE_LOGO:
                 break;
-            //case eSceneType.SCENE_GAME:
-            //    {
-            //        GameManager.Instance.LoadGame();
-            //    }
-            //    break;
             case eSceneType.SCENE_LOBBY:
                 {
                     LobbyManager.Instance.LoadLobby();
-                    //GameManager.Instance.GameInit();
                 }
+                break;
+            case eSceneType.test:
                 break;
             default:
                 break;
@@ -116,11 +114,10 @@ public class Scene_Manager : MonoBehaviour
                 break;
             case eSceneType.SCENE_LOGO:
                 break;
-            //case eSceneType.SCENE_GAME:
-            //    SkillManager.Instance.ClearSkill();
-            //    break;
             case eSceneType.SCENE_LOBBY:
                 LobbyManager.Instance.DisableLobby();
+                break;
+            case eSceneType.test:
                 break;
             default:
                 break;

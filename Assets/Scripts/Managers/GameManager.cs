@@ -5,7 +5,8 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     float mana;
-    
+    //bool IsInit = false;
+
     // Use this for initialization
     void Start()
     {
