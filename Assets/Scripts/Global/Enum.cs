@@ -83,7 +83,8 @@ public enum eSceneType
     SCENE_NONE,
     SCENE_LOGO,
     SCENE_LOBBY,
-    SCENE_GAME,
+    test,
+    //SCENE_GAME,
 }
 
 public enum eUIType
