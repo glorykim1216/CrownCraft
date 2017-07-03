@@ -26,13 +26,6 @@ public class StatusData
         DicData[statusData] = preValue + valueData;
     }
 
-	//public void IncreaseData(eStatusDataStr statusDataStr, string valueData)
-	//{
-	//	string preValue = string.Empty;
-	//	DicData.TryGetValue(statusDataStr, out preValue);
-	//	DicData[statusDataStr] = valueData;
-	//}
-
     public void DecreaseData(eStatusData statusData, double valueData)
     {
         double preValue = 0.0;

@@ -15,7 +15,7 @@
         "MELEE_1"
       ]
     },
-    "ARCHERS": {
+    "ARCHER": {
       "LEVEL": 1,
       "HP": 120,
       "ATTACK": 41,
