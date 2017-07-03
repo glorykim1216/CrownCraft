@@ -11,7 +11,7 @@ public class UI_Lobby : BaseObject
 
     // GachaGround Btn
     UIButton BoxBtn = null;
-
+    Transform chest = null;
     private void Awake()
     {
         // LobbyIcon Btn
@@ -59,7 +59,11 @@ public class UI_Lobby : BaseObject
             return;
         }
         BoxBtn = trans.GetComponent<UIButton>();
-        EventDelegate.Add(GachaBtn.onClick, new EventDelegate(this, "BoxOpen"));
+        EventDelegate.Add(BoxBtn.onClick, new EventDelegate(this, "BoxOpen"));
+
+        GameObject ChestPrefab = Resources.Load("Prefabs/UI/ChestCamera") as GameObject;
+        GameObject Chest = Instantiate(ChestPrefab);
+        chest = Chest.transform.FindChild("Chest/Chest_cover");
     }
 
     void CardGround()
@@ -67,6 +71,7 @@ public class UI_Lobby : BaseObject
         Transform trans = FindInChild("LOBBYGROUND");
         trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(-720.0f, 0.0f);
+        chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
     }
 
     void BattleGround()
@@ -74,6 +79,7 @@ public class UI_Lobby : BaseObject
         Transform trans = FindInChild("LOBBYGROUND");
         trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(0.0f, 0.0f);
+        chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
     }
 
     void GachaGround()
@@ -83,13 +89,22 @@ public class UI_Lobby : BaseObject
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
         //GameObject go = UITools.Instance.ShowUI(eUIType.ChestCamera);
         //UI_CardPopup popup = go.GetComponent<UI_CardPopup>();
+
+        chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+
     }
 
     void BoxOpen()
     {
+<<<<<<< HEAD
         //GameObject Chest = Resources.Load("Prefabs/UI/ChestCamera/Chest") as GameObject;
         //Transform chest = Chest.transform.FindChild("Chest_cover");
         //FindInChild("Chest_cover");
         //chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
+=======
+        //FindInChild("Chest_cover");
+        chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
+        Debug.Log(chest.localRotation);
+>>>>>>> b8450f29e89dcb99c5fcab624c85367b68ffa813
     }
 }
