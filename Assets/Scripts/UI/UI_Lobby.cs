@@ -87,9 +87,9 @@ public class UI_Lobby : BaseObject
 
     void BoxOpen()
     {
-        GameObject Chest = Resources.Load("Prefabs/UI/ChestCamera/Chest") as GameObject;
-        Transform chest = Chest.transform.FindChild("Chest_cover");
+        //GameObject Chest = Resources.Load("Prefabs/UI/ChestCamera/Chest") as GameObject;
+        //Transform chest = Chest.transform.FindChild("Chest_cover");
         //FindInChild("Chest_cover");
-        chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
+        //chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
     }
 }
