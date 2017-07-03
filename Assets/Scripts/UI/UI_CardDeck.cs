@@ -6,7 +6,6 @@ public class UI_CardDeck : BaseObject
 {
     public Transform[] Cards = new Transform[4];
 
-
     void Start()
     {
         Transform trans = FindInChild("Cards");

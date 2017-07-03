@@ -9,13 +9,22 @@ public class CharacterTemplateData
     StatusData Status = new StatusData();
     List<string> ListSkill = new List<string>();
 
+    string CardTarget = string.Empty;
+    string CardTransport = string.Empty;
+
     public string KEY { get { return StrKey; } }
+    public string CARDTARGET { get { return CardTarget; } }
+    public string CARDTRANSPORT { get { return CardTransport; } }
+
     public StatusData STATUS { get { return Status; } }
     public List<string> LIST_SKILL { get { return ListSkill; } }
 
     public CharacterTemplateData(string _strKey, JSONNode nodeData)
     {
         StrKey = _strKey;
+
+        CardTarget = nodeData["TARGET"];
+        CardTransport = nodeData["TRANSPORT"];
 
         for (int i = 0; i < (int)eStatusData.MAX; i++)
         {

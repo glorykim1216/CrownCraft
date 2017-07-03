@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 114435957753621742}
   - component: {fileID: 114401712048480856}
   m_Layer: 0
-  m_Name: Archer
+  m_Name: ARCHER
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

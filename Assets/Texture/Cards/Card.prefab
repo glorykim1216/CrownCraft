@@ -54,6 +54,19 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: c2fe0da4b6e257e46bad202447a8d584, type: 2}
   mSprites:
   - name: Archer
+    x: 3078
+    y: 3308
+    width: 512
+    height: 788
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: ARCHER
     x: 0
     y: 2519
     width: 512
@@ -67,8 +80,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: ArcherPF
-    x: 0
-    y: 1730
+    x: 513
+    y: 2519
     width: 512
     height: 788
     borderLeft: 0
@@ -79,7 +92,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Barbarian
+  - name: ARCHERPF
     x: 0
     y: 941
     width: 512
@@ -92,9 +105,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: Barbarian
+    x: 0
+    y: 152
+    width: 512
+    height: 788
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: BarbarianPF
     x: 0
-    y: 3308
+    y: 1730
     width: 512
     height: 788
     borderLeft: 0
@@ -106,8 +132,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Bat
-    x: 0
-    y: 152
+    x: 2565
+    y: 3308
     width: 512
     height: 788
     borderLeft: 0
@@ -132,19 +158,6 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: Death Kinght
-    x: 1026
-    y: 3308
-    width: 512
-    height: 788
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Dragon
     x: 1539
     y: 3308
     width: 512
@@ -157,59 +170,7 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Ghost
-    x: 2052
-    y: 3308
-    width: 512
-    height: 788
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: golem
-    x: 2565
-    y: 3308
-    width: 512
-    height: 788
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Knight
-    x: 3078
-    y: 3308
-    width: 512
-    height: 788
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: KnightPF
-    x: 513
-    y: 2519
-    width: 512
-    height: 788
-    borderLeft: 0
-    borderRight: 0
-    borderTop: 0
-    borderBottom: 0
-    paddingLeft: 0
-    paddingRight: 0
-    paddingTop: 0
-    paddingBottom: 0
-  - name: Skeleton
+  - name: Dragon
     x: 513
     y: 1730
     width: 512
@@ -222,7 +183,20 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: Wizard
+  - name: Ghost
+    x: 1026
+    y: 3308
+    width: 512
+    height: 788
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: golem
     x: 513
     y: 941
     width: 512
@@ -235,8 +209,86 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: WizardPF
+  - name: Knight
     x: 513
+    y: 152
+    width: 512
+    height: 788
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: KNIGHT
+    x: 2052
+    y: 3308
+    width: 512
+    height: 788
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: KnightPF
+    x: 1026
+    y: 2519
+    width: 512
+    height: 788
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: KNIGHTPF
+    x: 0
+    y: 3308
+    width: 512
+    height: 788
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Skeleton
+    x: 1026
+    y: 1730
+    width: 512
+    height: 788
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: Wizard
+    x: 1026
+    y: 941
+    width: 512
+    height: 788
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: WizardPF
+    x: 1026
     y: 152
     width: 512
     height: 788
