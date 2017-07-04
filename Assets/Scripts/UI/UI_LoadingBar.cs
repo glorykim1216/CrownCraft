@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UI_LoadingBar : MonoBehaviour
+public class UI_LoadingBar : BaseObject
 {
     UIProgressBar ProgressBar;
+	UILabel LoadingPercent;
 
-    private void OnEnable()
+	private void Awake()
+	{
+		LoadingPercent = FindInChild("LoadingPercent").GetComponent<UILabel>();
+	}
+
+	private void OnEnable()
     {
         if (ProgressBar == null)
         {
@@ -20,5 +26,7 @@ public class UI_LoadingBar : MonoBehaviour
             return;
 
         ProgressBar.value = _value;
+		int temp = (int)(_value * 100) ;
+		LoadingPercent.text = temp.ToString()+"%" ;
     }
 }
