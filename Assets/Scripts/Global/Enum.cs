@@ -116,3 +116,12 @@ public enum eSlotType
     SLOT_GUNTLET,
     SLOT_MAX,
 }
+
+public enum eActor
+{
+    KNIGHT,
+    ARCHER,
+    BARBARIAN,
+    WIZARD,
+    MAX
+}

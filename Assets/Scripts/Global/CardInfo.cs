@@ -10,7 +10,7 @@ public class CardInfo : BaseObject
     // Use this for initialization
     void Start()
     {
-        GameCharacter gameCharacter = CharacterManager.Instance.AddCharacter(TemplateKey);
+        //GameCharacter gameCharacter = CharacterManager.Instance.AddCharacter(TemplateKey);
         Transform temp = FindInChild("CardImage");
         temp.GetComponent<UISprite>().spriteName = TemplateKey;
     }
