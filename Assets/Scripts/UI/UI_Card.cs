@@ -8,9 +8,21 @@ public class UI_Card : BaseObject
 	[SerializeField]
 	string TemplateKey = string.Empty;
 
+	public string CARDKEY
+	{
+		get { return TemplateKey; }
+	}
+
+	GameCharacter CharacterData;
+
+	public GameCharacter CHARACTER_DATA
+	{
+		get { return CharacterData; }
+	}
+
 	private void Awake()
 	{
-		GameCharacter CharacterData = CharacterManager.Instance.AddCharacter(TemplateKey);
+		CharacterData = CharacterManager.Instance.AddCharacter(TemplateKey);
 
 	}
 
@@ -18,8 +30,8 @@ public class UI_Card : BaseObject
 	{
 		Transform temp = FindInChild("Texture");
 		temp.GetComponent<UISprite>().name = TemplateKey;
-	}
 
+	}
 
 
 
@@ -27,7 +39,7 @@ public class UI_Card : BaseObject
 	{
 		GameObject go = UITools.Instance.ShowUI(eUIType.PF_UI_CARDPOPUP);
 		UI_CardPopup popup = go.GetComponent<UI_CardPopup>();
-
+		popup.SetCardInfo(CharacterData);
 		popup.Set(
 			//        () =>
 			//        {
