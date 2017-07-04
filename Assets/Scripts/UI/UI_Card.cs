@@ -6,7 +6,7 @@ public class UI_Card : MonoBehaviour
 {
     void OnClick()
     {
-        GameObject go = UITools.Instance.ShowUI(eUIType.PF_UI_CARDPOPUP);
+        GameObject go = UI_Tools.Instance.ShowUI(eUIType.PF_UI_CARDPOPUP);
         UI_CardPopup popup = go.GetComponent<UI_CardPopup>();
 
         popup.Set(
@@ -17,7 +17,7 @@ public class UI_Card : MonoBehaviour
             //        },
             () =>
             {
-                UITools.Instance.HideUI(eUIType.PF_UI_CARDPOPUP);
+                UI_Tools.Instance.HideUI(eUIType.PF_UI_CARDPOPUP);
             }
 
             //        "장비 장착"

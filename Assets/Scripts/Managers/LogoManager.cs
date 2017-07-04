@@ -6,6 +6,6 @@ public class LogoManager : MonoBehaviour
 {
     void Start()
     {
-        UITools.Instance.ShowUI(eUIType.PF_UI_LOGO);
+        UI_Tools.Instance.ShowUI(eUIType.PF_UI_LOGO);
     }
 }

@@ -18,11 +18,15 @@ public class CardDrag : BaseObject
 
     string StrOrgSprite;
 
-    void Start()
+    public void Init(Vector3 _orgPos, string _name)
     {
-        OrgPos = this.transform.position;
-        OrgScale = this.transform.localScale;
-        StrOrgSprite = SelfComponent<UISprite>().spriteName;// this.gameObject.GetComponent<UISprite>().spriteName;
+        //OrgPos = this.transform.position;
+        //OrgScale = this.transform.localScale;
+        //StrOrgSprite = SelfComponent<UISprite>().spriteName;
+
+        OrgPos = _orgPos;
+        OrgScale = Vector3.one;
+        StrOrgSprite = name;
 
         _sprite = SelfComponent<UISprite>();
     }
@@ -67,7 +71,7 @@ public class CardDrag : BaseObject
                     if (hit.collider.tag == "Ground")
                     {
                         // 프리펩 생성
-                        go = Resources.Load("Prefabs/" + StrOrgSprite) as GameObject;
+                        go = Resources.Load("Prefabs/Actors/" + StrOrgSprite) as GameObject;
                         //go.GetComponent<Actor>().TEAM_TYPE = eTeamType.TEAM_2;
                         GameObject temp = Instantiate(go, hit.point, go.transform.rotation);
                         //temp.transform.FindChild("Toon Knight-Brown").FindChild("Knight").GetComponent<SkinnedMeshRenderer>().materials[0].mainTexture = Resources.Load("Textures/ToonKnightBlue") as Texture;
@@ -97,7 +101,7 @@ public class CardDrag : BaseObject
                 // 카드 이미지 변경
                 IsField = true;
                 transform.localScale = OrgScale;
-                SelfComponent<UISprite>().spriteName = StrOrgSprite + "PF";
+                SelfComponent<UISprite>().spriteName = StrOrgSprite + "_PF";
             }
         }
         else

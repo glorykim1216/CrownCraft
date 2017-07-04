@@ -21,7 +21,6 @@ public class CharacterStatusData
     {
         DicStatus.Remove(strKey);
         bRefresh = true;
-
     }
 
     public double GetStatusData(eStatusData statusData)

@@ -1,44 +1,125 @@
 {
 	"CHARACTER_TEMPLATE": {
-		"CHARACTER_1": {
-			"MAX_HP": 100,
-			"ATTACK": 10,
-			"DEFFENCE": 5,
+		 "KNIGHT": {
+			"LEVEL": 1,
+			"HP": 660,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
 			"SKILL": [
-				"MELEE_1"
+			  "MELEE_1"
+			]
+		},
+		"ARCHER": {
+			"LEVEL": 1,
+			"HP": 120,
+			"ATTACK": 41,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 5,
+			"TARGET": "GOURNDAIR",
+			"COUNT": 2,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "RANGE_1"
+			]
+		}
+		"BARBARIAN": {
+			"LEVEL": 1,
+			"HP": 660,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "MELEE_1"
+			]
+		},
+		"WIZARD": {
+			"LEVEL": 1,
+			"HP": 120,
+			"ATTACK": 41,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 5,
+			"TARGET": "GOURNDAIR",
+			"COUNT": 2,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "RANGE_1"
+			]
+		}
+		"CHARACTER_1": {
+			"LEVEL": 1,
+			"HP": 660,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "MELEE_1"
 			]
 		},
 		"CHARACTER_2": {
-			"MAX_HP": 500,
-			"ATTACK": 50,
-			"DEFFENCE": 10,
+			"LEVEL": 1,
+			"HP": 660,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
 			"SKILL": [
-				"RANGE_1"
+			  "RANGE_1"
 			]
 		},
 		"MONSTER_1": {
-			"MAX_HP": 100,
-			"ATTACK": 10,
-			"DEFFENCE": 5,
+			"LEVEL": 1,
+			"HP": 660,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
 			"SKILL": [
-				"MELEE_2"
+			  "MELEE_2"
 			]
 		},
 		"MONSTER_2": {
-			"MAX_HP": 200,
-			"ATTACK": 10,
-			"DEFFENCE": 5,
+			"LEVEL": 1,
+			"HP": 660,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
 			"SKILL": [
-				"MELEE_1"
+			  "MELEE_1"
 			]
 		},
-		"MONSTER_3": {
-			"MAX_HP": 300,
-			"ATTACK": 10,
-			"DEFFENCE": 5,
-			"SKILL": [
-				"MELEE_1"
-			]
-		}
+		
 	}
 }

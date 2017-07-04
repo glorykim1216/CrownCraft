@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UITools : MonoSingleton<UITools>
+public class UI_Tools : MonoSingleton<UI_Tools>
 {
     // DontDestroy Root -> Loading Bar
     GameObject SubRoot = null;

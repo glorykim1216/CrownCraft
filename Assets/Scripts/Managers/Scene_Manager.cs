@@ -36,13 +36,13 @@ public class Scene_Manager : MonoSingleton<Scene_Manager>
         {
             StackTime += Time.deltaTime;
 
-            // Loding UI Set
-            // UI_Tools.Instance.ShowLoadingUI(Operation.progress);
-            UITools.Instance.ShowLoadingUI(StackTime / 2f);
+			// Loding UI Set
+			//UI_Tools.Instance.ShowLoadingUI(Operation.progress);
+			UI_Tools.Instance.ShowLoadingUI(StackTime / 2f);
 
-            // if (Operation.isDone == true)
-            if (Operation.isDone == true && StackTime >= 2.0f)
-            {
+			//if (Operation.isDone == true)
+			if (Operation.isDone == true && StackTime >= 2.0f)
+			{
                 CurrentState = NextState;
                 ComplateLoad(CurrentState);
 
@@ -50,7 +50,7 @@ public class Scene_Manager : MonoSingleton<Scene_Manager>
                 NextState = eSceneType.SCENE_NONE;
 
                 // Loding UI 삭제
-                UITools.Instance.HideUI(eUIType.PF_UI_LOADING, true);
+                UI_Tools.Instance.HideUI(eUIType.PF_UI_LOADING, true);
             }
             else
                 return;
@@ -71,7 +71,7 @@ public class Scene_Manager : MonoSingleton<Scene_Manager>
                 Operation = SceneManager.LoadSceneAsync(NextState.ToString("F"));
                 StackTime = 0.0f;
                 // Loading UI Set
-                UITools.Instance.ShowLoadingUI(0.0f);
+                UI_Tools.Instance.ShowLoadingUI(0.0f);
             }
             else
             {   // 동기 로드
@@ -106,7 +106,7 @@ public class Scene_Manager : MonoSingleton<Scene_Manager>
     void DisableScene(eSceneType _type)
     {
         // 신 유아이 삭제
-        UITools.Instance.Clear();
+        UI_Tools.Instance.Clear();
 
         switch (_type)
         {

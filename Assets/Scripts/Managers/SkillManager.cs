@@ -144,7 +144,7 @@ public class SkillManager : MonoSingleton<SkillManager>
                 break;
             case eSkillTemplateType.RANGE_ATTACK:
                 makeSkill = skillObject.AddComponent<RangeSkill>();
-                parentTransform = owner.FindInChild("FirePos"); //owner.SelfTransform;
+                parentTransform = owner.SelfTransform;//owner.FindInChild("FirePos"); 
 
                 makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(eSkillModelType.BOX));   // 스킬모델
                 break;

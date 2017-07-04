@@ -17,9 +17,13 @@ public enum eStateType
 
 public enum eStatusData
 {
-    MAX_HP,
+    LEVEL,
+    HP,
     ATTACK,
-    DEFFENCE,
+    COST,
+    SPEED,
+    RANGE,
+    COUNT,
     MAX,
 }
 
@@ -111,4 +115,13 @@ public enum eSlotType
     SLOT_HELMET,
     SLOT_GUNTLET,
     SLOT_MAX,
+}
+
+public enum eActor
+{
+    KNIGHT,
+    ARCHER,
+    BARBARIAN,
+    WIZARD,
+    MAX
 }
