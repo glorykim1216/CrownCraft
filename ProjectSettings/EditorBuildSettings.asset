@@ -9,5 +9,12 @@ EditorBuildSettings:
     path: Assets/_Scene/SCENE_LOGO.unity
   - enabled: 1
     path: Assets/_Scene/SCENE_LOBBY.unity
+<<<<<<< HEAD
+=======
   - enabled: 1
+    path: Assets/_Scene/test.unity
+>>>>>>> 2a80c18e64d6e13df692225e10c2a2e7cb1f0948
+  - enabled: 0
     path: Assets/test.unity
+  - enabled: 1
+    path: Assets/_Scene/test.unity
