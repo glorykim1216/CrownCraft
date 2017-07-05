@@ -9,7 +9,15 @@ public class CharacterTemplateData
     StatusData Status = new StatusData();
     List<string> ListSkill = new List<string>();
 
+
+	string CardTarget = string.Empty;
+	string CardTransport = string.Empty;
+
+
     public string KEY { get { return StrKey; } }
+    public string CARDTARGET { get { return CardTarget; } }
+    public string CARDTRANSPORT { get { return CardTransport; } }
+
     public StatusData STATUS { get { return Status; } }
     public List<string> LIST_SKILL { get { return ListSkill; } }
 
@@ -17,13 +25,20 @@ public class CharacterTemplateData
     {
         StrKey = _strKey;
 
+        CardTarget = nodeData["TARGET"];
+        CardTransport = nodeData["TRANSPORT"];
+
         for (int i = 0; i < (int)eStatusData.MAX; i++)
         {
             eStatusData statusData = (eStatusData)i;
             double valueData = nodeData[statusData.ToString("F")].AsDouble;
             Status.IncreaseData(statusData, valueData);
         }
+		CardTarget = nodeData["TARGET"];
+		CardTransport = nodeData["TRANSPORT"];
+		
 
+		
         JSONArray arrSkill = nodeData["SKILL"].AsArray;  // 쉼표를 넣으면 배열로 저장
         if (arrSkill != null)
         {

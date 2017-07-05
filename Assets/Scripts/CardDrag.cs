@@ -5,8 +5,11 @@ using UnityEngine;
 public class CardDrag : BaseObject
 {
     GameObject go = null;
-    public Transform ShrinkPoint;
-    public Transform EndPoint;
+    //public Transform ShrinkPoint;
+    //public Transform EndPoint;
+
+    float ShrinkPoint = -420.0f;
+    float EndPoint = -300.0f;
 
     UISprite _sprite;
     Vector3 OrgPos;
@@ -16,15 +19,28 @@ public class CardDrag : BaseObject
 
     bool IsField = false;
 
-    string StrOrgSprite;
+    string spriteName;
 
-    void Start()
+    public void Init(Vector3 _orgPos, string _name)
     {
-        OrgPos = this.transform.position;
-        OrgScale = this.transform.localScale;
-        StrOrgSprite = SelfComponent<UISprite>().spriteName;// this.gameObject.GetComponent<UISprite>().spriteName;
+        //OrgPos = this.transform.position;
+        //OrgScale = this.transform.localScale;
+        //StrOrgSprite = SelfComponent<UISprite>().spriteName;
 
         _sprite = SelfComponent<UISprite>();
+
+        this.transform.localPosition = _orgPos;
+
+        OrgPos = _orgPos;
+        OrgScale = Vector3.one;
+        spriteName = _name;
+        SelfComponent<UISprite>().spriteName = spriteName;
+
+    }
+
+    public void RePos(Vector3 _orgPos)
+    {
+        OrgPos = _orgPos;
     }
 
     // 마우스 오버
@@ -55,8 +71,8 @@ public class CardDrag : BaseObject
         else if (!isPressed)
         {
             _sprite.color = OrgColor;
-            gameObject.GetComponent<UISprite>().spriteName = StrOrgSprite;
-            this.transform.position = OrgPos;
+            gameObject.GetComponent<UISprite>().spriteName = spriteName;
+            this.transform.localPosition = OrgPos;
 
             if (IsField == true)
             {
@@ -64,14 +80,16 @@ public class CardDrag : BaseObject
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
-                    if (hit.collider.tag == "Ground")
+                    //if (hit.collider.tag == "Ground")
                     {
                         // 프리펩 생성
-                        go = Resources.Load("Prefabs/" + StrOrgSprite) as GameObject;
+                        go = Resources.Load("Prefabs/Actors/" + spriteName) as GameObject;
                         //go.GetComponent<Actor>().TEAM_TYPE = eTeamType.TEAM_2;
                         GameObject temp = Instantiate(go, hit.point, go.transform.rotation);
                         //temp.transform.FindChild("Toon Knight-Brown").FindChild("Knight").GetComponent<SkinnedMeshRenderer>().materials[0].mainTexture = Resources.Load("Textures/ToonKnightBlue") as Texture;
-                        
+
+                        UI_Manager.Instance.MoveCard(OrgPos);
+                        gameObject.SetActive(false);
                         Debug.Log(hit.point);
                     }
                 }
@@ -84,30 +102,30 @@ public class CardDrag : BaseObject
     {
         if (IsField == false)
         {
-            if (transform.position.y < ShrinkPoint.position.y)
+            if (transform.localPosition.y < ShrinkPoint)
             {
                 transform.localScale = Vector3.one;
             }
-            else if (transform.position.y >= ShrinkPoint.position.y && transform.position.y <= EndPoint.position.y)
+            else if (transform.localPosition.y >= ShrinkPoint && transform.localPosition.y <= EndPoint)
             {
-                transform.localScale = Vector3.one * (1f - (transform.position.y - ShrinkPoint.position.y) / (EndPoint.position.y - ShrinkPoint.position.y));
+                transform.localScale = Vector3.one * (1f - (transform.localPosition.y - ShrinkPoint) / (EndPoint - ShrinkPoint));
             }
             else
             {
                 // 카드 이미지 변경
                 IsField = true;
                 transform.localScale = OrgScale;
-                SelfComponent<UISprite>().spriteName = StrOrgSprite + "PF";
+                SelfComponent<UISprite>().spriteName = spriteName + "_PF";
             }
         }
         else
         {
-            if (transform.position.y >= ShrinkPoint.position.y && transform.position.y <= EndPoint.position.y)
+            if (transform.localPosition.y >= ShrinkPoint && transform.localPosition.y <= EndPoint)
             {
                 // 카드 이미지 복구
                 IsField = false;
                 transform.localScale = Vector3.zero;
-                SelfComponent<UISprite>().spriteName = StrOrgSprite;
+                SelfComponent<UISprite>().spriteName = spriteName;
             }
         }
     }

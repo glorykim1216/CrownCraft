@@ -11,6 +11,7 @@ public class Actor : BaseObject
         set { IsPlayer = value; }
     }
 
+    // TeamType
     [SerializeField]
     eTeamType TeamType;
     public eTeamType TEAM_TYPE
@@ -19,7 +20,6 @@ public class Actor : BaseObject
         set { TeamType = value; }
     }
 
-    // TeamType
     [SerializeField]
     string TemplateKey = string.Empty;
 
@@ -59,7 +59,7 @@ public class Actor : BaseObject
         //    // 없으면 동작 X
         //    ai.Target = this;
         //}
-        if (transform.name.Equals("Archer"))
+        if (transform.name.Equals("ARCHER"))
         {
             GameObject aiObject = new GameObject();
             aiObject.name = "CastleAI";

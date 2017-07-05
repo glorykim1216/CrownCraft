@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UITools : MonoSingleton<UITools>
+public class UI_Tools : MonoSingleton<UI_Tools>
 {
     // DontDestroy Root -> Loading Bar
     GameObject SubRoot = null;
@@ -105,12 +105,12 @@ public class UITools : MonoSingleton<UITools>
         if (loadingUI.activeSelf == false)
             loadingUI.SetActive(true);
 
-        //UILoadingBar loading = loadingUI.GetComponent<UILoadingBar>();
+        UI_LoadingBar loading = loadingUI.GetComponent<UI_LoadingBar>();
 
-        //if (loading == null)
-        //    return;
+        if (loading == null)
+            return;
 
-        //loading.SetValue(value);
+        loading.SetValue(value);
     }
     public void Clear()
     {

@@ -17,9 +17,14 @@ public enum eStateType
 
 public enum eStatusData
 {
-    MAX_HP,
+
+	LEVEL,
+    HP,
     ATTACK,
-    DEFFENCE,
+    COST,
+	SPEED,
+	RANGE,
+	COUNT,
     MAX,
 }
 
@@ -82,14 +87,15 @@ public enum eSceneType
 {
     SCENE_NONE,
     SCENE_LOGO,
-    SCENE_GAME,
     SCENE_LOBBY,
+    test,
+    //SCENE_GAME,
 }
 
 public enum eUIType
 {
     // PF -> prefab
-    //PF_UI_LOGO,
+    PF_UI_LOGO,
     PF_UI_LOADING,
     PF_UI_CARD,
     PF_UI_CARDDECK,
@@ -97,6 +103,7 @@ public enum eUIType
     PF_UI_LOBBY,
     PF_UI_POPUP,
     PF_UI_STAGE,
+    ChestCamera,
     //PF_UI_INVENTORY,
     //PF_UI_GACHA,
 }
@@ -109,4 +116,13 @@ public enum eSlotType
     SLOT_HELMET,
     SLOT_GUNTLET,
     SLOT_MAX,
+}
+
+public enum eActor
+{
+    KNIGHT,
+    ARCHER,
+    BARBARIAN,
+    WIZARD,
+    MAX
 }

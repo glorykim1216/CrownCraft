@@ -38,6 +38,6 @@ public static class ConstValue
     public const string UI_PATH_HP = "Prefabs/UI/HP_Board";
     public const string UI_PATH_DAMAGE = "Prefabs/UI/Damage_Board";
 
-    // LocalSabe
-    public const string LocalSave_ItemInstance = "ITEM_INSTANCE";   // 서버를 쓰면 서버에서 전달 받음
+    // LocalSave
+    public const string LocalSave_DeckInstance = "DECK_INSTANCE";   // 서버를 쓰면 서버에서 전달 받음
 }
