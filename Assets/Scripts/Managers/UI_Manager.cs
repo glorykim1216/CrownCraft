@@ -25,8 +25,8 @@ public class UI_Manager : MonoSingleton<UI_Manager>
         manaBarUI.SetValue(mana);
     }
 
-    public void ChangeCard()
+    public void MoveCard(Vector3 _DestPos)
     {
-        //CardDeckUI.Cards[num].FindChild("CardImage").GetComponent;
+        CardDeckUI.MoveCard(_DestPos);
     }
 }

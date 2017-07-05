@@ -1292,7 +1292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TeamType: 1
-  TemplateKey: CHARACTER_1
+  TemplateKey: ARCHER
   bEnableBoard: 1
 --- !u!114 &114435957753621742
 MonoBehaviour:

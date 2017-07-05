@@ -628,7 +628,7 @@ GameObject:
   - component: {fileID: 54251044841473524}
   - component: {fileID: 114264240143615754}
   m_Layer: 0
-  m_Name: Wizard
+  m_Name: WIZARD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1014,7 +1014,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1629516244480670}
-  m_LocalRotation: {x: 0.71122646, y: 0.7028482, z: -0.0074100634, w: 0.010324803}
+  m_LocalRotation: {x: 0.7112264, y: 0.70284814, z: -0.0074100625, w: 0.010324802}
   m_LocalPosition: {x: -0.068068825, y: -0.086726665, z: -0.0070245373}
   m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 1.0000004}
   m_Children:
@@ -1463,8 +1463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9116a2777a1090240bb61d9c30214243, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TeamType: 0
-  TemplateKey: MONSTER_2
+  TeamType: 1
+  TemplateKey: WIZARD
   bEnableBoard: 1
 --- !u!136 &136586038384244572
 CapsuleCollider:

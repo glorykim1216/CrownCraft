@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class UI_CardDeck : BaseObject
 {
-    public Transform[] Cards = new Transform[4];
-
     public List<string> list = new List<string>();
+    GameObject newCard = null;
+
     int CardCount = 0;
 
     void Start()
@@ -37,20 +37,14 @@ public class UI_CardDeck : BaseObject
             Debug.Log(list[i]);
         }
 
-        CardCount++;
-        // 드레그드롭하면 UIManager호출->
-        // 없어지고(숨기고)
-        // Next카드 날라오고(이미지 Next로 바꿈, 다시 Next카드 이미지 바뀌고)
-        // 다시 생기고(숨긴거 켜줌)
-
         Transform trans = FindInChild("Cards");
 
-        for (int i = 0; i < 4; i++)
-        {
-            Cards[i] = trans.FindChild("Card_" + i);
-        }
-
         CreateCard(new Vector3(-140, -500, 0), list[0]);
+        CreateCard(new Vector3(-15, -500, 0), list[1]);
+        CreateCard(new Vector3(110, -500, 0), list[2]);
+        CreateCard(new Vector3(240, -500, 0), list[3]);
+        CardCount = 4;
+        NextCard();
     }
 
     void Update()
@@ -58,18 +52,58 @@ public class UI_CardDeck : BaseObject
 
     }
 
-    public void NextCard()
-    {
-        
-    }
-
-    public void CreateCard(Vector3 _orgPos, string _name)
+    public GameObject CreateCard(Vector3 _orgPos, string _name)
     {
         // 프리펩 생성
-        GameObject newCardUI = Resources.Load("Prefabs/Card") as GameObject;
-        NGUITools.AddChild(this.transform.gameObject, newCardUI);
+        GameObject CardPrefab = Resources.Load("Prefabs/Card") as GameObject;
 
-        newCardUI.GetComponent<CardDrag>().Init(_orgPos, _name);
-        //go.GetComponent<Actor>().TEAM_TYPE = eTeamType.TEAM_2;
+        newCard = NGUITools.AddChild(this.transform.gameObject, CardPrefab);
+        newCard.GetComponent<CardDrag>().Init(_orgPos, _name);
+
+        return newCard;
     }
+
+    public void NextCard()
+    {
+        CreateCard(new Vector3(-290, -570, 0), list[CardCount]);
+
+        if (CardCount < 7)
+            CardCount++;
+        else
+            CardCount = 0;
+    }
+
+    public void MoveCard(Vector3 _DestPos)
+    {
+        GameObject moveCard = newCard;
+        moveCard.GetComponent<CardDrag>().RePos(_DestPos);
+        moveCard.GetComponent<UISprite>().depth = 3;
+
+        StartCoroutine(Move(moveCard, _DestPos));
+        NextCard();
+    }
+
+    IEnumerator Move(GameObject moveCard, Vector3 _DestPos)
+    {
+        yield return new WaitForSeconds(1);
+        moveCard.GetComponent<UISprite>().depth = 2;
+
+        float time = 0;
+        while (true)
+        {
+            time += Time.deltaTime;
+            if (time < 0.5f)
+            {
+                moveCard.transform.localPosition = Vector3.Lerp(moveCard.transform.localPosition, _DestPos, 0.3f);// Time.deltaTime);
+                yield return new WaitForEndOfFrame();
+            }
+            else
+            {
+
+                break;
+            }
+        }
+    }
+
+
 }
