@@ -146,11 +146,14 @@ public class SkillManager : MonoSingleton<SkillManager>
                 makeSkill = skillObject.AddComponent<RangeSkill>();
                 parentTransform = owner.SelfTransform;//owner.FindInChild("FirePos"); 
 
+
                 makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(eSkillModelType.BOX));   // 스킬모델
                 break;
         }
 
         skillObject.name = skillTemplate.SKILL_TYPE.ToString();
+
+
 
         if (makeSkill != null)
         {

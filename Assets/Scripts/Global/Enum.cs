@@ -17,13 +17,14 @@ public enum eStateType
 
 public enum eStatusData
 {
-    LEVEL,
+
+	LEVEL,
     HP,
     ATTACK,
     COST,
-    SPEED,
-    RANGE,
-    COUNT,
+	SPEED,
+	RANGE,
+	COUNT,
     MAX,
 }
 

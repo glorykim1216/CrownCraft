@@ -12,6 +12,7 @@ public class GameCharacter
 
     public CharacterTemplateData CHARACTER_TEMPLATE
     { get { return TemplateData; } }
+
     public CharacterStatusData CHARACTER_STATUS
     { get { return CharacterStatus; } }
 

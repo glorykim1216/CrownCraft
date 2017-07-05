@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: CardObject
+  m_Name: CardImage
   m_Shader: {fileID: 4800000, guid: e75727d9555d9d14ca51d91908c681bc, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -18,7 +18,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 2800000, guid: 5fc87c767ad813e42bcd649586f87257, type: 3}
+        m_Texture: {fileID: 2800000, guid: 345fdd8bb35fcaa499659ebb6017aade, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
