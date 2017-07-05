@@ -53,6 +53,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 92e9f6729587a80429d7df05aa328409, type: 2}
   mSprites:
+  - name: Loading
+    x: 1153
+    y: 2816
+    width: 720
+    height: 1280
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: LoadingPattern
     x: 0
     y: 2048
@@ -80,7 +93,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: LoadingPattern3
-    x: 1153
+    x: 1874
     y: 2816
     width: 720
     height: 1280
@@ -93,7 +106,7 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: LoadingPattern4
-    x: 1874
+    x: 2595
     y: 3208
     width: 500
     height: 888
