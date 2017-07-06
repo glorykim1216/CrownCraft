@@ -48,13 +48,14 @@ public class NormalAI : BaseAI
         // 공격 범위 < 거리
         if (targetObject != null)
         {
-            //SkillData sData = Target.GetData(ConstValue.ActorData_SkillData, 0) as SkillData;
-
-            //// 스킬 데이터 적용
-            //if (sData != null)
-            //    attackRange = sData.RANGE;
+            SkillData sData = Target.GetData(ConstValue.ActorData_SkillData, 0) as SkillData;
 
             float attackRange = 2f;
+
+            // 스킬 데이터 적용
+            if (sData != null)
+                attackRange = sData.RANGE;
+
 
             // 거리검사*
             float distance = Vector3.Distance(targetObject.SelfTransform.position, SelfTransform.position);
@@ -83,14 +84,15 @@ public class NormalAI : BaseAI
 
         if (targetObject != null)
         {
-            //SkillData sData = Target.GetData(ConstValue.ActorData_SkillData, 0) as SkillData;
-
-            // 스킬 데이터 적용
-            //if (sData != null)
-            //    attackRange = sData.RANGE;
+            SkillData sData = Target.GetData(ConstValue.ActorData_SkillData, 0) as SkillData;
 
             float attackRange = 1.5f;
             float searchRange = 5f;
+
+            //스킬 데이터 적용
+            if (sData != null)
+                attackRange = sData.RANGE;
+
             float distance = Vector3.Distance(targetObject.SelfTransform.position, SelfTransform.position);
 
             if (distance < attackRange)

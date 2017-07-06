@@ -47,7 +47,7 @@ public class CardDrag : BaseObject
     void OnHover(bool isOver)
     {
         // 스프라이트 확대
-        _sprite.cachedTransform.localScale = (isOver) ? Vector3.one * 1.2f : Vector3.one;
+        _sprite.transform.localScale = (isOver) ? Vector3.one * 1.2f : Vector3.one;
     }
 
     // 드래그
