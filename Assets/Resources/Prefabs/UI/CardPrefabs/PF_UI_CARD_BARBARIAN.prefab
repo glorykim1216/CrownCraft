@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 65308857071870900}
   - component: {fileID: 114725298501982286}
   m_Layer: 5
-  m_Name: PF_UI_CARD
+  m_Name: PF_UI_CARD_BARBARIAN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1627883793288546}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -220, y: 90, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4552551044633576}
@@ -302,19 +302,19 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 200
+  mWidth: 154
   mHeight: 100
   mDepth: 10
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 2
+  aspectRatio: 1.54
   keepCrispWhenShrunk: 1
   mTrueTypeFont: {fileID: 12800000, guid: 7f27f161ef214b7499171498fe5db32a, type: 3}
   mFont: {fileID: 0}
-  mText: 9 LEVEL
-  mFontSize: 25
+  mText: 10 LEVEL
+  mFontSize: 22
   mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
@@ -351,7 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312a784b9ad6bac46ae27f152d2c75d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TemplateKey: 
+  TemplateKey: BARBARIAN
 --- !u!114 &114787085258483316
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -482,7 +482,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 114492528841487402, guid: effaab5ee37c1004697fc4474873a066, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114990319151642888
