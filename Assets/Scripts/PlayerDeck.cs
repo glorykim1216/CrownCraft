@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerDeck : MonoBehaviour
 {
+	[SerializeField]
 	List<string> playerDeck = new List<string>();
 	public List<string> PLAYERDECK
 	{
@@ -21,7 +22,7 @@ public class PlayerDeck : MonoBehaviour
 		{
 			if (playerDeck[i] == CardKey)
 			{
-				playerDeck.Remove(CardKey);
+				playerDeck.RemoveAt(i);
 			}
 		}
 	}

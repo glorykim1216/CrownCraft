@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardInfo : BaseObject
+public class CardInfo1 : BaseObject
 {
     [SerializeField]
     string TemplateKey = string.Empty;

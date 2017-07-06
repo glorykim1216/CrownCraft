@@ -8,36 +8,40 @@ public class UI_Card : BaseObject
 	[SerializeField]
 	string TemplateKey = string.Empty;
 
-	public string CARDKEY
+	public string TEMPLATEKEY
 	{
 		get { return TemplateKey; }
 	}
 
 	GameCharacter CharacterData;
-
 	public GameCharacter CHARACTER_DATA
 	{
 		get { return CharacterData; }
 	}
 
+
+	UISprite CardImage;
+
 	private void Awake()
 	{
 		CharacterData = CharacterManager.Instance.AddCharacter(TemplateKey);
 
+		CardImage = FindInChild("Texture").GetComponent<UISprite>();
 	}
 
 	private void Start()
 	{
-		Transform temp = FindInChild("Texture");
-		temp.GetComponent<UISprite>().name = TemplateKey;
+		//Transform temp = FindInChild("Texture");
+		//temp.GetComponent<UISprite>().name = TemplateKey;
 
+		CardImage.spriteName = TemplateKey;
 	}
 
 
 
 	void OnClick()
 	{
-		GameObject go = UITools.Instance.ShowUI(eUIType.PF_UI_CARDPOPUP);
+		GameObject go = UI_Tools.Instance.ShowUI(eUIType.PF_UI_CARDPOPUP);
 		UI_CardPopup popup = go.GetComponent<UI_CardPopup>();
 		popup.SetCardInfo(CharacterData);
 		popup.Set(
@@ -48,7 +52,7 @@ public class UI_Card : BaseObject
 			//        },
 			() =>
 			{
-				UITools.Instance.HideUI(eUIType.PF_UI_CARDPOPUP);
+				UI_Tools.Instance.HideUI(eUIType.PF_UI_CARDPOPUP);
 			}
 
 			//        "장비 장착"
