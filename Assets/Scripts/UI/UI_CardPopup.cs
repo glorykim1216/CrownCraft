@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void UpgradeEvent();
+public delegate void UseEvent();
 public delegate void ClosedEvent();
 
 public class UI_CardPopup : BaseObject
@@ -18,10 +18,10 @@ public class UI_CardPopup : BaseObject
 
 
 
-	UIButton UpgradeBtn;
+	UIButton UseBtn;
     UIButton ClosedBtn;
 
-    UpgradeEvent Upgrade;
+    UseEvent Use;
     ClosedEvent Closed;
 
 	UI_Card CardInfo;
@@ -39,8 +39,7 @@ public class UI_CardPopup : BaseObject
         //    new EventDelegate(this, "OnClickedUpgradeBtn"));
 
 		ClosedBtn = FindInChild("ClosedBtn").GetComponent<UIButton>();
-		EventDelegate.Add(ClosedBtn.onClick,
-		new EventDelegate(this, "OnClickedClosedBtn"));
+		UseBtn = FindInChild("UseBtn").GetComponent<UIButton>();
 
 		NameLabel = FindInChild("Name").GetComponent<UILabel>();
 		AttackLabel = FindInChild("Attack").FindChild("Value").GetComponent<UILabel>();
@@ -53,6 +52,9 @@ public class UI_CardPopup : BaseObject
 
 	private void Start()
 	{
+		EventDelegate.Add(ClosedBtn.onClick,new EventDelegate(this, "OnClickedClosedBtn"));
+		EventDelegate.Add(UseBtn.onClick,new EventDelegate(this,"OnClickUseBtn"));
+
 	}
 
 
@@ -68,12 +70,22 @@ public class UI_CardPopup : BaseObject
         //TitleLabel.text = _name;
         //ContentsLabel.text = _contents;
     }
+	//public void Set(UseEvent _use)
+	//{
+	//	Use = _use;
+	//}
 
     public void OnClickedClosedBtn()
     {
         if (Closed != null)
             Closed();
     }
+
+	public void OnClickUseBtn()
+	{
+		if (Use != null)
+			Use();
+	}
 
 	public void SetCardInfo(GameCharacter _gameCharacter)
 	{
