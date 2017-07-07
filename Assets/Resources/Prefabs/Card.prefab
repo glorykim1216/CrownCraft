@@ -200,6 +200,6 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114004300402764464, guid: effaab5ee37c1004697fc4474873a066, type: 2}
-  mSpriteName: KNIGHT
+  mAtlas: {fileID: 114147208289505610, guid: effaab5ee37c1004697fc4474873a066, type: 2}
+  mSpriteName: Monster
   mFillCenter: 1

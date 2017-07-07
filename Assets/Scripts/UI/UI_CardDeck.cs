@@ -4,54 +4,66 @@ using UnityEngine;
 
 public class UI_CardDeck : BaseObject
 {
-    public List<string> list = new List<string>();
+    List<string> cardDeckList = new List<string>();
+    List<string> useCardList = new List<string>();
+    
     GameObject newCard = null;
 
     int CardCount = 0;
 
     void Start()
     {
-        // List Shuffle
         for (int i = 0; i < 8; i++)
         {
         }
-        list.Add(eActor.ARCHER.ToString());
-        list.Add(eActor.DRAGON.ToString());
-        list.Add(eActor.KNIGHT.ToString());
-        list.Add(eActor.WIZARD.ToString());
-        list.Add(eActor.CACTUS.ToString());
-        list.Add(eActor.DEATHKNIGHT.ToString());
-        list.Add(eActor.GHOST.ToString());
-        list.Add(eActor.GOLEM.ToString());
+        // 카드덱 추가
+        cardDeckList.Add(eActor.ARCHER.ToString());
+        cardDeckList.Add(eActor.DRAGON.ToString());
+        cardDeckList.Add(eActor.KNIGHT.ToString());
+        cardDeckList.Add(eActor.WIZARD.ToString());
+        cardDeckList.Add(eActor.CACTUS.ToString());
+        cardDeckList.Add(eActor.DEATHKNIGHT.ToString());
+        cardDeckList.Add(eActor.GHOST.ToString());
+        cardDeckList.Add(eActor.GOLEM.ToString());
 
-        for (int i = 0; i < list.Count; i++)
+        // List Shuffle
+        for (int i = 0; i < cardDeckList.Count; i++)
         {
-            int rand = Random.Range(0, list.Count);
-            string temp = list[i];
-            list[i] = list[rand];
-            list[rand] = temp;
+            int rand = Random.Range(0, cardDeckList.Count);
+            string temp = cardDeckList[i];
+            cardDeckList[i] = cardDeckList[rand];
+            cardDeckList[rand] = temp;
         }
 
-        for (int i = 0; i < list.Count; i++)
+        // testCode
+        for (int i = 0; i < cardDeckList.Count; i++)
         {
-            Debug.Log(list[i]);
+            Debug.Log(cardDeckList[i]);
         }
 
-        CreateCard(new Vector3(-140, -500, 0), list[0]);
-        CreateCard(new Vector3(-15, -500, 0), list[1]);
-        CreateCard(new Vector3(110, -500, 0), list[2]);
-        CreateCard(new Vector3(240, -500, 0), list[3]);
+        // 초기화
+        CreateCard(new Vector3(-140, -500, 0), cardDeckList[0]);
+        CreateCard(new Vector3(-15, -500, 0), cardDeckList[1]);
+        CreateCard(new Vector3(110, -500, 0), cardDeckList[2]);
+        CreateCard(new Vector3(240, -500, 0), cardDeckList[3]);
+
         CardCount = 4;
         NextCard();
     }
 
-    void Update()
-    {
 
-    }
 
     public GameObject CreateCard(Vector3 _orgPos, string _name)
     {
+        // 사용중인 카드 추가
+        for (int i = 0; i < useCardList.Count; i++)
+        {
+            if (useCardList[i].Equals(_name))
+                continue;
+            else
+                useCardList.Add(_name);
+        }
+
         // 프리펩 생성
         GameObject CardPrefab = Resources.Load("Prefabs/Card") as GameObject;
 
@@ -63,7 +75,7 @@ public class UI_CardDeck : BaseObject
 
     public void NextCard()
     {
-        CreateCard(new Vector3(-290, -570, 0), list[CardCount]);
+        CreateCard(new Vector3(-290, -570, 0), cardDeckList[CardCount]);
 
         if (CardCount < 7)
             CardCount++;
