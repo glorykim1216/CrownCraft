@@ -4,16 +4,49 @@ using UnityEngine;
 
 public class PlayerDeck : MonoBehaviour
 {
+	bool IsInit = false;
 	[SerializeField]
 	List<string> playerDeck = new List<string>();
+
 	public List<string> PLAYERDECK
 	{
 		get { return playerDeck; }
 	}
 
+	public void DeckInit()
+	{
+		if (IsInit == true)
+			return;
+
+
+	}
+
+	public void GetLocalData()
+	{
+		string instanceStr = PlayerPrefs.GetString(ConstValue.LocalSave_DeckInstance, string.Empty);
+
+		string[] array = instanceStr.Split('|');
+
+		for (int i = 0; i < array.Length; i++)
+		{
+			if (array[i].Length <= 0)
+				continue;
+
+			AddCard(array[i]);
+		}
+	}
+
 	public void AddCard(string CardKey)
 	{
-		playerDeck.Add(CardKey);
+		for (int i = 0; i < playerDeck.Count; i++)
+		{
+			if (playerDeck[i] == CardKey)
+			{
+				playerDeck.Add(CardKey);
+			}
+		}
+
+
 	}
 
 	public void DeleteCard(string CardKey)
@@ -44,28 +77,6 @@ public class PlayerDeck : MonoBehaviour
 		Debug.Log(resultStr);
 	}
 
-	public void GetLocalData()
-	{
-		string instanceStr = PlayerPrefs.GetString(ConstValue.LocalSave_DeckInstance, string.Empty);
-
-		string[] array = instanceStr.Split('|');
-
-		for (int i = 0; i < array.Length; i++)
-		{
-			if (array[i].Length <= 0)
-				continue;
-
-			AddCard(array[i]);
-		}
-	}
-	public void ReplaceDeck(string CardKey)
-	{
-		for(int i=0; i<playerDeck.Count;i++		)
-		{
-
-		}
-
-	}
 
 
 }

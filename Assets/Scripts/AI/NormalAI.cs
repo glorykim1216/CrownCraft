@@ -5,7 +5,7 @@ using UnityEngine;
 public class NormalAI : BaseAI
 {
     Rigidbody rigid;
-    float movePath = -1.6f;
+    float movePath = -4.1f;
     float straightRotate = 0;
     public float pathRotate = 45f;
 
@@ -29,6 +29,14 @@ public class NormalAI : BaseAI
             straightRotate = 180;
             pathRotate = 135;
         }
+    }
+
+    public void SetMovePath(Vector3 _pos)
+    {
+        if (_pos.x > 0)
+            movePath = 4.1f;
+        else
+            movePath = -4.1f;
     }
 
     protected override IEnumerator Idle()
@@ -128,7 +136,7 @@ public class NormalAI : BaseAI
     {
         float movePathDistance = transform.parent.position.x - movePath;
         //if (Vector3.Distance(transform.position, Line.transform.position) > 0)
-        if (movePathDistance > -1.0f && movePathDistance < 1.0f)
+        if (movePathDistance > -0.5f && movePathDistance < 0.5f)
         {
             rigid.rotation = Quaternion.Slerp(rigid.rotation, Quaternion.Euler(0, straightRotate, 0), 2 * Time.deltaTime);
             if (bDeadEnd == true)

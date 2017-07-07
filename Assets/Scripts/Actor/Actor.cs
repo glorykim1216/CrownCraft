@@ -65,8 +65,7 @@ public class Actor : BaseObject
             aiObject.name = "CastleAI";
             ai = aiObject.AddComponent<CastleAI>();
             aiObject.transform.SetParent(SelfTransform);
-            // 없으면 동작 X
-            ai.Target = this;           // target
+            ai.Target = this;      // 없으면 동작 X
         }
         else
         {
@@ -74,8 +73,10 @@ public class Actor : BaseObject
             aiObject.name = "NormalAI";
             ai = aiObject.AddComponent<NormalAI>();
             aiObject.transform.SetParent(SelfTransform);
-            // 없으면 동작 X
             ai.Target = this;           // target
+
+            // MovePath 설정
+            ai.GetComponent<NormalAI>().SetMovePath(transform.position);
 
             // TestCode
             if (TeamType == eTeamType.TEAM_2)

@@ -94,6 +94,7 @@ public class Scene_Manager : MonoSingleton<Scene_Manager>
             case eSceneType.SCENE_LOBBY:
                 {
                     LobbyManager.Instance.LoadLobby();
+					
                 }
                 break;
             case eSceneType.test:
