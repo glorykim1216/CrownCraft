@@ -9,7 +9,7 @@ public class CardDrag : BaseObject
     //public Transform EndPoint;
 
     float ShrinkPoint = -420.0f;
-    float EndPoint = -300.0f;
+    float EndPoint = -350.0f;
 
     UISprite _sprite;
     Vector3 OrgPos;
@@ -41,6 +41,7 @@ public class CardDrag : BaseObject
     public void RePos(Vector3 _orgPos)
     {
         OrgPos = _orgPos;
+        _sprite.transform.localScale = Vector3.one;
     }
 
     // 마우스 오버
@@ -84,11 +85,10 @@ public class CardDrag : BaseObject
                     {
                         // 프리펩 생성
                         go = Resources.Load("Prefabs/Actors/" + spriteName) as GameObject;
-                        //go.GetComponent<Actor>().TEAM_TYPE = eTeamType.TEAM_2;
-                        GameObject temp = Instantiate(go, hit.point, go.transform.rotation);
-                        //temp.transform.FindChild("Toon Knight-Brown").FindChild("Knight").GetComponent<SkinnedMeshRenderer>().materials[0].mainTexture = Resources.Load("Textures/ToonKnightBlue") as Texture;
 
-                        UI_Manager.Instance.MoveCard(OrgPos);
+                        GameObject temp = Instantiate(go, hit.point, go.transform.rotation);
+
+                        UI_Manager.Instance.MoveCard(OrgPos, spriteName);
                         gameObject.SetActive(false);
                         Debug.Log(hit.point);
                     }

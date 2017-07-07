@@ -9,7 +9,7 @@ public class UI_CardDeck : BaseObject
     
     GameObject newCard = null;
 
-    int CardCount = 0;
+    //int CardCount = 0;
 
     void Start()
     {
@@ -43,59 +43,52 @@ public class UI_CardDeck : BaseObject
 
         // 초기화
         CreateCard(new Vector3(-140, -500, 0), cardDeckList[0]);
-        CreateCard(new Vector3(-15, -500, 0), cardDeckList[1]);
-        CreateCard(new Vector3(110, -500, 0), cardDeckList[2]);
-        CreateCard(new Vector3(240, -500, 0), cardDeckList[3]);
-
-        CardCount = 4;
-        NextCard();
+        CreateCard(new Vector3(-15, -500, 0), cardDeckList[0]);
+        CreateCard(new Vector3(110, -500, 0), cardDeckList[0]);
+        CreateCard(new Vector3(240, -500, 0), cardDeckList[0]);
+        CreateNextCard();
     }
-
-
 
     public GameObject CreateCard(Vector3 _orgPos, string _name)
     {
-        // 사용중인 카드 추가
-        for (int i = 0; i < useCardList.Count; i++)
-        {
-            if (useCardList[i].Equals(_name))
-                continue;
-            else
-                useCardList.Add(_name);
-        }
-
         // 프리펩 생성
         GameObject CardPrefab = Resources.Load("Prefabs/Card") as GameObject;
 
         newCard = NGUITools.AddChild(this.transform.gameObject, CardPrefab);
         newCard.GetComponent<CardDrag>().Init(_orgPos, _name);
 
+        cardDeckList.RemoveAt(0);
+
         return newCard;
     }
 
-    public void NextCard()
+    // 처음 초기화 할때만 사용
+    public void CreateNextCard()
     {
-        CreateCard(new Vector3(-290, -570, 0), cardDeckList[CardCount]);
-
-        if (CardCount < 7)
-            CardCount++;
-        else
-            CardCount = 0;
+        GameObject Nextcard = CreateCard(new Vector3(-290, -570, 0), cardDeckList[0]);
+        Nextcard.transform.localScale = Vector3.one * 0.6f;
     }
 
-    public void MoveCard(Vector3 _DestPos)
+    public void CreateNextCard(string _name)
+    {
+        GameObject Nextcard = CreateCard(new Vector3(-290, -570, 0), cardDeckList[0]);
+        Nextcard.transform.localScale = Vector3.one * 0.6f;
+        cardDeckList.Add(_name);
+    }
+
+    public void MoveCard(Vector3 _DestPos, string _name)
     {
         GameObject moveCard = newCard;
-        moveCard.GetComponent<CardDrag>().RePos(_DestPos);
         moveCard.GetComponent<UISprite>().depth = 3;
 
         StartCoroutine(Move(moveCard, _DestPos));
-        NextCard();
+        CreateNextCard(_name);
     }
 
     IEnumerator Move(GameObject moveCard, Vector3 _DestPos)
     {
         yield return new WaitForSeconds(1);
+        moveCard.GetComponent<CardDrag>().RePos(_DestPos);
         moveCard.GetComponent<UISprite>().depth = 2;
 
         float time = 0;
