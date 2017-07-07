@@ -16,13 +16,13 @@ public class UI_CardDeck : BaseObject
         {
         }
         list.Add(eActor.ARCHER.ToString());
-        list.Add(eActor.BARBARIAN.ToString());
+        list.Add(eActor.DRAGON.ToString());
         list.Add(eActor.KNIGHT.ToString());
         list.Add(eActor.WIZARD.ToString());
-        list.Add(eActor.ARCHER.ToString());
-        list.Add(eActor.BARBARIAN.ToString());
-        list.Add(eActor.WIZARD.ToString());
-        list.Add(eActor.KNIGHT.ToString());
+        list.Add(eActor.CACTUS.ToString());
+        list.Add(eActor.DEATHKNIGHT.ToString());
+        list.Add(eActor.GHOST.ToString());
+        list.Add(eActor.GOLEM.ToString());
 
         for (int i = 0; i < list.Count; i++)
         {
@@ -36,8 +36,6 @@ public class UI_CardDeck : BaseObject
         {
             Debug.Log(list[i]);
         }
-
-        Transform trans = FindInChild("Cards");
 
         CreateCard(new Vector3(-140, -500, 0), list[0]);
         CreateCard(new Vector3(-15, -500, 0), list[1]);
@@ -99,7 +97,6 @@ public class UI_CardDeck : BaseObject
             }
             else
             {
-
                 break;
             }
         }

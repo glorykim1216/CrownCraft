@@ -611,7 +611,6 @@ GameObject:
   - component: {fileID: 4064736958645554}
   - component: {fileID: 136116398328227546}
   - component: {fileID: 54807782603353280}
-  - component: {fileID: 114435957753621742}
   - component: {fileID: 114401712048480856}
   m_Layer: 0
   m_Name: ARCHER
@@ -1294,17 +1293,6 @@ MonoBehaviour:
   TeamType: 1
   TemplateKey: ARCHER
   bEnableBoard: 1
---- !u!114 &114435957753621742
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1954391603323192}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c348b2705189ed4386bf37723fdb0e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &136116398328227546
 CapsuleCollider:
   m_ObjectHideFlags: 1

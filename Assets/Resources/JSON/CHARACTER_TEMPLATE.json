@@ -29,7 +29,7 @@
 			"SKILL": [
 			  "RANGE_1"
 			]
-		}
+		},
 		"BARBARIAN": {
 			"LEVEL": 1,
 			"HP": 660,
@@ -59,8 +59,8 @@
 			"SKILL": [
 			  "RANGE_1"
 			]
-		}
-		"CHARACTER_1": {
+		},
+		"BAT": {
 			"LEVEL": 1,
 			"HP": 660,
 			"ATTACK": 75,
@@ -75,9 +75,114 @@
 			  "MELEE_1"
 			]
 		},
-		"CHARACTER_2": {
+		"CACTUS": {
+			"LEVEL": 1,
+			"HP": 120,
+			"ATTACK": 41,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 5,
+			"TARGET": "GOURNDAIR",
+			"COUNT": 2,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "RANGE_1"
+			]
+		},
+		"DEATHKNIGHT": {
 			"LEVEL": 1,
 			"HP": 660,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "MELEE_1"
+			]
+		},
+		"DRAGON": {
+			"LEVEL": 1,
+			"HP": 1200,
+			"ATTACK": 41,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 5,
+			"TARGET": "GOURNDAIR",
+			"COUNT": 2,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "RANGE_1"
+			]
+		},
+		"GHOST": {
+			"LEVEL": 1,
+			"HP": 660,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "MELEE_1"
+			]
+		},
+		"GOLEM": {
+			"LEVEL": 1,
+			"HP": 120,
+			"ATTACK": 41,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 5,
+			"TARGET": "GOURNDAIR",
+			"COUNT": 2,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "RANGE_1"
+			]
+		},
+		"SKELETON": {
+			"LEVEL": 1,
+			"HP": 120,
+			"ATTACK": 41,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 5,
+			"TARGET": "GOURNDAIR",
+			"COUNT": 2,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "RANGE_1"
+			]
+		},
+		"CHARACTER_1": {
+			"LEVEL": 1,
+			"HP": 6600,
+			"ATTACK": 75,
+			"COST": 3,
+			"SPEED": 1,
+			"RANGE": 1,
+			"TARGET": "GROUND",
+			"COUNT": 1,
+			"TRANSPORT": "GROUND",
+			"TYPE": "UNIT",
+			"SKILL": [
+			  "MELEE_1"
+			]
+		},
+		"CHARACTER_2": {
+			"LEVEL": 1,
+			"HP": 6600,
 			"ATTACK": 75,
 			"COST": 3,
 			"SPEED": 1,
