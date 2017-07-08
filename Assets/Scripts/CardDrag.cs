@@ -12,22 +12,27 @@ public class CardDrag : BaseObject
     float EndPoint = -350.0f;
 
     UISprite _sprite;
+
+    Transform redZone;
+
     Vector3 OrgPos;
     Vector3 OrgScale;
 
     Color OrgColor;
 
     bool IsField = false;
+    bool IsRedZone = false;
 
     string spriteName;
 
-    public void Init(Vector3 _orgPos, string _name)
+    public void Init(Vector3 _orgPos, string _name, Transform _redZone)
     {
         //OrgPos = this.transform.position;
         //OrgScale = this.transform.localScale;
         //StrOrgSprite = SelfComponent<UISprite>().spriteName;
 
         _sprite = SelfComponent<UISprite>();
+        redZone = _redZone;
 
         this.transform.localPosition = _orgPos;
 
@@ -35,6 +40,7 @@ public class CardDrag : BaseObject
         OrgScale = Vector3.one;
         spriteName = _name;
         SelfComponent<UISprite>().spriteName = spriteName;
+
 
     }
 
@@ -57,7 +63,19 @@ public class CardDrag : BaseObject
         //if (IsField == false)
         //   _sprite.transform.localPosition += (Vector3)delta;
         //else
-        _sprite.transform.position = UICamera.mainCamera.ScreenToWorldPoint(Input.mousePosition);
+        Vector3 _pos = UICamera.mainCamera.ScreenToWorldPoint(Input.mousePosition);
+
+        if (_pos.y < 0)
+        {
+            _sprite.transform.position = _pos;
+            IsRedZone = false;
+        }
+        else
+        {
+            _pos.y = 0;
+            _sprite.transform.position = _pos;
+            IsRedZone = true;
+        }
 
         CardShrink();
     }
@@ -68,6 +86,7 @@ public class CardDrag : BaseObject
         {
             OrgColor = _sprite.color;
             _sprite.color = new Color(_sprite.color.r, _sprite.color.g, _sprite.color.b, 0.5f);
+            redZone.gameObject.SetActive(true);
         }
         else if (!isPressed)
         {
@@ -77,21 +96,29 @@ public class CardDrag : BaseObject
 
             if (IsField == true)
             {
+
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit hit;
                 if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                 {
-                    //if (hit.collider.tag == "Ground")
+                    Vector3 _pos = hit.point;
+
+                    if (IsRedZone == true)
                     {
-                        // 프리펩 생성
-                        go = Resources.Load("Prefabs/Actors/" + spriteName) as GameObject;
-
-                        GameObject temp = Instantiate(go, hit.point, go.transform.rotation);
-
-                        UI_Manager.Instance.MoveCard(OrgPos, spriteName);
-                        gameObject.SetActive(false);
-                        Debug.Log(hit.point);
+                        _pos.z = -2;
                     }
+
+                    // 프리펩 생성
+                    go = Resources.Load("Prefabs/Actors/" + spriteName) as GameObject;
+
+                    Instantiate(go, _pos, go.transform.rotation);
+
+                    UI_Manager.Instance.MoveCard(OrgPos, spriteName);
+                    gameObject.SetActive(false);
+                    redZone.gameObject.SetActive(false);
+
+                    Debug.Log(hit.point);
+
                 }
             }
 

@@ -8,7 +8,7 @@ public class UI_CardDeck : BaseObject
     List<string> useCardList = new List<string>();
     
     GameObject newCard = null;
-
+    Transform redZone = null;
     //int CardCount = 0;
 
     void Start()
@@ -41,6 +41,8 @@ public class UI_CardDeck : BaseObject
             Debug.Log(cardDeckList[i]);
         }
 
+        redZone = FindInChild("RedZone");
+
         // 초기화
         CreateCard(new Vector3(-140, -500, 0), cardDeckList[0]);
         CreateCard(new Vector3(-15, -500, 0), cardDeckList[0]);
@@ -55,7 +57,7 @@ public class UI_CardDeck : BaseObject
         GameObject CardPrefab = Resources.Load("Prefabs/Card") as GameObject;
 
         newCard = NGUITools.AddChild(this.transform.gameObject, CardPrefab);
-        newCard.GetComponent<CardDrag>().Init(_orgPos, _name);
+        newCard.GetComponent<CardDrag>().Init(_orgPos, _name, redZone);
 
         cardDeckList.RemoveAt(0);
 
@@ -95,13 +97,14 @@ public class UI_CardDeck : BaseObject
         while (true)
         {
             time += Time.deltaTime;
-            if (time < 1)
+            if (time < 0.5f)
             {
                 moveCard.transform.localPosition = Vector3.Lerp(moveCard.transform.localPosition, _DestPos, 0.3f);// Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
             else
             {
+                moveCard.transform.localPosition = _DestPos;
                 break;
             }
         }
