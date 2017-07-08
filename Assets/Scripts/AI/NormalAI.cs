@@ -5,7 +5,7 @@ using UnityEngine;
 public class NormalAI : BaseAI
 {
     Rigidbody rigid;
-    float movePath = -1.6f;
+    float movePath = -4.1f;
     float straightRotate = 0;
     public float pathRotate = 45f;
 
@@ -31,6 +31,14 @@ public class NormalAI : BaseAI
         }
     }
 
+    public void SetMovePath(Vector3 _pos)
+    {
+        if (_pos.x > 0)
+            movePath = 4.1f;
+        else
+            movePath = -4.1f;
+    }
+
     protected override IEnumerator Idle()
     {
         // 근거리 대상 검색
@@ -48,13 +56,14 @@ public class NormalAI : BaseAI
         // 공격 범위 < 거리
         if (targetObject != null)
         {
-            //SkillData sData = Target.GetData(ConstValue.ActorData_SkillData, 0) as SkillData;
-
-            //// 스킬 데이터 적용
-            //if (sData != null)
-            //    attackRange = sData.RANGE;
+            SkillData sData = Target.GetData(ConstValue.ActorData_SkillData, 0) as SkillData;
 
             float attackRange = 2f;
+
+            // 스킬 데이터 적용
+            if (sData != null)
+                attackRange = sData.RANGE;
+
 
             // 거리검사*
             float distance = Vector3.Distance(targetObject.SelfTransform.position, SelfTransform.position);
@@ -83,14 +92,15 @@ public class NormalAI : BaseAI
 
         if (targetObject != null)
         {
-            //SkillData sData = Target.GetData(ConstValue.ActorData_SkillData, 0) as SkillData;
-
-            // 스킬 데이터 적용
-            //if (sData != null)
-            //    attackRange = sData.RANGE;
+            SkillData sData = Target.GetData(ConstValue.ActorData_SkillData, 0) as SkillData;
 
             float attackRange = 1.5f;
             float searchRange = 5f;
+
+            //스킬 데이터 적용
+            if (sData != null)
+                attackRange = sData.RANGE;
+
             float distance = Vector3.Distance(targetObject.SelfTransform.position, SelfTransform.position);
 
             if (distance < attackRange)
@@ -126,7 +136,7 @@ public class NormalAI : BaseAI
     {
         float movePathDistance = transform.parent.position.x - movePath;
         //if (Vector3.Distance(transform.position, Line.transform.position) > 0)
-        if (movePathDistance > -1.0f && movePathDistance < 1.0f)
+        if (movePathDistance > -0.5f && movePathDistance < 0.5f)
         {
             rigid.rotation = Quaternion.Slerp(rigid.rotation, Quaternion.Euler(0, straightRotate, 0), 2 * Time.deltaTime);
             if (bDeadEnd == true)

@@ -4,52 +4,49 @@ using UnityEngine;
 
 public class UI_CardDeck : BaseObject
 {
-    public List<string> list = new List<string>();
+    List<string> cardDeckList = new List<string>();
+    List<string> useCardList = new List<string>();
+    
     GameObject newCard = null;
 
-    int CardCount = 0;
+    //int CardCount = 0;
 
     void Start()
     {
-        // List Shuffle
         for (int i = 0; i < 8; i++)
         {
         }
-        list.Add(eActor.ARCHER.ToString());
-        list.Add(eActor.BARBARIAN.ToString());
-        list.Add(eActor.KNIGHT.ToString());
-        list.Add(eActor.WIZARD.ToString());
-        list.Add(eActor.ARCHER.ToString());
-        list.Add(eActor.BARBARIAN.ToString());
-        list.Add(eActor.WIZARD.ToString());
-        list.Add(eActor.KNIGHT.ToString());
+        // 카드덱 추가
+        cardDeckList.Add(eActor.ARCHER.ToString());
+        cardDeckList.Add(eActor.DRAGON.ToString());
+        cardDeckList.Add(eActor.KNIGHT.ToString());
+        cardDeckList.Add(eActor.WIZARD.ToString());
+        cardDeckList.Add(eActor.CACTUS.ToString());
+        cardDeckList.Add(eActor.DEATHKNIGHT.ToString());
+        cardDeckList.Add(eActor.GHOST.ToString());
+        cardDeckList.Add(eActor.GOLEM.ToString());
 
-        for (int i = 0; i < list.Count; i++)
+        // List Shuffle
+        for (int i = 0; i < cardDeckList.Count; i++)
         {
-            int rand = Random.Range(0, list.Count);
-            string temp = list[i];
-            list[i] = list[rand];
-            list[rand] = temp;
+            int rand = Random.Range(0, cardDeckList.Count);
+            string temp = cardDeckList[i];
+            cardDeckList[i] = cardDeckList[rand];
+            cardDeckList[rand] = temp;
         }
 
-        for (int i = 0; i < list.Count; i++)
+        // testCode
+        for (int i = 0; i < cardDeckList.Count; i++)
         {
-            Debug.Log(list[i]);
+            Debug.Log(cardDeckList[i]);
         }
 
-        Transform trans = FindInChild("Cards");
-
-        CreateCard(new Vector3(-140, -500, 0), list[0]);
-        CreateCard(new Vector3(-15, -500, 0), list[1]);
-        CreateCard(new Vector3(110, -500, 0), list[2]);
-        CreateCard(new Vector3(240, -500, 0), list[3]);
-        CardCount = 4;
-        NextCard();
-    }
-
-    void Update()
-    {
-
+        // 초기화
+        CreateCard(new Vector3(-140, -500, 0), cardDeckList[0]);
+        CreateCard(new Vector3(-15, -500, 0), cardDeckList[0]);
+        CreateCard(new Vector3(110, -500, 0), cardDeckList[0]);
+        CreateCard(new Vector3(240, -500, 0), cardDeckList[0]);
+        CreateNextCard();
     }
 
     public GameObject CreateCard(Vector3 _orgPos, string _name)
@@ -60,32 +57,38 @@ public class UI_CardDeck : BaseObject
         newCard = NGUITools.AddChild(this.transform.gameObject, CardPrefab);
         newCard.GetComponent<CardDrag>().Init(_orgPos, _name);
 
+        cardDeckList.RemoveAt(0);
+
         return newCard;
     }
 
-    public void NextCard()
+    // 처음 초기화 할때만 사용
+    public void CreateNextCard()
     {
-        CreateCard(new Vector3(-290, -570, 0), list[CardCount]);
-
-        if (CardCount < 7)
-            CardCount++;
-        else
-            CardCount = 0;
+        GameObject Nextcard = CreateCard(new Vector3(-290, -570, 0), cardDeckList[0]);
+        Nextcard.transform.localScale = Vector3.one * 0.6f;
     }
 
-    public void MoveCard(Vector3 _DestPos)
+    public void CreateNextCard(string _name)
+    {
+        GameObject Nextcard = CreateCard(new Vector3(-290, -570, 0), cardDeckList[0]);
+        Nextcard.transform.localScale = Vector3.one * 0.6f;
+        cardDeckList.Add(_name);
+    }
+
+    public void MoveCard(Vector3 _DestPos, string _name)
     {
         GameObject moveCard = newCard;
-        moveCard.GetComponent<CardDrag>().RePos(_DestPos);
         moveCard.GetComponent<UISprite>().depth = 3;
 
         StartCoroutine(Move(moveCard, _DestPos));
-        NextCard();
+        CreateNextCard(_name);
     }
 
     IEnumerator Move(GameObject moveCard, Vector3 _DestPos)
     {
         yield return new WaitForSeconds(1);
+        moveCard.GetComponent<CardDrag>().RePos(_DestPos);
         moveCard.GetComponent<UISprite>().depth = 2;
 
         float time = 0;
@@ -99,7 +102,6 @@ public class UI_CardDeck : BaseObject
             }
             else
             {
-
                 break;
             }
         }

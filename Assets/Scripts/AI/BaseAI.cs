@@ -5,7 +5,6 @@ using UnityEngine.AI;
 
 public class NextAI
 {
-    // 씹노잼
     public eStateType StateType;
     public BaseObject TargetObject;
     public Vector3 Position;
@@ -286,7 +285,6 @@ public class BaseAI : BaseObject
     {
         if (ANIMATOR.GetCurrentAnimatorStateInfo(0).IsName("Attack02"))
         {
-          
             if (ANIMATOR.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
                 Target.SelfComponent<Actor>().AI.IS_ATTACK = false;

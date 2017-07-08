@@ -124,5 +124,12 @@ public enum eActor
     ARCHER,
     BARBARIAN,
     WIZARD,
+    CACTUS,
+    DEATHKNIGHT,
+    GHOST,
+    DRAGON,
+    GOLEM,
+    SKELETON,
+    BAT,
     MAX
 }
