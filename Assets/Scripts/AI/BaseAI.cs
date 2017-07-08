@@ -158,7 +158,13 @@ public class BaseAI : BaseObject
                 {
                     if (nextAI.TargetObject != null)
                     {
-                        SelfTransform.forward = (nextAI.TargetObject.SelfTransform.position - SelfTransform.position).normalized;
+                        // 원본
+                        //SelfTransform.forward = (nextAI.TargetObject.SelfTransform.position - SelfTransform.position).normalized;
+
+                        Quaternion newRotation = Quaternion.LookRotation(nextAI.TargetObject.SelfTransform.position - SelfTransform.position);
+                        newRotation.x = 0;
+                        newRotation.z = 0;
+                        SelfTransform.rotation = newRotation;
                     }
                     ProcessAttack();
                 }
@@ -264,15 +270,12 @@ public class BaseAI : BaseObject
     //    return false;
     //}
 
-    protected void TurnToTarget(Vector3 position)    // 목적지로 이동시키는 함수
+    protected void TurnToTarget(Vector3 position)    // 타겟을 바라봄
     {
-        //if (PreMovePosition == position)        // 이전 위치와 목적지 위치가 같으면 실행 안함.
-        //   return;
-        PreMovePosition = position;
-        SelfTransform.rotation = Quaternion.Slerp(SelfTransform.rotation, Quaternion.LookRotation(position - SelfTransform.position), 2 * Time.deltaTime);
-        //SelfTransform.forward = (position - SelfTransform.position).normalized;
-        //NAV_MESH_AGENT.Resume();
-        //NAV_MESH_AGENT.SetDestination(position);
+        Quaternion newRotation = Quaternion.Slerp(SelfTransform.rotation, Quaternion.LookRotation(position - SelfTransform.position), 2*Time.deltaTime);
+        newRotation.x = 0;
+        newRotation.z = 0;
+        SelfTransform.rotation = newRotation;
     }
 
     protected void Stop()

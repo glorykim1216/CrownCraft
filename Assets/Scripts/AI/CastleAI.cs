@@ -28,7 +28,7 @@ public class CastleAI : BaseAI
             //    attackRange = sData.RANGE;
 
             float attackRange = 5f;
-            float searchRange = 5f;
+            float searchRange = 8f;
 
             // 거리검사*
             float distance = Vector3.Distance(targetObject.SelfTransform.position, SelfTransform.position);
