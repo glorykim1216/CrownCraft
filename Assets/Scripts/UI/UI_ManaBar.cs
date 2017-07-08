@@ -13,6 +13,7 @@ public class UI_ManaBar : MonoBehaviour
             ProgressBar = this.GetComponent<UIProgressBar>();
         }
     }
+
     public void SetValue(float _value)
     {
         if (ProgressBar == null)

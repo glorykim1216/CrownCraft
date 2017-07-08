@@ -59,31 +59,7 @@ public class Actor : BaseObject
         //    // 없으면 동작 X
         //    ai.Target = this;
         //}
-        if (transform.name.Contains("Castle"))
-        {
-            GameObject aiObject = new GameObject();
-            aiObject.name = "CastleAI";
-            ai = aiObject.AddComponent<CastleAI>();
-            aiObject.transform.SetParent(SelfTransform);
-            ai.Target = this;      // 없으면 동작 X
-        }
-        else
-        {
-            GameObject aiObject = new GameObject();
-            aiObject.name = "NormalAI";
-            ai = aiObject.AddComponent<NormalAI>();
-            aiObject.transform.SetParent(SelfTransform);
-            ai.Target = this;           // target
-
-            // MovePath 설정
-            ai.GetComponent<NormalAI>().SetMovePath(transform.position);
-
-            // TestCode
-            if (TeamType == eTeamType.TEAM_2)
-                ai.GetComponent<NormalAI>().Team(2);
-            else
-                ai.GetComponent<NormalAI>().Team(1);
-        }
+     
 
 
         GameCharacter gameCharacter = CharacterManager.Instance.AddCharacter(TemplateKey);
@@ -112,7 +88,34 @@ public class Actor : BaseObject
         //    board.SetData(ConstValue.SetData_HP, GetStatusData(eStatusData.MAX_HP), SelfCharacter.CURRENT_HP);
         //}
 
+        if (transform.name.Contains("Castle"))
+        {
+            GameObject aiObject = new GameObject();
+            aiObject.name = "CastleAI";
+            ai = aiObject.AddComponent<CastleAI>();
+            aiObject.transform.SetParent(SelfTransform);
+            ai.Target = this;      // 없으면 동작 X
+        }
+        else
+        {
+            GameObject aiObject = new GameObject();
+            aiObject.name = "NormalAI";
+            ai = aiObject.AddComponent<NormalAI>();
+            aiObject.transform.SetParent(SelfTransform);
+            ai.Target = this;           // target
+
+            // MovePath 설정
+            ai.GetComponent<NormalAI>().SetMovePath(transform.position);
+
+            // TestCode
+            if (TeamType == eTeamType.TEAM_2)
+                ai.GetComponent<NormalAI>().Team(2);
+            else
+                ai.GetComponent<NormalAI>().Team(1);
+        }
+
         ActorManager.Instance.AddActor(this);
+
     }
 
     public double GetStatusData(eStatusData statusData)

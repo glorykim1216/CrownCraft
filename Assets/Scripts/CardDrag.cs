@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CardDrag : BaseObject
 {
-    GameObject go = null;
+    GameObject Prefab = null;
+    GameCharacter gameCharacter = null;
     //public Transform ShrinkPoint;
     //public Transform EndPoint;
 
@@ -41,7 +42,7 @@ public class CardDrag : BaseObject
         spriteName = _name;
         SelfComponent<UISprite>().spriteName = spriteName;
 
-
+        gameCharacter = CharacterManager.Instance.AddCharacter(_name);
     }
 
     public void RePos(Vector3 _orgPos)
@@ -96,32 +97,38 @@ public class CardDrag : BaseObject
 
             if (IsField == true)
             {
-
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+                if (GameManager.Instance.MANA < (float)gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.COST) * 0.1f)
                 {
-                    Vector3 _pos = hit.point;
-
-                    if (IsRedZone == true)
+                    Debug.Log("마나 부족");
+                }
+                else
+                {
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit, Mathf.Infinity))
                     {
-                        _pos.z = -2;
+                        Vector3 _pos = hit.point;
+
+                        if (IsRedZone == true)
+                        {
+                            _pos.z = -2;
+                        }
+
+                        // 프리펩 생성
+                        Prefab = Resources.Load("Prefabs/Actors/" + spriteName) as GameObject;
+
+                        Instantiate(Prefab, _pos, Prefab.transform.rotation);
+
+                        UI_Manager.Instance.MoveCard(OrgPos, spriteName);
+                        gameObject.SetActive(false);
+                        redZone.gameObject.SetActive(false);
+
+                        GameManager.Instance.DecreaseMana((float)gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.COST) * 0.1f);
+
+                        Debug.Log(hit.point);
                     }
-
-                    // 프리펩 생성
-                    go = Resources.Load("Prefabs/Actors/" + spriteName) as GameObject;
-
-                    Instantiate(go, _pos, go.transform.rotation);
-
-                    UI_Manager.Instance.MoveCard(OrgPos, spriteName);
-                    gameObject.SetActive(false);
-                    redZone.gameObject.SetActive(false);
-
-                    Debug.Log(hit.point);
-
                 }
             }
-
         }
     }
 

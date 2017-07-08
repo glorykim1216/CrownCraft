@@ -5,6 +5,12 @@ using UnityEngine;
 public class GameManager : MonoSingleton<GameManager>
 {
     float mana;
+    
+    public float MANA
+    {
+        get { return mana; }
+        set { mana = value; }
+    }
     //bool IsInit = false;
 
     // Use this for initialization
@@ -18,5 +24,10 @@ public class GameManager : MonoSingleton<GameManager>
     {
         mana += Time.deltaTime * 0.05f;
         UI_Manager.Instance.SetMana(mana);
+    }
+
+    public void DecreaseMana(float _cost)
+    {
+        mana -= _cost;
     }
 }

@@ -34,10 +34,6 @@ public class CharacterTemplateData
             double valueData = nodeData[statusData.ToString("F")].AsDouble;
             Status.IncreaseData(statusData, valueData);
         }
-		CardTarget = nodeData["TARGET"];
-		CardTransport = nodeData["TRANSPORT"];
-		
-
 		
         JSONArray arrSkill = nodeData["SKILL"].AsArray;  // 쉼표를 넣으면 배열로 저장
         if (arrSkill != null)
