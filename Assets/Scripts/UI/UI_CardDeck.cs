@@ -95,7 +95,7 @@ public class UI_CardDeck : BaseObject
         while (true)
         {
             time += Time.deltaTime;
-            if (time < 0.5f)
+            if (time < 1)
             {
                 moveCard.transform.localPosition = Vector3.Lerp(moveCard.transform.localPosition, _DestPos, 0.3f);// Time.deltaTime);
                 yield return new WaitForEndOfFrame();

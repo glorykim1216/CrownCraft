@@ -59,7 +59,7 @@ public class Actor : BaseObject
         //    // 없으면 동작 X
         //    ai.Target = this;
         //}
-        if (transform.name.Equals("Castle"))
+        if (transform.name.Contains("Castle"))
         {
             GameObject aiObject = new GameObject();
             aiObject.name = "CastleAI";
