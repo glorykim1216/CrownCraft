@@ -19,7 +19,7 @@ public class UI_Lobby : BaseObject
 
 
 	/// /////////////////////////////////////////
-	PlayerDeck PlayerDeck = null;
+	//PlayerDeck PlayerDeck = null;
 
     private void Awake()
     {
@@ -86,7 +86,7 @@ public class UI_Lobby : BaseObject
         EventDelegate.Add(BattleStartBtn.onClick, new EventDelegate(this, "BattleStart"));
 
 		////////////////////
-		PlayerDeck = FindInChild("BattleDeck").GetComponent<PlayerDeck>();
+		//PlayerDeck = FindInChild("BattleDeck").GetComponent<PlayerDeck>();
     }
 
     void CardGround()

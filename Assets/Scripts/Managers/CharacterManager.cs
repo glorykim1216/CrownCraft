@@ -7,8 +7,6 @@ public class CharacterManager : MonoSingleton<CharacterManager>
 {
     Dictionary<string, CharacterTemplateData> DicTemplateData = new Dictionary<string, CharacterTemplateData>();
 
-	
-
 	private void Awake()
     {
         TextAsset characterText = Resources.Load(ConstValue.CharacterTemplatePath) as TextAsset;
@@ -27,10 +25,8 @@ public class CharacterManager : MonoSingleton<CharacterManager>
 					
 					DicTemplateData.Add(templateNode.Key, new CharacterTemplateData(templateNode.Key, templateNode.Value));
                 }
-            }
-			
+            }	
         }
-		
     }
 
     public CharacterTemplateData GetTemplate(string strTemplateKey)
@@ -55,5 +51,4 @@ public class CharacterManager : MonoSingleton<CharacterManager>
         gameCharacter.SetTemplate(templateData);
         return gameCharacter;
     }
-
 }

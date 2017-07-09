@@ -7,7 +7,7 @@ public delegate void ClosedEvent();
 
 public class UI_CardPopup : BaseObject
 {
-    UILabel NameLabel;
+	UILabel NameLabel;
 	UILabel ContentsLabel;
 	UILabel AttackLabel;
 	UILabel HPLabel;
@@ -19,24 +19,24 @@ public class UI_CardPopup : BaseObject
 
 
 	UIButton UseBtn;
-    UIButton ClosedBtn;
+	UIButton ClosedBtn;
 
-    UseEvent Use;
-    ClosedEvent Closed;
+	public UseEvent Use;
+	ClosedEvent Closed;
 
 	UI_Card CardInfo;
-	
 
 
-    private void Awake()
-    {
-		
-        //TitleLabel = FindInChild("Name").GetComponent<UILabel>();
-        //ContentsLabel = FindInChild("Contents").GetComponent<UILabel>();
 
-        //UpgradeBtn = FindInChild("UpgradeBtn").GetComponent<UIButton>();
-        //EventDelegate.Add(UpgradeBtn.onClick,
-        //    new EventDelegate(this, "OnClickedUpgradeBtn"));
+	private void Awake()
+	{
+
+		//TitleLabel = FindInChild("Name").GetComponent<UILabel>();
+		//ContentsLabel = FindInChild("Contents").GetComponent<UILabel>();
+
+		//UpgradeBtn = FindInChild("UpgradeBtn").GetComponent<UIButton>();
+		//EventDelegate.Add(UpgradeBtn.onClick,
+		//    new EventDelegate(this, "OnClickedUpgradeBtn"));
 
 		ClosedBtn = FindInChild("ClosedBtn").GetComponent<UIButton>();
 		UseBtn = FindInChild("UseBtn").GetComponent<UIButton>();
@@ -47,48 +47,51 @@ public class UI_CardPopup : BaseObject
 		TargetLabel = FindInChild("Target").FindChild("Value").GetComponent<UILabel>();
 		SpeedLabel = FindInChild("Speed").FindChild("Value").GetComponent<UILabel>();
 		RangeLabel = FindInChild("Range").FindChild("Value").GetComponent<UILabel>();
-		CountLabel= FindInChild("Count").FindChild("Value").GetComponent<UILabel>();
+		CountLabel = FindInChild("Count").FindChild("Value").GetComponent<UILabel>();
 	}
 
 	private void Start()
 	{
-		EventDelegate.Add(ClosedBtn.onClick,new EventDelegate(this, "OnClickedClosedBtn"));
-		EventDelegate.Add(UseBtn.onClick,new EventDelegate(this,"OnClickUseBtn"));
+		EventDelegate.Add(ClosedBtn.onClick, new EventDelegate(this, "OnClickedClosedBtn"));
+		EventDelegate.Add(UseBtn.onClick, new EventDelegate(this, "OnClickUseBtn"));
 
 	}
-
-
-	public void Set(
-        ClosedEvent _closed
-        //,UpgradeEvent _upgrade
-        //,string _name
-        //,string _contents
-        )
-    {
-        Closed = _closed;
-        //Upgrade = _upgrade;
-        //TitleLabel.text = _name;
-        //ContentsLabel.text = _contents;
-    }
-	//public void Set(UseEvent _use)
+	//public void Set (UseEvent _use	)
 	//{
 	//	Use = _use;
 	//}
 
-    public void OnClickedClosedBtn()
-    {
-        if (Closed != null)
-            Closed();
-    }
+	public void Set( UseEvent _use,	ClosedEvent _closed	)
+	{
+		Use = _use;
+		Closed = _closed;
+	}
+
+
+	public void OnClickedClosedBtn()
+	{
+		if (Closed != null)
+			Closed();
+	}
 
 	public void OnClickUseBtn()
 	{
 		if (Use != null)
 			Use();
+
+		//1. 교체 할 카드 선택을 기다린다.
+		//2. 교체 할 카드를 선택하면 CardManager에 있는 덱 정보를 업데이트해준다.
+		//3. 팝업 UI를 업데이트(교체한 내용 적용)
+
+
+		//CardManager.Instance.SetCard(NameLabel.text);
+		//UI_Tools.Instance.HideUI(eUIType.PF_UI_CARDPOPUP);
 	}
 
 	public void SetCardInfo(GameCharacter _gameCharacter)
 	{
+		if (_gameCharacter == null)
+			return;
 
 		NameLabel.text = _gameCharacter.CHARACTER_TEMPLATE.KEY;
 		AttackLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.ATTACK).ToString();
@@ -98,10 +101,10 @@ public class UI_CardPopup : BaseObject
 		RangeLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.RANGE).ToString();
 		CountLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.COUNT).ToString();
 	}
-    //public void OnClickedUpgradeBtn()
-    //{
-    //    if (Upgrade != null)
-    //        Upgrade();
-    //}
+	//public void OnClickedUpgradeBtn()
+	//{
+	//    if (Upgrade != null)
+	//        Upgrade();
+	//}
 
 }
