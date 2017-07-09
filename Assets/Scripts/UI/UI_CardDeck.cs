@@ -20,8 +20,8 @@ public class UI_CardDeck : BaseObject
         cardDeckList.Add(eActor.ARCHER.ToString());
         cardDeckList.Add(eActor.DRAGON.ToString());
         cardDeckList.Add(eActor.KNIGHT.ToString());
-        cardDeckList.Add(eActor.WIZARD.ToString());
-        cardDeckList.Add(eActor.CACTUS.ToString());
+        cardDeckList.Add(eActor.BAT.ToString());
+        cardDeckList.Add(eActor.SKELETON.ToString());
         cardDeckList.Add(eActor.DEATHKNIGHT.ToString());
         cardDeckList.Add(eActor.GHOST.ToString());
         cardDeckList.Add(eActor.GOLEM.ToString());
