@@ -13,6 +13,7 @@ public class CardDrag : BaseObject
     float EndPoint = -350.0f;
 
     UISprite _sprite;
+    UISprite _coolTime;
 
     Transform redZone;
 
@@ -21,10 +22,29 @@ public class CardDrag : BaseObject
 
     Color OrgColor;
 
+    BoxCollider boxColl;
+
     bool IsField = false;
     bool IsRedZone = false;
-
+    bool IsUse = false;
     string spriteName;
+
+    public void Update()
+    {
+        if (IsUse == true)
+        {
+            _coolTime.fillAmount = 1 - GameManager.Instance.MANA * 1 / (0.1f * (float)gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.COST));
+            if (_coolTime.fillAmount <= 0)
+            {
+                boxColl.enabled = true;
+            }
+            else
+            {
+                if (boxColl.enabled == true)
+                    boxColl.enabled = false;
+            }
+        }
+    }
 
     public void Init(Vector3 _orgPos, string _name, Transform _redZone)
     {
@@ -43,12 +63,17 @@ public class CardDrag : BaseObject
         SelfComponent<UISprite>().spriteName = spriteName;
 
         gameCharacter = CharacterManager.Instance.AddCharacter(_name);
+
+        _coolTime = FindInChild("CoolTime").GetComponent<UISprite>();
+        boxColl = transform.GetComponent<BoxCollider>();
     }
 
+    // OrgPos 위치, CoolTime 활성화
     public void RePos(Vector3 _orgPos)
     {
         OrgPos = _orgPos;
         _sprite.transform.localScale = Vector3.one;
+        IsUse = true;
     }
 
     // 마우스 오버
