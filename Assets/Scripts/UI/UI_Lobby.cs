@@ -17,8 +17,7 @@ public class UI_Lobby : BaseObject
     // BattleStart Btn
     UIButton BattleStartBtn = null;
 
-
-	/// /////////////////////////////////////////
+	////////////////////////////////////////////
 	PlayerDeck PlayerDeck = null;
 
     private void Awake()
