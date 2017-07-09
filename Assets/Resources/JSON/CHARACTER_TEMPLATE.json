@@ -152,7 +152,7 @@
 		},
 		"SKELETON": {
 			"LEVEL": 1,
-			"HP": 120,
+			"HP": 100,
 			"ATTACK": 41,
 			"COST": 1,
 			"SPEED": 1,
@@ -162,7 +162,7 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "RANGE_1"
+			  "MELEE_1"
 			]
 		},
 		"CHARACTER_1": {

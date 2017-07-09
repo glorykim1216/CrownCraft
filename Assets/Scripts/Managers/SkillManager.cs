@@ -147,7 +147,7 @@ public class SkillManager : MonoSingleton<SkillManager>
                 parentTransform = owner.SelfTransform;//owner.FindInChild("FirePos"); 
 
 
-                makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(eSkillModelType.BOX));   // 스킬모델
+                makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(eSkillModelType.CIRCLE));   // 스킬모델
                 break;
         }
 
