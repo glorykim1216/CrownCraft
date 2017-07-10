@@ -19,12 +19,12 @@ public class UI_CardDeck : BaseObject
         // 카드덱 추가
         cardDeckList.Add(eActor.ARCHER.ToString());
         cardDeckList.Add(eActor.DRAGON.ToString());
-        cardDeckList.Add(eActor.KNIGHT.ToString());
+        cardDeckList.Add(eActor.WIZARD.ToString());
         cardDeckList.Add(eActor.BAT.ToString());
         cardDeckList.Add(eActor.SKELETON.ToString());
         cardDeckList.Add(eActor.DEATHKNIGHT.ToString());
         cardDeckList.Add(eActor.GHOST.ToString());
-        cardDeckList.Add(eActor.GOLEM.ToString());
+        cardDeckList.Add(eActor.BARBARIAN.ToString());
 
         // List Shuffle
         for (int i = 0; i < cardDeckList.Count; i++)

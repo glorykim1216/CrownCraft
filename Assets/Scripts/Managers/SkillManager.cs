@@ -144,16 +144,23 @@ public class SkillManager : MonoSingleton<SkillManager>
                 break;
             case eSkillTemplateType.RANGE_ATTACK:
                 makeSkill = skillObject.AddComponent<RangeSkill>();
-                parentTransform = owner.SelfTransform;//owner.FindInChild("FirePos"); 
+                //parentTransform = owner.SelfTransform;//owner.FindInChild("FirePos"); 
+                parentTransform = owner.FindInChild("FirePos");
+                if (parentTransform == null)
+                    parentTransform = owner.SelfTransform;
 
+                makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(skillTemplate.MODEL_TYPE));   // 스킬모델
+                break;
+            case eSkillTemplateType.BARBARIAN_ATTACK:
+                //makeSkill = skillObject.AddComponent<MeleeSkill>();
+                makeSkill = skillObject.AddComponent<RangeSkill>();
+                parentTransform = owner.SelfTransform;
+                makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(skillTemplate.MODEL_TYPE));   // 스킬모델
 
-                makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(eSkillModelType.CIRCLE));   // 스킬모델
                 break;
         }
 
         skillObject.name = skillTemplate.SKILL_TYPE.ToString();
-
-
 
         if (makeSkill != null)
         {
@@ -192,14 +199,14 @@ public class SkillManager : MonoSingleton<SkillManager>
         //if (GameManager.Instance.GAME_OVER == true)
         //    return;
 
-        foreach(KeyValuePair<BaseObject,List<BaseSkill>> pair in DicUseSkill)
+        foreach (KeyValuePair<BaseObject, List<BaseSkill>> pair in DicUseSkill)
         {
             List<BaseSkill> list = pair.Value;
             for (int i = 0; i < list.Count; i++)
             {
                 BaseSkill updateSkill = list[i];
                 updateSkill.UpdateSkill();
-                if(updateSkill.END)
+                if (updateSkill.END)
                 {
                     list.Remove(updateSkill);
                     Destroy(updateSkill.gameObject);

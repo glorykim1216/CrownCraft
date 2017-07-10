@@ -7,7 +7,7 @@ public class SkillTemplate  // 공격범위 관리
     string StrKey = string.Empty;
     eSkillTemplateType SkillType = eSkillTemplateType.TARGET_ATTACK;
     eSkillAttackRangeType RangeType = eSkillAttackRangeType.RANGE_BOX;
-
+    eSkillModelType ModelType = eSkillModelType.BOX;
     // RangeType Box    x : RangeData_1, y : RangeData_2
     // RangeType Sphere radius : RangeData_1
     float RangeData_1 = 0;
@@ -17,6 +17,7 @@ public class SkillTemplate  // 공격범위 관리
 
     public eSkillTemplateType SKILL_TYPE { get { return SkillType; } }
     public eSkillAttackRangeType RANGE_TYPE { get { return RangeType; } }
+    public eSkillModelType MODEL_TYPE { get { return ModelType; } }
 
     public float RANGE_DATA_1 { get { return RangeData_1; } }
     public float RANGE_DATA_2 { get { return RangeData_2; } }
@@ -28,6 +29,7 @@ public class SkillTemplate  // 공격범위 관리
 
         SkillType = (eSkillTemplateType)nodeData["SKILL_TYPE"].AsInt;
         RangeType = (eSkillAttackRangeType)nodeData["RANGE_TYPE"].AsInt;
+        ModelType = (eSkillModelType)nodeData["MODEL_TYPE"].AsInt;
 
         RangeData_1 = nodeData["RANGE_DATA_1"].AsFloat;
         RangeData_2 = nodeData["RANGE_DATA_2"].AsFloat;

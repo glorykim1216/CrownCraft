@@ -12,9 +12,10 @@ public class RangeSkill : BaseSkill
         if (ModelPrefab == null)
             return;
 
-        GameObject model = Instantiate(ModelPrefab, Vector3.zero, Quaternion.identity);
+        GameObject model = Instantiate(ModelPrefab, Vector3.zero, Quaternion.Euler(-90,0,0));
         model.transform.SetParent(this.transform, false);
     }
+
     public override void UpdateSkill()
     {
         if (TARGET == null)
@@ -22,9 +23,10 @@ public class RangeSkill : BaseSkill
             END = true;
             return;
         }
-        Vector3 targetPosition = SelfTransform.position + (TARGET.SelfTransform.position - SelfTransform.position).normalized * 10 * Time.deltaTime;
+        Vector3 targetPosition = SelfTransform.position + (TARGET.SelfTransform.position - SelfTransform.position).normalized * 5 * Time.deltaTime;
         SelfTransform.position = targetPosition;
     }
+
     public override void ThrowEvent(string keyData, params object[] datas)
     {
         if (keyData == ConstValue.EventKey_SelectModel)
@@ -34,6 +36,7 @@ public class RangeSkill : BaseSkill
         else
             base.ThrowEvent(keyData, datas);
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (END == true)

@@ -2,20 +2,72 @@
 	"SKILL_TEMPLATE": {
 		"MELEE_A_1": {
 			"SKILL_TYPE": 0,
+			"MODEL_TYPE": 0,
 			"RANGE_TYPE": 0,
-			"RANGE_DATA_1": 2,
-			"RANGE_DATA_2": 3,
+			"RANGE_DATA_1": 1,
+			"RANGE_DATA_2": 1,
 			"MAX_HP": 0,
-			"ATTACK": 5,
+			"ATTACK": 0,
 			"DEFFENCE": 0
 		},
 		"RANGE_A_1": {
 			"SKILL_TYPE": 1,
+			"MODEL_TYPE": 1,
 			"RANGE_TYPE": 1,
 			"RANGE_DATA_1": 1,
 			"RANGE_DATA_2": 0,
 			"MAX_HP": 0,
 			"ATTACK": 1,
+			"DEFFENCE": 0
+		},
+		"BAT": {
+			"SKILL_TYPE": 1,
+			"MODEL_TYPE": 2,
+			"RANGE_TYPE": 1,
+			"RANGE_DATA_1": 1,
+			"RANGE_DATA_2": 0,
+			"MAX_HP": 0,
+			"ATTACK": 0,
+			"DEFFENCE": 0
+		},
+		"DRAGON": {
+			"SKILL_TYPE": 1,
+			"MODEL_TYPE": 3,
+			"RANGE_TYPE": 1,
+			"RANGE_DATA_1": 1,
+			"RANGE_DATA_2": 0,
+			"MAX_HP": 0,
+			"ATTACK": 0,
+			"DEFFENCE": 0
+		},
+		"ARROW": {
+			"SKILL_TYPE": 1,
+			"MODEL_TYPE": 4,
+			"RANGE_TYPE": 1,
+			"RANGE_DATA_1": 1,
+			"RANGE_DATA_2": 0,
+			"MAX_HP": 0,
+			"ATTACK": 0,
+			"DEFFENCE": 0
+		},
+		"WIZARD": {
+			"SKILL_TYPE": 1,
+			"MODEL_TYPE": 5,
+			"RANGE_TYPE": 1,
+			"RANGE_DATA_1": 1,
+			"RANGE_DATA_2": 0,
+			"MAX_HP": 0,
+			"ATTACK": 0,
+			"DEFFENCE": 0
+		},
+		"BARBARIAN": {
+			"SKILL_TYPE": 2,
+			"MODEL_TYPE": 6,
+			"RANGE_TYPE": 1,
+			"RANGE_DATA_1": 1,
+			"RANGE_DATA_2": 0,
+			"MAX_HP": 0,
+			"ATTACK": 0,
 			"DEFFENCE": 0
 		}
 	}

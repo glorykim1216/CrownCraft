@@ -18,6 +18,36 @@
 			"SKILL": [
 				"RANGE_A_1"
 			]
+		},
+		"MELEE_BARBARIAN": {
+			"RANGE": 1.5,
+			"SKILL": [
+				"BARBARIAN"
+			]
+		},
+		"RANGE_BAT": {
+			"RANGE": 5,
+			"SKILL": [
+				"BAT"
+			]
+		},
+		"RANGE_DRAGON": {
+			"RANGE": 5,
+			"SKILL": [
+				"DRAGON"
+			]
+		},
+		"RANGE_ARROW": {
+			"RANGE": 5,
+			"SKILL": [
+				"ARROW"
+			]
+		},
+		"RANGE_WIZARD": {
+			"RANGE": 5,
+			"SKILL": [
+				"WIZARD"
+			]
 		}
 	}
 }

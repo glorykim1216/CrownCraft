@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    float mana;
+    float mana = 0.5f;
     
     public float MANA
     {
@@ -22,6 +22,8 @@ public class GameManager : MonoSingleton<GameManager>
     // Update is called once per frame
     void Update()
     {
+        if (mana >= 10)
+            return;
         mana += Time.deltaTime * 0.05f;
         UI_Manager.Instance.SetMana(mana);
     }

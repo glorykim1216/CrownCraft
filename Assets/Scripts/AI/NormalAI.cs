@@ -71,7 +71,8 @@ public class NormalAI : BaseAI
             // 공격
             if (distance < attackRange)
             {
-                Stop();
+                //Stop();
+                rigid.Sleep();
                 AddNextAI(eStateType.STATE_ATTACK, targetObject);
             }
             // 이동
@@ -105,7 +106,8 @@ public class NormalAI : BaseAI
 
             if (distance < attackRange)
             {
-                Stop();
+                //Stop();
+                rigid.Sleep();
                 AddNextAI(eStateType.STATE_ATTACK, targetObject);
             }
             else if (distance < searchRange && bDeadEnd == false)

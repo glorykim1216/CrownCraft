@@ -55,6 +55,7 @@ public enum eSkillTemplateType
 {
     TARGET_ATTACK,
     RANGE_ATTACK,
+    BARBARIAN_ATTACK,
 }
 
 public enum eSkillAttackRangeType
@@ -67,6 +68,11 @@ public enum eSkillModelType
 {
     CIRCLE,
     BOX,
+    BAT_SKILL,
+    DRAGON_SKILL,
+    ARROW,
+    WIZARD_SKILL,
+    BARBARIAN_SKILL,
     MAX
 }
 

@@ -27,14 +27,14 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "RANGE_1"
+			  "RANGE_ARROW"
 			]
 		},
 		"BARBARIAN": {
 			"LEVEL": 1,
 			"HP": 660,
 			"ATTACK": 75,
-			"COST": 4,
+			"COST": 3,
 			"SPEED": 1,
 			"RANGE": 1,
 			"TARGET": "GROUND",
@@ -42,12 +42,12 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "MELEE_1"
+			  "MELEE_BARBARIAN"
 			]
 		},
 		"WIZARD": {
 			"LEVEL": 1,
-			"HP": 120,
+			"HP": 1200,
 			"ATTACK": 41,
 			"COST": 5,
 			"SPEED": 1,
@@ -57,12 +57,12 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "RANGE_1"
+			  "RANGE_WIZARD"
 			]
 		},
 		"BAT": {
 			"LEVEL": 1,
-			"HP": 660,
+			"HP": 100,
 			"ATTACK": 75,
 			"COST": 5,
 			"SPEED": 1,
@@ -72,7 +72,7 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "MELEE_1"
+			  "RANGE_BAT"
 			]
 		},
 		"CACTUS": {
@@ -117,7 +117,7 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "RANGE_1"
+			  "RANGE_DRAGON"
 			]
 		},
 		"GHOST": {
@@ -192,7 +192,7 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "RANGE_1"
+			  "RANGE_ARROW"
 			]
 		},
 		"MONSTER_1": {
