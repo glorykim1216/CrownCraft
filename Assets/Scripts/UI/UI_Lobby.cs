@@ -17,8 +17,18 @@ public class UI_Lobby : BaseObject
     // BattleStart Btn
     UIButton BattleStartBtn = null;
 
-	////////////////////////////////////////////
-	PlayerDeck PlayerDeck = null;
+    ////////////////////////////////////////////
+    PlayerDeck PlayerDeck = null;
+
+    // Coin
+    UILabel CoinLabel;
+    int CoinValue = 0;
+    int test1 = 0;
+
+    // Trophy
+    UILabel TrophyLabel;
+    int TrophyValue = 2;
+    int test2 = 0;
 
     private void Awake()
     {
@@ -76,7 +86,7 @@ public class UI_Lobby : BaseObject
         // BattleStart Btn
         //-----------------------------------------------------
         trans = FindInChild("StartBtn");
-        if(trans == null)
+        if (trans == null)
         {
             Debug.LogError("BattleStartBtn is Not Founded");
             return;
@@ -84,8 +94,24 @@ public class UI_Lobby : BaseObject
         BattleStartBtn = trans.GetComponent<UIButton>();
         EventDelegate.Add(BattleStartBtn.onClick, new EventDelegate(this, "BattleStart"));
 
-		////////////////////
-		PlayerDeck = FindInChild("BattleDeck").GetComponent<PlayerDeck>();
+        ////////////////////
+        PlayerDeck = FindInChild("BattleDeck").GetComponent<PlayerDeck>();
+
+        // Coin
+        //------------------------------------------------------
+        CoinLabel = FindInChild("Coin").FindChild("Text").GetComponent<UILabel>();
+        PlayerPrefs.GetInt("Test").ToString();
+
+        // Trophy
+        //------------------------------------------------------
+        TrophyLabel = FindInChild("Trophy").FindChild("Text").GetComponent<UILabel>();
+        PlayerPrefs.GetInt("Test2").ToString();
+    }
+
+    private void Update()
+    {
+        CoinLabel.text = PlayerPrefs.GetInt("Test").ToString();
+        TrophyLabel.text = PlayerPrefs.GetInt("Test2").ToString();
     }
 
     void CardGround()
@@ -116,6 +142,18 @@ public class UI_Lobby : BaseObject
     void BoxOpen()
     {
         chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
+
+        //Test--------------------------------------------------
+        CoinValue = PlayerPrefs.GetInt("CoinValue");
+        test1 = CoinValue++;
+        PlayerPrefs.SetInt("CoinValue", CoinValue);
+        PlayerPrefs.SetInt("Test", test1);
+
+        TrophyValue = PlayerPrefs.GetInt("TrophyValue");
+        test2 = TrophyValue++;
+        PlayerPrefs.SetInt("TrophyValue", TrophyValue);
+        PlayerPrefs.SetInt("Test2", test2);
+        //------------------------------------------------------
     }
 
     void BattleStart()

@@ -8,29 +8,25 @@ public delegate void ClosedEvent();
 public class UI_CardPopup : BaseObject
 {
     UILabel NameLabel;
-	UILabel ContentsLabel;
-	UILabel AttackLabel;
-	UILabel HPLabel;
-	UILabel TargetLabel;
-	UILabel SpeedLabel;
-	UILabel RangeLabel;
-	UILabel CountLabel;
+    UILabel ContentsLabel;
+    UILabel AttackLabel;
+    UILabel HPLabel;
+    UILabel TargetLabel;
+    UILabel SpeedLabel;
+    UILabel RangeLabel;
+    UILabel CountLabel;
 
-
-
-	UIButton UseBtn;
+    UIButton UseBtn;
     UIButton ClosedBtn;
 
     UseEvent Use;
     ClosedEvent Closed;
 
-	UI_Card CardInfo;
-	
-
+    UI_Card CardInfo;
 
     private void Awake()
     {
-		
+
         //TitleLabel = FindInChild("Name").GetComponent<UILabel>();
         //ContentsLabel = FindInChild("Contents").GetComponent<UILabel>();
 
@@ -38,27 +34,26 @@ public class UI_CardPopup : BaseObject
         //EventDelegate.Add(UpgradeBtn.onClick,
         //    new EventDelegate(this, "OnClickedUpgradeBtn"));
 
-		ClosedBtn = FindInChild("ClosedBtn").GetComponent<UIButton>();
-		UseBtn = FindInChild("UseBtn").GetComponent<UIButton>();
+        ClosedBtn = FindInChild("ClosedBtn").GetComponent<UIButton>();
+        UseBtn = FindInChild("UseBtn").GetComponent<UIButton>();
 
-		NameLabel = FindInChild("Name").GetComponent<UILabel>();
-		AttackLabel = FindInChild("Attack").FindChild("Value").GetComponent<UILabel>();
-		HPLabel = FindInChild("HP").FindChild("Value").GetComponent<UILabel>();
-		TargetLabel = FindInChild("Target").FindChild("Value").GetComponent<UILabel>();
-		SpeedLabel = FindInChild("Speed").FindChild("Value").GetComponent<UILabel>();
-		RangeLabel = FindInChild("Range").FindChild("Value").GetComponent<UILabel>();
-		CountLabel= FindInChild("Count").FindChild("Value").GetComponent<UILabel>();
-	}
+        NameLabel = FindInChild("Name").GetComponent<UILabel>();
+        AttackLabel = FindInChild("Attack").FindChild("Value").GetComponent<UILabel>();
+        HPLabel = FindInChild("HP").FindChild("Value").GetComponent<UILabel>();
+        TargetLabel = FindInChild("Target").FindChild("Value").GetComponent<UILabel>();
+        SpeedLabel = FindInChild("Speed").FindChild("Value").GetComponent<UILabel>();
+        RangeLabel = FindInChild("Range").FindChild("Value").GetComponent<UILabel>();
+        CountLabel = FindInChild("Count").FindChild("Value").GetComponent<UILabel>();
+    }
 
-	private void Start()
-	{
-		EventDelegate.Add(ClosedBtn.onClick,new EventDelegate(this, "OnClickedClosedBtn"));
-		EventDelegate.Add(UseBtn.onClick,new EventDelegate(this,"OnClickUseBtn"));
+    private void Start()
+    {
+        EventDelegate.Add(ClosedBtn.onClick, new EventDelegate(this, "OnClickedClosedBtn"));
+        EventDelegate.Add(UseBtn.onClick, new EventDelegate(this, "OnClickUseBtn"));
 
-	}
+    }
 
-
-	public void Set(
+    public void Set(
         ClosedEvent _closed
         //,UpgradeEvent _upgrade
         //,string _name
@@ -70,10 +65,11 @@ public class UI_CardPopup : BaseObject
         //TitleLabel.text = _name;
         //ContentsLabel.text = _contents;
     }
-	//public void Set(UseEvent _use)
-	//{
-	//	Use = _use;
-	//}
+
+    //public void Set(UseEvent _use)
+    //{
+    //	Use = _use;
+    //}
 
     public void OnClickedClosedBtn()
     {
@@ -81,27 +77,27 @@ public class UI_CardPopup : BaseObject
             Closed();
     }
 
-	public void OnClickUseBtn()
-	{
-		if (Use != null)
-			Use();
-	}
+    public void OnClickUseBtn()
+    {
+        if (Use != null)
+            Use();
+    }
 
-	public void SetCardInfo(GameCharacter _gameCharacter)
-	{
+    public void SetCardInfo(GameCharacter _gameCharacter)
+    {
 
-		NameLabel.text = _gameCharacter.CHARACTER_TEMPLATE.KEY;
-		AttackLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.ATTACK).ToString();
-		HPLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.HP).ToString();
-		TargetLabel.text = _gameCharacter.CHARACTER_TEMPLATE.CARDTARGET;
-		SpeedLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.SPEED).ToString();
-		RangeLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.RANGE).ToString();
-		CountLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.COUNT).ToString();
-	}
+        NameLabel.text = _gameCharacter.CHARACTER_TEMPLATE.KEY;
+        AttackLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.ATTACK).ToString();
+        HPLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.HP).ToString();
+        TargetLabel.text = _gameCharacter.CHARACTER_TEMPLATE.CARDTARGET;
+        SpeedLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.SPEED).ToString();
+        RangeLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.RANGE).ToString();
+        CountLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.COUNT).ToString();
+    }
+
     //public void OnClickedUpgradeBtn()
     //{
     //    if (Upgrade != null)
     //        Upgrade();
     //}
-
 }
