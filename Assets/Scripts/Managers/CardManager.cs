@@ -29,15 +29,15 @@ public class CardManager : MonoSingleton<CardManager>
 
 
 
-		GetLocalData();
-		//AddCard("KNIGHT");
-		//AddCard("WIZARD");
-		//AddCard("ARCHER");
-		//AddCard("");
-		//AddCard("");
-		//AddCard("");
-		//AddCard("");
-		//AddCard("");
+		//GetLocalData();
+		AddCard("KNIGHT");
+		AddCard("WIZARD");
+		AddCard("ARCHER");
+		AddCard("");
+		AddCard("");
+		AddCard("");
+		AddCard("");
+		AddCard("");
 
 		IsInit = true;
 

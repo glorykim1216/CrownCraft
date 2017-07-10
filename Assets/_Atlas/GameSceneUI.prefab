@@ -53,8 +53,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 83840d34083f9dc47b0efbf9f6ae3224, type: 2}
   mSprites:
-  - name: item_star_base_theme12
+  - name: Blue
     x: 0
+    y: 123
+    width: 568
+    height: 192
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 20
+    paddingTop: 284
+    paddingBottom: 244
+  - name: item_star_base_theme12
+    x: 581
     y: 347
     width: 171
     height: 165
@@ -67,8 +80,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 15
   - name: item_star1_theme1
-    x: 121
-    y: 227
+    x: 0
+    y: 3
     width: 120
     height: 119
     borderLeft: 0
@@ -80,8 +93,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 4
   - name: item_star1_theme8
-    x: 0
-    y: 227
+    x: 121
+    y: 3
     width: 120
     height: 119
     borderLeft: 0
@@ -92,6 +105,19 @@ MonoBehaviour:
     paddingRight: 4
     paddingTop: 5
     paddingBottom: 4
+  - name: Red
+    x: 0
+    y: 316
+    width: 580
+    height: 196
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 10
+    paddingTop: 322
+    paddingBottom: 202
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0

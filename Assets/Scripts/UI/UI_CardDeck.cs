@@ -6,7 +6,7 @@ public class UI_CardDeck : BaseObject
 {
     List<string> cardDeckList = new List<string>();
     List<string> useCardList = new List<string>();
-    
+
     GameObject newCard = null;
     Transform redZone = null;
     //int CardCount = 0;
@@ -20,8 +20,8 @@ public class UI_CardDeck : BaseObject
         cardDeckList.Add(eActor.ARCHER.ToString());
         cardDeckList.Add(eActor.DRAGON.ToString());
         cardDeckList.Add(eActor.KNIGHT.ToString());
-        cardDeckList.Add(eActor.WIZARD.ToString());
-        cardDeckList.Add(eActor.CACTUS.ToString());
+        cardDeckList.Add(eActor.BAT.ToString());
+        cardDeckList.Add(eActor.SKELETON.ToString());
         cardDeckList.Add(eActor.DEATHKNIGHT.ToString());
         cardDeckList.Add(eActor.GHOST.ToString());
         cardDeckList.Add(eActor.GOLEM.ToString());
@@ -44,14 +44,14 @@ public class UI_CardDeck : BaseObject
         redZone = FindInChild("RedZone");
 
         // 초기화
-        CreateCard(new Vector3(-140, -500, 0), cardDeckList[0]);
-        CreateCard(new Vector3(-15, -500, 0), cardDeckList[0]);
-        CreateCard(new Vector3(110, -500, 0), cardDeckList[0]);
-        CreateCard(new Vector3(240, -500, 0), cardDeckList[0]);
+        CreateCard(new Vector3(-140, -500, 0), cardDeckList[0], true);
+        CreateCard(new Vector3(-15, -500, 0), cardDeckList[0], true);
+        CreateCard(new Vector3(110, -500, 0), cardDeckList[0], true);
+        CreateCard(new Vector3(240, -500, 0), cardDeckList[0], true);
         CreateNextCard();
     }
 
-    public GameObject CreateCard(Vector3 _orgPos, string _name)
+    public GameObject CreateCard(Vector3 _orgPos, string _name, bool Init = false)
     {
         // 프리펩 생성
         GameObject CardPrefab = Resources.Load("Prefabs/Card") as GameObject;
@@ -60,6 +60,10 @@ public class UI_CardDeck : BaseObject
         newCard.GetComponent<CardDrag>().Init(_orgPos, _name, redZone);
 
         cardDeckList.RemoveAt(0);
+
+        // CoolTime 활성화 ( 처음 초기화 4장을 위해 )
+        if (Init == true)
+            newCard.GetComponent<CardDrag>().RePos(_orgPos);
 
         return newCard;
     }
