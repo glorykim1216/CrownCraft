@@ -18,7 +18,7 @@ public class UI_Lobby : BaseObject
     UIButton BattleStartBtn = null;
 
     ////////////////////////////////////////////
-    PlayerDeck PlayerDeck = null;
+    //PlayerDeck PlayerDeck = null;
 
     // Coin
     UILabel CoinLabel;
@@ -95,7 +95,7 @@ public class UI_Lobby : BaseObject
         EventDelegate.Add(BattleStartBtn.onClick, new EventDelegate(this, "BattleStart"));
 
         ////////////////////
-        PlayerDeck = FindInChild("BattleDeck").GetComponent<PlayerDeck>();
+        //PlayerDeck = FindInChild("BattleDeck").GetComponent<PlayerDeck>();
 
         // Coin
         //------------------------------------------------------
