@@ -153,7 +153,7 @@ public class SkillManager : MonoSingleton<SkillManager>
                 break;
             case eSkillTemplateType.BARBARIAN_ATTACK:
                 //makeSkill = skillObject.AddComponent<MeleeSkill>();
-                makeSkill = skillObject.AddComponent<RangeSkill>();
+                makeSkill = skillObject.AddComponent<BarbarianSkill>();
                 parentTransform = owner.SelfTransform;
                 makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(skillTemplate.MODEL_TYPE));   // 스킬모델
 
