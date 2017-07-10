@@ -8,6 +8,9 @@ public class UI_Card : BaseObject
 	[SerializeField]
 	string TemplateKey = string.Empty;
 
+	public int slotNumber = 0;
+	public System.Action<int, GameCharacter> OnCardClick;
+	
 	public string TEMPLATEKEY
 	{
 		get { return TemplateKey; }
@@ -24,8 +27,7 @@ public class UI_Card : BaseObject
 
 	private void Awake()
 	{
-		CharacterData = CharacterManager.Instance.AddCharacter(TemplateKey);
-
+		//CharacterData = CharacterManager.Instance.AddCharacter(TemplateKey);
 		CardImage = FindInChild("Texture").GetComponent<UISprite>();
 	}
 
@@ -34,31 +36,36 @@ public class UI_Card : BaseObject
 		//Transform temp = FindInChild("Texture");
 		//temp.GetComponent<UISprite>().name = TemplateKey;
 
+		//CardImage.spriteName = TemplateKey;
+	}
+
+	public void UpdateCard(string CardKey = "")
+	{
+		print("UI_Card :: 카드 정보 업데이트 = "+CardKey);
+
+		if(CardKey != "")
+			TemplateKey = CardKey;
+
+		if (TemplateKey == "")
+			return;
+		
+		CharacterData = CharacterManager.Instance.AddCharacter(TemplateKey);
+
+		if (CharacterData != null)
+			print(CharacterData.CHARACTER_TEMPLATE.KEY);
+		else
+			Debug.LogError("캐릭터 정보가 없습니다.");
+		
 		CardImage.spriteName = TemplateKey;
 	}
 
-
-
 	void OnClick()
 	{
-		GameObject go = UI_Tools.Instance.ShowUI(eUIType.PF_UI_CARDPOPUP);
-		UI_CardPopup popup = go.GetComponent<UI_CardPopup>();
-		popup.SetCardInfo(CharacterData);
-		popup.Set(
-			//        () =>
-			//        {
-			//            ItemManager.Instance.EquipItem(itemInstance);
-			//            UI_Tools.Instance.HideUI(eUIType.PF_UI_POPUP);
-			//        },
-			() =>
-			{
-				UI_Tools.Instance.HideUI(eUIType.PF_UI_CARDPOPUP);
-			}
-
-			//        "장비 장착"
-			//        ,
-			//        "이 장비를 장착 하시겠습니까?"
-			);
+		print("카드 클릭함");
+		if(OnCardClick != null)
+		{
+			OnCardClick(slotNumber, CharacterData);			
+		}		
 	}
 
 }
