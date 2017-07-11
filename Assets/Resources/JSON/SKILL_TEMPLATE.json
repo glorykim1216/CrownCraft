@@ -5,7 +5,7 @@
 			"MODEL_TYPE": 0,
 			"RANGE_TYPE": 0,
 			"RANGE_DATA_1": 1,
-			"RANGE_DATA_2": 1,
+			"RANGE_DATA_2": 2,
 			"MAX_HP": 0,
 			"ATTACK": 0,
 			"DEFFENCE": 0
@@ -64,7 +64,7 @@
 			"SKILL_TYPE": 2,
 			"MODEL_TYPE": 6,
 			"RANGE_TYPE": 1,
-			"RANGE_DATA_1": 1,
+			"RANGE_DATA_1": 2,
 			"RANGE_DATA_2": 0,
 			"MAX_HP": 0,
 			"ATTACK": 0,

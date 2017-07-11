@@ -28,14 +28,14 @@ public class MeleeSkill : BaseSkill
         GameObject collObject = other.gameObject;
         BaseObject actorObject = collObject.GetComponent<BaseObject>();
 
-        if (actorObject.GetComponent<Actor>().TEAM_TYPE == OWNER.GetComponent<Actor>().TEAM_TYPE)
-            return;
-        if (actorObject == OWNER)
-            return;
+        //if (actorObject.GetComponent<Actor>().TEAM_TYPE == OWNER.GetComponent<Actor>().TEAM_TYPE)
+        //    return;
+        //if (actorObject == OWNER)
+        //    return;
 
-        //if (actorObject != TARGET)
-        //    return; // 여기 없으면 충돌한거 다 대미지
+        if (actorObject != TARGET)
+            return; // 여기 없으면 충돌한거 다 대미지
 
-        actorObject.ThrowEvent(ConstValue.EventKey_Hit, OWNER.GetData(ConstValue.ActorData_Character), SKILL_TEAMPLATE);
+        TARGET.ThrowEvent(ConstValue.EventKey_Hit, OWNER.GetData(ConstValue.ActorData_Character), SKILL_TEAMPLATE);
     }
 }

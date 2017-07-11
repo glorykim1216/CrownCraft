@@ -13,6 +13,7 @@ public class UI_Lobby : BaseObject
     UIButton BoxBtn = null;
     // Chest Open
     Transform chest = null;
+    Transform boxOpenEff = null;
 
     // BattleStart Btn
     UIButton BattleStartBtn = null;
@@ -82,6 +83,7 @@ public class UI_Lobby : BaseObject
         GameObject ChestPrefab = Resources.Load("Prefabs/UI/ChestCamera") as GameObject;
         GameObject Chest = Instantiate(ChestPrefab);
         chest = Chest.transform.FindChild("Chest/Chest_cover");
+        boxOpenEff = Chest.transform.FindChild("Eff_BoxOpenShine");
 
         // BattleStart Btn
         //-----------------------------------------------------
@@ -120,6 +122,7 @@ public class UI_Lobby : BaseObject
         trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(-720.0f, 0.0f);
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        boxOpenEff.gameObject.SetActive(false);
     }
 
     void BattleGround()
@@ -128,6 +131,7 @@ public class UI_Lobby : BaseObject
         trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(0.0f, 0.0f);
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        boxOpenEff.gameObject.SetActive(false);
     }
 
     void GachaGround()
@@ -137,12 +141,11 @@ public class UI_Lobby : BaseObject
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
 
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        boxOpenEff.gameObject.SetActive(false);
     }
 
     void BoxOpen()
     {
-        chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
-
         //Test--------------------------------------------------
         CoinValue = PlayerPrefs.GetInt("CoinValue");
         test1 = CoinValue++;
@@ -154,10 +157,21 @@ public class UI_Lobby : BaseObject
         PlayerPrefs.SetInt("TrophyValue", TrophyValue);
         PlayerPrefs.SetInt("Test2", test2);
         //------------------------------------------------------
+
+        StartCoroutine(BoxOpenEff());
+    }
+
+    IEnumerator BoxOpenEff()
+    {
+        boxOpenEff.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.4f);
+        chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
     }
 
     void BattleStart()
     {
         Scene_Manager.Instance.LoadScene(eSceneType.test);
     }
+
+
 }
