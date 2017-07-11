@@ -41,63 +41,38 @@ SngClient.Marshaler.Write(__msg, isNewVille);
 	return RmiSend(remotes,rmiContext,__msg,
 		RmiName_RequestLogon, Common.RequestLogon);
 }
-public bool RequestAddTree(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, UnityEngine.Vector3 position)
+public bool RequestAddUnit(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, UnityEngine.Vector3 position, string name)
 {
 	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
 		__msg.SimplePacketMode = core.IsSimplePacketMode();
-		Nettention.Proud.RmiID __msgid= Common.RequestAddTree;
+		Nettention.Proud.RmiID __msgid= Common.RequestAddUnit;
 		__msg.Write(__msgid);
 		SngClient.Marshaler.Write(__msg, position);
+		SngClient.Marshaler.Write(__msg, name);
 		
 	Nettention.Proud.HostID[] __list = new Nettention.Proud.HostID[1];
 	__list[0] = remote;
 		
 	return RmiSend(__list,rmiContext,__msg,
-		RmiName_RequestAddTree, Common.RequestAddTree);
+		RmiName_RequestAddUnit, Common.RequestAddUnit);
 }
 
-public bool RequestAddTree(Nettention.Proud.HostID[] remotes,Nettention.Proud.RmiContext rmiContext, UnityEngine.Vector3 position)
+public bool RequestAddUnit(Nettention.Proud.HostID[] remotes,Nettention.Proud.RmiContext rmiContext, UnityEngine.Vector3 position, string name)
 {
 	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
 __msg.SimplePacketMode = core.IsSimplePacketMode();
-Nettention.Proud.RmiID __msgid= Common.RequestAddTree;
+Nettention.Proud.RmiID __msgid= Common.RequestAddUnit;
 __msg.Write(__msgid);
 SngClient.Marshaler.Write(__msg, position);
+SngClient.Marshaler.Write(__msg, name);
 		
 	return RmiSend(remotes,rmiContext,__msg,
-		RmiName_RequestAddTree, Common.RequestAddTree);
-}
-public bool RequestRemoveTree(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int treeID)
-{
-	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
-		__msg.SimplePacketMode = core.IsSimplePacketMode();
-		Nettention.Proud.RmiID __msgid= Common.RequestRemoveTree;
-		__msg.Write(__msgid);
-		SngClient.Marshaler.Write(__msg, treeID);
-		
-	Nettention.Proud.HostID[] __list = new Nettention.Proud.HostID[1];
-	__list[0] = remote;
-		
-	return RmiSend(__list,rmiContext,__msg,
-		RmiName_RequestRemoveTree, Common.RequestRemoveTree);
-}
-
-public bool RequestRemoveTree(Nettention.Proud.HostID[] remotes,Nettention.Proud.RmiContext rmiContext, int treeID)
-{
-	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
-__msg.SimplePacketMode = core.IsSimplePacketMode();
-Nettention.Proud.RmiID __msgid= Common.RequestRemoveTree;
-__msg.Write(__msgid);
-SngClient.Marshaler.Write(__msg, treeID);
-		
-	return RmiSend(remotes,rmiContext,__msg,
-		RmiName_RequestRemoveTree, Common.RequestRemoveTree);
+		RmiName_RequestAddUnit, Common.RequestAddUnit);
 }
 // RMI name declaration.
 // It is the unique pointer that indicates RMI name such as RMI profiler.
 const string RmiName_RequestLogon="RequestLogon";
-const string RmiName_RequestAddTree="RequestAddTree";
-const string RmiName_RequestRemoveTree="RequestRemoveTree";
+const string RmiName_RequestAddUnit="RequestAddUnit";
        
 const string RmiName_First = RmiName_RequestLogon;
 		public override Nettention.Proud.RmiID[] GetRmiIDList() { return Common.RmiIDList; } 

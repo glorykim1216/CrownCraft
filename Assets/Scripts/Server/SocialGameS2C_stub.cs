@@ -21,13 +21,8 @@ public BeforeRmiInvocationDelegate BeforeRmiInvocation = delegate(Nettention.Pro
 		{ 
 			return false;
 		};
-		public delegate bool NotifyAddTreeDelegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position);  
-		public NotifyAddTreeDelegate NotifyAddTree = delegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position)
-		{ 
-			return false;
-		};
-		public delegate bool NotifyRemoveTreeDelegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID);  
-		public NotifyRemoveTreeDelegate NotifyRemoveTree = delegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID)
+		public delegate bool NotifyAddUnitDelegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position, string name);  
+		public NotifyAddUnitDelegate NotifyAddUnit = delegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position, string name)
 		{ 
 			return false;
 		};
@@ -102,7 +97,7 @@ parameterString+=comment.ToString()+",";
 		}
 	}
 	break;
-case Common.NotifyAddTree:
+case Common.NotifyAddUnit:
 	{
 		Nettention.Proud.RmiContext ctx=new Nettention.Proud.RmiContext();
 		ctx.sentFrom=pa.RemoteHostID;
@@ -114,21 +109,23 @@ case Common.NotifyAddTree:
 		int groupID; SngClient.Marshaler.Read(__msg,out groupID);	
 int treeID; SngClient.Marshaler.Read(__msg,out treeID);	
 UnityEngine.Vector3 position; SngClient.Marshaler.Read(__msg,out position);	
-core.PostCheckReadMessage(__msg, RmiName_NotifyAddTree);
+string name; SngClient.Marshaler.Read(__msg,out name);	
+core.PostCheckReadMessage(__msg, RmiName_NotifyAddUnit);
 		if(enableNotifyCallFromStub==true)
 		{
 			string parameterString="";
 			parameterString+=groupID.ToString()+",";
 parameterString+=treeID.ToString()+",";
 parameterString+=position.ToString()+",";
-			NotifyCallFromStub(Common.NotifyAddTree, RmiName_NotifyAddTree,parameterString);
+parameterString+=name.ToString()+",";
+			NotifyCallFromStub(Common.NotifyAddUnit, RmiName_NotifyAddUnit,parameterString);
 		}
 			
 		if(enableStubProfiling)
 		{
 			Nettention.Proud.BeforeRmiSummary summary = new Nettention.Proud.BeforeRmiSummary();
-			summary.rmiID = Common.NotifyAddTree;
-			summary.rmiName = RmiName_NotifyAddTree;
+			summary.rmiID = Common.NotifyAddUnit;
+			summary.rmiName = RmiName_NotifyAddUnit;
 			summary.hostID = remote;
 			summary.hostTag = hostTag;
 			BeforeRmiInvocation(summary);
@@ -137,72 +134,19 @@ parameterString+=position.ToString()+",";
 		long t0 = Nettention.Proud.PreciseCurrentTime.GetTimeMs();
 			
 		// Call this method.
-		bool __ret=NotifyAddTree (remote,ctx , groupID, treeID, position );
+		bool __ret=NotifyAddUnit (remote,ctx , groupID, treeID, position, name );
 			
 		if(__ret==false)
 		{
 			// Error: RMI function that a user did not create has been called. 
-			core.ShowNotImplementedRmiWarning(RmiName_NotifyAddTree);
+			core.ShowNotImplementedRmiWarning(RmiName_NotifyAddUnit);
 		}
 			
 		if(enableStubProfiling)
 		{
 			Nettention.Proud.AfterRmiSummary summary = new Nettention.Proud.AfterRmiSummary();
-			summary.rmiID = Common.NotifyAddTree;
-			summary.rmiName = RmiName_NotifyAddTree;
-			summary.hostID = remote;
-			summary.hostTag = hostTag;
-			summary.elapsedTime = Nettention.Proud.PreciseCurrentTime.GetTimeMs()-t0;
-			AfterRmiInvocation(summary);
-		}
-	}
-	break;
-case Common.NotifyRemoveTree:
-	{
-		Nettention.Proud.RmiContext ctx=new Nettention.Proud.RmiContext();
-		ctx.sentFrom=pa.RemoteHostID;
-		ctx.relayed=pa.IsRelayed;
-		ctx.hostTag=hostTag;
-		ctx.encryptMode = pa.EncryptMode;
-		ctx.compressMode = pa.CompressMode;
-			
-		int groupID; SngClient.Marshaler.Read(__msg,out groupID);	
-int treeID; SngClient.Marshaler.Read(__msg,out treeID);	
-core.PostCheckReadMessage(__msg, RmiName_NotifyRemoveTree);
-		if(enableNotifyCallFromStub==true)
-		{
-			string parameterString="";
-			parameterString+=groupID.ToString()+",";
-parameterString+=treeID.ToString()+",";
-			NotifyCallFromStub(Common.NotifyRemoveTree, RmiName_NotifyRemoveTree,parameterString);
-		}
-			
-		if(enableStubProfiling)
-		{
-			Nettention.Proud.BeforeRmiSummary summary = new Nettention.Proud.BeforeRmiSummary();
-			summary.rmiID = Common.NotifyRemoveTree;
-			summary.rmiName = RmiName_NotifyRemoveTree;
-			summary.hostID = remote;
-			summary.hostTag = hostTag;
-			BeforeRmiInvocation(summary);
-		}
-			
-		long t0 = Nettention.Proud.PreciseCurrentTime.GetTimeMs();
-			
-		// Call this method.
-		bool __ret=NotifyRemoveTree (remote,ctx , groupID, treeID );
-			
-		if(__ret==false)
-		{
-			// Error: RMI function that a user did not create has been called. 
-			core.ShowNotImplementedRmiWarning(RmiName_NotifyRemoveTree);
-		}
-			
-		if(enableStubProfiling)
-		{
-			Nettention.Proud.AfterRmiSummary summary = new Nettention.Proud.AfterRmiSummary();
-			summary.rmiID = Common.NotifyRemoveTree;
-			summary.rmiName = RmiName_NotifyRemoveTree;
+			summary.rmiID = Common.NotifyAddUnit;
+			summary.rmiName = RmiName_NotifyAddUnit;
 			summary.hostID = remote;
 			summary.hostTag = hostTag;
 			summary.elapsedTime = Nettention.Proud.PreciseCurrentTime.GetTimeMs()-t0;
@@ -223,8 +167,7 @@ __fail:
 // RMI name declaration.
 // It is the unique pointer that indicates RMI name such as RMI profiler.
 const string RmiName_ReplyLogon="ReplyLogon";
-const string RmiName_NotifyAddTree="NotifyAddTree";
-const string RmiName_NotifyRemoveTree="NotifyRemoveTree";
+const string RmiName_NotifyAddUnit="NotifyAddUnit";
        
 const string RmiName_First = RmiName_ReplyLogon;
 		public override Nettention.Proud.RmiID[] GetRmiIDList { get{return Common.RmiIDList;} }

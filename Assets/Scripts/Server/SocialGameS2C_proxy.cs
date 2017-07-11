@@ -43,69 +43,42 @@ SngClient.Marshaler.Write(__msg, comment);
 	return RmiSend(remotes,rmiContext,__msg,
 		RmiName_ReplyLogon, Common.ReplyLogon);
 }
-public bool NotifyAddTree(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position)
+public bool NotifyAddUnit(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position, string name)
 {
 	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
 		__msg.SimplePacketMode = core.IsSimplePacketMode();
-		Nettention.Proud.RmiID __msgid= Common.NotifyAddTree;
+		Nettention.Proud.RmiID __msgid= Common.NotifyAddUnit;
 		__msg.Write(__msgid);
 		SngClient.Marshaler.Write(__msg, groupID);
 		SngClient.Marshaler.Write(__msg, treeID);
 		SngClient.Marshaler.Write(__msg, position);
+		SngClient.Marshaler.Write(__msg, name);
 		
 	Nettention.Proud.HostID[] __list = new Nettention.Proud.HostID[1];
 	__list[0] = remote;
 		
 	return RmiSend(__list,rmiContext,__msg,
-		RmiName_NotifyAddTree, Common.NotifyAddTree);
+		RmiName_NotifyAddUnit, Common.NotifyAddUnit);
 }
 
-public bool NotifyAddTree(Nettention.Proud.HostID[] remotes,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position)
+public bool NotifyAddUnit(Nettention.Proud.HostID[] remotes,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position, string name)
 {
 	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
 __msg.SimplePacketMode = core.IsSimplePacketMode();
-Nettention.Proud.RmiID __msgid= Common.NotifyAddTree;
+Nettention.Proud.RmiID __msgid= Common.NotifyAddUnit;
 __msg.Write(__msgid);
 SngClient.Marshaler.Write(__msg, groupID);
 SngClient.Marshaler.Write(__msg, treeID);
 SngClient.Marshaler.Write(__msg, position);
+SngClient.Marshaler.Write(__msg, name);
 		
 	return RmiSend(remotes,rmiContext,__msg,
-		RmiName_NotifyAddTree, Common.NotifyAddTree);
-}
-public bool NotifyRemoveTree(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID)
-{
-	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
-		__msg.SimplePacketMode = core.IsSimplePacketMode();
-		Nettention.Proud.RmiID __msgid= Common.NotifyRemoveTree;
-		__msg.Write(__msgid);
-		SngClient.Marshaler.Write(__msg, groupID);
-		SngClient.Marshaler.Write(__msg, treeID);
-		
-	Nettention.Proud.HostID[] __list = new Nettention.Proud.HostID[1];
-	__list[0] = remote;
-		
-	return RmiSend(__list,rmiContext,__msg,
-		RmiName_NotifyRemoveTree, Common.NotifyRemoveTree);
-}
-
-public bool NotifyRemoveTree(Nettention.Proud.HostID[] remotes,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID)
-{
-	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
-__msg.SimplePacketMode = core.IsSimplePacketMode();
-Nettention.Proud.RmiID __msgid= Common.NotifyRemoveTree;
-__msg.Write(__msgid);
-SngClient.Marshaler.Write(__msg, groupID);
-SngClient.Marshaler.Write(__msg, treeID);
-		
-	return RmiSend(remotes,rmiContext,__msg,
-		RmiName_NotifyRemoveTree, Common.NotifyRemoveTree);
+		RmiName_NotifyAddUnit, Common.NotifyAddUnit);
 }
 // RMI name declaration.
 // It is the unique pointer that indicates RMI name such as RMI profiler.
 const string RmiName_ReplyLogon="ReplyLogon";
-const string RmiName_NotifyAddTree="NotifyAddTree";
-const string RmiName_NotifyRemoveTree="NotifyRemoveTree";
+const string RmiName_NotifyAddUnit="NotifyAddUnit";
        
 const string RmiName_First = RmiName_ReplyLogon;
 		public override Nettention.Proud.RmiID[] GetRmiIDList() { return Common.RmiIDList; } 

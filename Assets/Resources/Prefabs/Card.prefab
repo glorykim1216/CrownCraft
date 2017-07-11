@@ -60,7 +60,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4156906820832476
 Transform:
   m_ObjectHideFlags: 1
@@ -284,6 +284,6 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114139693108973754, guid: effaab5ee37c1004697fc4474873a066, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: ARCHER
   mFillCenter: 1

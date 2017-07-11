@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CardDrag : BaseObject
 {
-    GameObject Prefab = null;
     GameCharacter gameCharacter = null;
     //public Transform ShrinkPoint;
     //public Transform EndPoint;
@@ -140,9 +139,11 @@ public class CardDrag : BaseObject
                         }
 
                         // 프리펩 생성
-                        Prefab = Resources.Load("Prefabs/Actors/" + spriteName) as GameObject;
-
+                        GameObject Prefab = Resources.Load("Prefabs/Actors/" + spriteName) as GameObject;
                         Instantiate(Prefab, _pos, Prefab.transform.rotation);
+
+                        // 서버에 생성을 알림
+                        GameClient.Instance.AddUnit(_pos, spriteName);
 
                         UI_Manager.Instance.MoveCard(OrgPos, spriteName);
                         gameObject.SetActive(false);
@@ -173,7 +174,7 @@ public class CardDrag : BaseObject
             {
                 // 카드 이미지 변경
                 IsField = true;
-                transform.localScale = OrgScale;
+                transform.localScale = OrgScale * 3 + new Vector3(0, -1.5f, 0); // 크기 변경
                 SelfComponent<UISprite>().spriteName = spriteName + "_PF";
             }
         }

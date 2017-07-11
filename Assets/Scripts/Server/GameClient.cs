@@ -3,7 +3,7 @@ using System.Collections;
 using Nettention.Proud;
 
 
-public partial class GameClient : MonoBehaviour {
+public partial class GameClient : MonoSingleton<GameClient> {
 
     string m_serverAddr = "127.0.0.1";
 
@@ -22,10 +22,6 @@ public partial class GameClient : MonoBehaviour {
     // and the vice versa.
     SocialGameC2S.Proxy m_C2SProxy = new SocialGameC2S.Proxy();
     SocialGameS2C.Stub m_S2CStub = new SocialGameS2C.Stub();
-
-    // for P2P communication
-    SocialGameC2C.Proxy m_C2CProxy = new SocialGameC2C.Proxy();
-    SocialGameC2C.Stub m_C2CStub = new SocialGameC2C.Stub();
 
     enum State
     {
@@ -126,9 +122,6 @@ public partial class GameClient : MonoBehaviour {
         // prepare network client
         m_netClient.AttachProxy(m_C2SProxy);
         m_netClient.AttachStub(m_S2CStub);
-
-        m_netClient.AttachProxy(m_C2CProxy);
-        m_netClient.AttachStub(m_C2CStub);
 
         m_netClient.JoinServerCompleteHandler = (ErrorInfo info, ByteArray replyFromServer) =>
             {
