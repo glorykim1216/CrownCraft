@@ -24,7 +24,7 @@ public class UI_CardDeck : BaseObject
         cardDeckList.Add(eActor.SKELETON.ToString());
         cardDeckList.Add(eActor.DEATHKNIGHT.ToString());
         cardDeckList.Add(eActor.GHOST.ToString());
-        cardDeckList.Add(eActor.BARBARIAN.ToString());
+        cardDeckList.Add(eActor.GOLEM.ToString());
 
         // List Shuffle
         for (int i = 0; i < cardDeckList.Count; i++)
