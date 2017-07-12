@@ -4,8 +4,8 @@
 			"SKILL_TYPE": 0,
 			"MODEL_TYPE": 0,
 			"RANGE_TYPE": 0,
-			"RANGE_DATA_1": 1,
-			"RANGE_DATA_2": 2,
+			"RANGE_DATA_1": 2,
+			"RANGE_DATA_2": 3,
 			"MAX_HP": 0,
 			"ATTACK": 0,
 			"DEFFENCE": 0
@@ -31,7 +31,7 @@
 			"DEFFENCE": 0
 		},
 		"DRAGON": {
-			"SKILL_TYPE": 1,
+			"SKILL_TYPE": 3,
 			"MODEL_TYPE": 3,
 			"RANGE_TYPE": 1,
 			"RANGE_DATA_1": 1,
@@ -51,7 +51,7 @@
 			"DEFFENCE": 0
 		},
 		"WIZARD": {
-			"SKILL_TYPE": 1,
+			"SKILL_TYPE": 3,
 			"MODEL_TYPE": 5,
 			"RANGE_TYPE": 1,
 			"RANGE_DATA_1": 1,

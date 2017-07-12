@@ -10,7 +10,7 @@ public partial class GameClient
 
     private void Update_InVille()
     {
-       
+
     }
 
     private void OnGUI_InVille()
@@ -33,12 +33,11 @@ public partial class GameClient
             if ((int)m_myP2PGroupID == groupID)
             {
                 // pos 값 변경
+                position.z *= -1;
 
-                // Enemy 프리펩 생성
-                GameObject Prefab = Resources.Load("Prefabs/Actors/" + name) as GameObject;
-
+                // 프리펩 생성
+                GameObject Prefab = Resources.Load("Prefabs/Actors/Enemy/" + name) as GameObject;
                 Instantiate(Prefab, position, Prefab.transform.rotation);
-
                 // plant a tree
                 //GameObject o = (GameObject)Instantiate(m_treePrefab, position, Quaternion.identity);
                 //WorldObject t = (WorldObject)o.GetComponent(typeof(WorldObject));
@@ -67,6 +66,7 @@ public partial class GameClient
     public void AddUnit(UnityEngine.Vector3 pos, string name)
     {
         // 서버에 보냄
-        //m_C2SProxy.RequestAddUnit(HostID.HostID_Server, RmiContext.ReliableSend, pos, name);
+        if (m_state == State.InVille)
+            m_C2SProxy.RequestAddUnit(HostID.HostID_Server, RmiContext.ReliableSend, pos, name);
     }
 }

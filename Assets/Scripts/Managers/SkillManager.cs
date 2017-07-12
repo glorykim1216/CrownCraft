@@ -158,6 +158,15 @@ public class SkillManager : MonoSingleton<SkillManager>
                 makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(skillTemplate.MODEL_TYPE));   // 스킬모델
 
                 break;
+            case eSkillTemplateType.SPLASH_RANGE_ATTACK:
+                makeSkill = skillObject.AddComponent<SplashRangeSkill>();
+                //parentTransform = owner.SelfTransform;//owner.FindInChild("FirePos"); 
+                parentTransform = owner.FindInChild("FirePos");
+                if (parentTransform == null)
+                    parentTransform = owner.SelfTransform;
+
+                makeSkill.ThrowEvent(ConstValue.EventKey_SelectModel, GetModel(skillTemplate.MODEL_TYPE));   // 스킬모델
+                break;
         }
 
         skillObject.name = skillTemplate.SKILL_TYPE.ToString();
@@ -178,7 +187,7 @@ public class SkillManager : MonoSingleton<SkillManager>
             case eSkillAttackRangeType.RANGE_BOX:
                 {
                     BoxCollider collider = skillObject.AddComponent<BoxCollider>();
-                    collider.size = new Vector3(skillTemplate.RANGE_DATA_1, 1, skillTemplate.RANGE_DATA_2);
+                    collider.size = new Vector3(skillTemplate.RANGE_DATA_1, 3, skillTemplate.RANGE_DATA_2);
                     collider.center = new Vector3(0, 0, skillTemplate.RANGE_DATA_2 * 0.5f);
                     collider.isTrigger = true;
                 }

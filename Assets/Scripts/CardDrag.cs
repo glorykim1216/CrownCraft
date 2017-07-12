@@ -137,20 +137,16 @@ public class CardDrag : BaseObject
                         {
                             _pos.z = -2;
                         }
-                        //--------------------------------------------------------------------------------------------------
-                        //Test Enmey 생성
-                        //if (_pos.z < -13)
-                        //    _pos.z += 1;
-                        _pos.z *= -1;
-                        // 프리펩 생성
-                        GameObject Prefab = Resources.Load("Prefabs/Actors/Enemy/" + spriteName) as GameObject;
-                        GameObject a = Instantiate(Prefab, _pos, Prefab.transform.rotation);
 
+                        // 프리펩 생성
+                        GameObject Prefab = Resources.Load("Prefabs/Actors/Player/" + spriteName) as GameObject;
+                        _pos.y = Prefab.transform.position.y;
+                        Instantiate(Prefab, _pos, Prefab.transform.rotation);
 
                         //--------------------------------------------------------------------------------------------------
                         // 서버에 생성을 알림
                         GameClient.Instance.AddUnit(_pos, spriteName);
-
+                        
                         UI_Manager.Instance.MoveCard(OrgPos, spriteName);
                         gameObject.SetActive(false);
                         redZone.gameObject.SetActive(false);
@@ -158,6 +154,8 @@ public class CardDrag : BaseObject
                         GameManager.Instance.DecreaseMana((float)gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.COST) * 0.1f);
 
                         Debug.Log(hit.point);
+
+                 
                     }
                 }
             }
@@ -180,7 +178,7 @@ public class CardDrag : BaseObject
             {
                 // 카드 이미지 변경
                 IsField = true;
-                transform.localScale = OrgScale * 3 + new Vector3(0, -1.5f, 0); // 크기 변경
+                transform.localScale = OrgScale * 2 + new Vector3(0, -1f, 0); // 크기 변경
                 SelfComponent<UISprite>().spriteName = spriteName + "_PF";
             }
         }

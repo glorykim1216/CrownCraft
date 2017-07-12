@@ -56,6 +56,7 @@ public enum eSkillTemplateType
     TARGET_ATTACK,
     RANGE_ATTACK,
     BARBARIAN_ATTACK,
+    SPLASH_RANGE_ATTACK,
 }
 
 public enum eSkillAttackRangeType

@@ -3,7 +3,8 @@ using System.Collections;
 using Nettention.Proud;
 
 
-public partial class GameClient : MonoSingleton<GameClient> {
+public partial class GameClient : MonoSingleton<GameClient>
+{
 
     string m_serverAddr = "127.0.0.1";
 
@@ -34,8 +35,12 @@ public partial class GameClient : MonoSingleton<GameClient> {
 
     State m_state = State.Standby;
 
-	// Use this for initialization
-	void Start ()
+    public override void Init()
+    {
+    }
+
+    // Use this for initialization
+    void Start()
     {
         m_S2CStub.ReplyLogon = (Nettention.Proud.HostID remote, Nettention.Proud.RmiContext rmiContext, int groupID, int result, string comment) =>
         {
@@ -54,10 +59,10 @@ public partial class GameClient : MonoSingleton<GameClient> {
         };
 
         Start_InVilleRmiStub();
-	}
+    }
 
-	// Update is called once per frame
-	void Update ()
+    // Update is called once per frame
+    void Update()
     {
         m_netClient.FrameMove();
 
@@ -67,9 +72,9 @@ public partial class GameClient : MonoSingleton<GameClient> {
                 Update_InVille();
                 break;
         }
-	}
+    }
 
-    public void OnDestroy()
+    override public void OnDestroy()
     {
         m_netClient.Dispose();
     }

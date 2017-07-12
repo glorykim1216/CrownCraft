@@ -13,6 +13,10 @@ public class GameManager : MonoSingleton<GameManager>
     }
     //bool IsInit = false;
 
+    public override void Init()
+    {
+    }
+
     // Use this for initialization
     void Start()
     {

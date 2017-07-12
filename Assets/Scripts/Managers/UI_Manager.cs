@@ -7,7 +7,10 @@ public class UI_Manager : MonoSingleton<UI_Manager>
     UI_CardDeck CardDeckUI;
     UI_ManaBar manaBarUI;
 
-    // Use this for initialization
+    public override void Init()
+    {
+    }
+
     void Start()
     {
         CardDeckUI = transform.FindChild("PF_UI_CARDDECK").GetComponent<UI_CardDeck>();

@@ -44,10 +44,10 @@ public class UI_CardDeck : BaseObject
         redZone = FindInChild("RedZone");
 
         // 초기화
-        CreateCard(new Vector3(-140, -500, 0), cardDeckList[0], true);
-        CreateCard(new Vector3(-15, -500, 0), cardDeckList[0], true);
+        CreateCard(new Vector3(-130, -500, 0), cardDeckList[0], true);
+        CreateCard(new Vector3(-10, -500, 0), cardDeckList[0], true);
         CreateCard(new Vector3(110, -500, 0), cardDeckList[0], true);
-        CreateCard(new Vector3(240, -500, 0), cardDeckList[0], true);
+        CreateCard(new Vector3(230, -500, 0), cardDeckList[0], true);
         CreateNextCard();
     }
 
