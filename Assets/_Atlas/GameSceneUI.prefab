@@ -53,6 +53,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 83840d34083f9dc47b0efbf9f6ae3224, type: 2}
   mSprites:
+  - name: BackGround
+    x: 753
+    y: 351
+    width: 131
+    height: 161
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: Blue
     x: 0
     y: 123
