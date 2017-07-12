@@ -137,11 +137,17 @@ public class CardDrag : BaseObject
                         {
                             _pos.z = -2;
                         }
-
+                        //--------------------------------------------------------------------------------------------------
+                        //Test Enmey 생성
+                        if (_pos.z > 10)
+                            _pos.z += 1;
+                        _pos.z *= -1;
                         // 프리펩 생성
-                        GameObject Prefab = Resources.Load("Prefabs/Actors/" + spriteName) as GameObject;
-                        Instantiate(Prefab, _pos, Prefab.transform.rotation);
+                        GameObject Prefab = Resources.Load("Prefabs/Actors/Enemy/" + spriteName) as GameObject;
+                        GameObject a = Instantiate(Prefab, _pos, Prefab.transform.rotation);
 
+
+                        //--------------------------------------------------------------------------------------------------
                         // 서버에 생성을 알림
                         GameClient.Instance.AddUnit(_pos, spriteName);
 
