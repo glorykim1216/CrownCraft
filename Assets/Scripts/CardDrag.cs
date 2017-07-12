@@ -9,7 +9,7 @@ public class CardDrag : BaseObject
     //public Transform EndPoint;
 
     float ShrinkPoint = -420.0f;
-    float EndPoint = -350.0f;
+    float EndPoint = -330.0f;
 
     UISprite _sprite;
     UISprite _coolTime;
@@ -139,8 +139,8 @@ public class CardDrag : BaseObject
                         }
                         //--------------------------------------------------------------------------------------------------
                         //Test Enmey 생성
-                        if (_pos.z > 10)
-                            _pos.z += 1;
+                        //if (_pos.z < -13)
+                        //    _pos.z += 1;
                         _pos.z *= -1;
                         // 프리펩 생성
                         GameObject Prefab = Resources.Load("Prefabs/Actors/Enemy/" + spriteName) as GameObject;
