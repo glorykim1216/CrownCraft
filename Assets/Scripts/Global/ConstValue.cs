@@ -40,4 +40,7 @@ public static class ConstValue
 
     // LocalSave
     public const string LocalSave_DeckInstance = "DECK_INSTANCE";   // 서버를 쓰면 서버에서 전달 받음
+
+	// Player Deck Size 
+	public const int PlayerDeck_Size = 11;
 }

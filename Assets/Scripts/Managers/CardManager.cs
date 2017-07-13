@@ -5,81 +5,100 @@ using UnityEngine;
 public class CardManager : MonoSingleton<CardManager>
 {
 	bool IsInit = false;
-	[SerializeField]
+
 	List<string> playerDeck = new List<string>();
-	public int DeckSize = 8;
-	
+	List<string> TotalCardList = new List<string>();
+
 	public List<string> PLAYERDECK
 	{
 		get { return playerDeck; }
 	}
 
-	private void Start()
+	Dictionary<string, bool> DicCardList = new Dictionary<string, bool>();
+
+	bool IsUse = false;
+
+	private void Awake()
 	{
-		DeckInit();
+		bool CardNULL = DeckInit();
+		if (CardNULL == true)
+			TotalCardInit();
 	}
 
-	public void DeckInit()
+	void TotalCardInit()
+	{
+		for (int i = 0; i < (int)eActor.MAX; i++)
+		{
+			playerDeck.Add(((eActor)i).ToString());
+		}
+		// 플레이어 덱 초기화
+	}
+
+
+
+	public bool DeckInit()
 	{
 		if (IsInit == true)
-			return;
+			return true;
 
-		//테스트 코드
 		print("덱정보 초기화");
 
-
-
-		//GetLocalData();
-		AddCard("KNIGHT");
-		AddCard("WIZARD");
-		AddCard("ARCHER");
-		AddCard("");
-		AddCard("");
-		AddCard("");
-		AddCard("");
-		AddCard("");
-
 		IsInit = true;
+		return GetLocalData();
 
 	}
 
-	public void GetLocalData()
+	public List<string> GetPlayerDeck()
+	{
+		List<string> tempList = new List<string>();
+		for (int i = 0; i < 8; i++)
+		{
+			tempList.Add(playerDeck[i]);
+		}
+
+		return tempList;
+	}
+
+	public bool GetLocalData()
 	{
 		string instanceStr = PlayerPrefs.GetString(ConstValue.LocalSave_DeckInstance, string.Empty);
 		string[] array = instanceStr.Split('|');
+		Debug.Log(instanceStr);
 
-		for (int i = 0; i < DeckSize; i++)
-		{
-			AddCard("");
-		}
-
-		print(array.Length);
-
+		if (array[0].Equals(""))
+			return true;
 		for (int i = 0; i < array.Length; i++)
 		{
 			if (array[i].Length <= 0)
 				continue;
-			SetCard(i, array[i]);
+
+			playerDeck.Add(array[i]);
 		}
-	}
 
 
-	public void AddCard(string CardKey)
-	{
-		playerDeck.Add(CardKey);
-		//for (int i = 0; i < playerDeck.Count; i++)
-		//{
-		//	if (playerDeck[i] == CardKey)
-		//	{
-		//		playerDeck.Add(CardKey);
-		//	}
-		//}
+		return false;
 	}
 
 	public void SetCard(int CardIndex, string CardKey)
-	{		
-		playerDeck[CardIndex] = CardKey;		
+	{
+		playerDeck[CardIndex] = CardKey;
+
+		SetLocalData();
 	}
+	public List<string> SetCardCollection()
+	{
+		List<string> templist = new List<string>();
+		foreach (KeyValuePair<string, bool> pair in DicCardList)
+		{
+			if (pair.Value == false)
+			{
+				templist.Add(pair.Key);
+			}
+		}
+
+		return templist;
+	}
+
 
 	public string GetCardKey(int CardIndex)
 	{
@@ -99,11 +118,12 @@ public class CardManager : MonoSingleton<CardManager>
 			}
 		}
 	}
+
 	public void SetLocalData()
 	{
 		string resultStr = string.Empty;
 
-		for (int i = 0; i < playerDeck.Count; i++)
+		for (int i = 0; i < ConstValue.PlayerDeck_Size; i++)
 		{
 			string DeckStr = string.Empty;
 			DeckStr += playerDeck[i].ToString();

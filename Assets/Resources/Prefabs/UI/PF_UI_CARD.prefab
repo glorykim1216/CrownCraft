@@ -483,7 +483,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 0}
+  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114990319151642888

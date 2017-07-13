@@ -5,15 +5,17 @@ using UnityEngine;
 public class UI_Card : BaseObject
 {
 	// TeamType
-	[SerializeField]
 	string TemplateKey = string.Empty;
 
 	public int slotNumber = 0;
+	public int SLOTNUM { get { return slotNumber; } }
+
 	public System.Action<int, GameCharacter> OnCardClick;
-	
+
 	public string TEMPLATEKEY
 	{
 		get { return TemplateKey; }
+		set { TemplateKey = value; }
 	}
 
 	GameCharacter CharacterData;
@@ -25,47 +27,41 @@ public class UI_Card : BaseObject
 
 	UISprite CardImage;
 
-	private void Awake()
+
+	public void Init(string _templatekey)
 	{
-		//CharacterData = CharacterManager.Instance.AddCharacter(TemplateKey);
+		CharacterData = CharacterManager.Instance.AddCharacter(_templatekey);
 		CardImage = FindInChild("Texture").GetComponent<UISprite>();
+		TemplateKey = _templatekey;
+
 	}
 
-	private void Start()
+
+
+	public void UpdateCard(int slotNum, string CardKey)
 	{
-		//Transform temp = FindInChild("Texture");
-		//temp.GetComponent<UISprite>().name = TemplateKey;
+		print("UI_Card :: 카드 정보 업데이트 = " + CardKey);
 
-		//CardImage.spriteName = TemplateKey;
-	}
-
-	public void UpdateCard(string CardKey = "")
-	{
-		print("UI_Card :: 카드 정보 업데이트 = "+CardKey);
-
-		if(CardKey != "")
+		if (CardKey != string.Empty)
 			TemplateKey = CardKey;
 
-		if (TemplateKey == "")
-			return;
-		
 		CharacterData = CharacterManager.Instance.AddCharacter(TemplateKey);
 
 		if (CharacterData != null)
 			print(CharacterData.CHARACTER_TEMPLATE.KEY);
 		else
 			Debug.LogError("캐릭터 정보가 없습니다.");
-		
+		slotNumber = slotNum;
 		CardImage.spriteName = TemplateKey;
 	}
 
 	void OnClick()
 	{
 		print("카드 클릭함");
-		if(OnCardClick != null)
+		if (OnCardClick != null)
 		{
-			OnCardClick(slotNumber, CharacterData);			
-		}		
+			OnCardClick(slotNumber, CharacterData);
+		}
 	}
 
 }
