@@ -38,10 +38,10 @@ public class Scene_Manager : MonoSingleton<Scene_Manager>
 
 			// Loding UI Set
 			//UI_Tools.Instance.ShowLoadingUI(Operation.progress);
-			UI_Tools.Instance.ShowLoadingUI(StackTime / 2f);
+			UI_Tools.Instance.ShowLoadingUI(StackTime / 1.5f);
 
 			//if (Operation.isDone == true)
-			if (Operation.isDone == true && StackTime >= 2.0f)
+			if (Operation.isDone == true && StackTime >= 1.5f)
 			{
                 CurrentState = NextState;
                 ComplateLoad(CurrentState);
