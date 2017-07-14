@@ -25,6 +25,9 @@ public class CardManager : MonoSingleton<CardManager>
 			TotalCardInit();
 	}
 
+	public override void Init()
+	{
+	}
 	void TotalCardInit()
 	{
 		for (int i = 0; i < (int)eActor.MAX; i++)

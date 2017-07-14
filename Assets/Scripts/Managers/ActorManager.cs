@@ -13,6 +13,7 @@ public class ActorManager : MonoSingleton<ActorManager>
     // 몬스터 프리팹 관리
     Dictionary<eMonsterType, GameObject> DicMonsterPrefab = new Dictionary<eMonsterType, GameObject>();
 
+
     private void Awake()
     {
         //MonsterPrefabInit();
