@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    bool IsGameOver = false;
+    public bool GAME_OVER { get { return IsGameOver; } }
+
     float mana = 0.5f;
-    
     public float MANA
     {
         get { return mana; }
-        set { mana = value; }
+        set
+        {
+            mana = value;
+            if (mana > 10)
+                mana = 10;
+        }
     }
     //bool IsInit = false;
 
@@ -20,16 +27,14 @@ public class GameManager : MonoSingleton<GameManager>
     // Use this for initialization
     void Start()
     {
-    
+        IsGameOver = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mana >= 10)
-            return;
-        mana += Time.deltaTime * 0.05f;
-        UI_Manager.Instance.SetMana(mana);
+        MANA += Time.deltaTime * 0.05f;
+        UI_Manager.Instance.SetMana(MANA);
     }
 
     public void DecreaseMana(float _cost)

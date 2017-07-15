@@ -4,8 +4,6 @@ using Nettention.Proud;
 
 public partial class GameClient
 {
-    public GameObject m_treePrefab;
-
     private HostID m_myP2PGroupID = HostID.HostID_None; // will be filled after joining ville is finished.
 
     private void Update_InVille()

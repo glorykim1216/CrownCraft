@@ -35,11 +35,8 @@ public class BaseAI : BaseObject
     }
 
     protected Vector3 MovePosition = Vector3.zero;
-    protected Vector3 PreMovePosition = Vector3.zero;             // 현재위치와 이전위치를 비교해서 위치가 같으면 이동실행 X
 
     Animator Anim = null;
-    //NavMeshAgent NavAgent = null;
-
     public Animator ANIMATOR
     {
         get
@@ -54,17 +51,12 @@ public class BaseAI : BaseObject
 
     protected bool bIsAttack = false;
 
-    //public NavMeshAgent NAV_MESH_AGENT
-    //{
-    //    get
-    //    {
-    //        if (NavAgent == null)
-    //        {
-    //            NavAgent = SelfObject.GetComponent<NavMeshAgent>();
-    //        }
-    //        return NavAgent;
-    //    }
-    //}
+    float moveSpeed = 1;
+    public float MOVESPEED
+    {
+        get { return moveSpeed; }
+        set { moveSpeed = value; }
+    }
 
     void ChangeAnimation()
     {
@@ -272,7 +264,7 @@ public class BaseAI : BaseObject
 
     protected void TurnToTarget(Vector3 position)    // 타겟을 바라봄
     {
-        Quaternion newRotation = Quaternion.Slerp(SelfTransform.rotation, Quaternion.LookRotation(position - SelfTransform.position), 2*Time.deltaTime);
+        Quaternion newRotation = Quaternion.Slerp(SelfTransform.rotation, Quaternion.LookRotation(position - SelfTransform.position), 2 * Time.deltaTime);
         newRotation.x = 0;
         newRotation.z = 0;
         SelfTransform.rotation = newRotation;

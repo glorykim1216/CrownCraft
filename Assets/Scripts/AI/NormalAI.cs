@@ -129,9 +129,9 @@ public class NormalAI : BaseAI
     void Run()
     {
         if (team == 1)
-            rigid.MovePosition(rigid.position + transform.forward * Time.deltaTime);
+            rigid.MovePosition(rigid.position + transform.forward * Time.deltaTime * MOVESPEED);
         else
-            rigid.MovePosition(rigid.position - transform.forward * Time.deltaTime);
+            rigid.MovePosition(rigid.position - transform.forward * Time.deltaTime * MOVESPEED);
         StartCoroutine(VelocityZero());
     }
     void Turn()
