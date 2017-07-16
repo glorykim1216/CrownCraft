@@ -7,6 +7,10 @@ public class BoardManager : MonoSingleton<BoardManager>
     Dictionary<BaseObject, List<BaseBoard>> DicBoard = new Dictionary<BaseObject, List<BaseBoard>>();
     GameObject BoardUI = null;
 
+    public override void Init()
+    {
+    }
+
     private void Awake()
     {
         // BoardUI GameObject  Create -> UIRoot Child Set
@@ -16,6 +20,7 @@ public class BoardManager : MonoSingleton<BoardManager>
             BoardUI.layer = LayerMask.NameToLayer("UI");
 
             // UIManager Get Transform
+            //BoardUI = NGUITools.AddChild(NGUITools.FindCameraForLayer(LayerMask.NameToLayer("UI")).gameObject);
             BoardUI.transform.parent = UI_Manager.Instance.transform;    // UIManager 자식으로 넣음
             BoardUI.transform.localPosition = Vector3.zero;
             BoardUI.transform.localScale = Vector3.one;

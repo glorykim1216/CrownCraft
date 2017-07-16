@@ -132,7 +132,14 @@ public class NormalAI : BaseAI
             rigid.MovePosition(rigid.position + transform.forward * Time.deltaTime * MOVESPEED);
         else
             rigid.MovePosition(rigid.position - transform.forward * Time.deltaTime * MOVESPEED);
-        StartCoroutine(VelocityZero());
+
+        //StartCoroutine(VelocityZero());
+
+        if (rigid.velocity != Vector3.zero)
+        {
+            //yield return new WaitForSeconds(0.5f);
+            rigid.velocity = Vector3.zero;
+        }
     }
     void Turn()
     {

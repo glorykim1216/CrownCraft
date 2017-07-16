@@ -47,6 +47,10 @@ public class Actor : BaseObject
     [SerializeField]
     bool bEnableBoard = true;
 
+    // Tower
+    [SerializeField]
+    GameObject Tower = null;
+
 
     private void Awake()
     {
@@ -59,7 +63,7 @@ public class Actor : BaseObject
         //    // 없으면 동작 X
         //    ai.Target = this;
         //}
-     
+
 
 
         GameCharacter gameCharacter = CharacterManager.Instance.AddCharacter(TemplateKey);
@@ -214,6 +218,32 @@ public class Actor : BaseObject
         if (AI.END)
         {
             Destroy(SelfObject);
+            if (Tower != null)
+            {
+                Destroy(Tower);
+                if (SelfTransform.name.Equals("Castle_King"))
+                {
+                    if (TEAM_TYPE == eTeamType.TEAM_1)
+                    {
+                        GameManager.Instance.PlayerTowerDestroyCount = 3;
+                    }
+                    else if (TeamType == eTeamType.TEAM_2)
+                    {
+                        GameManager.Instance.EnemyTowerDestroyCount = 3;
+                    }
+                }
+                else
+                {
+                    if (TEAM_TYPE == eTeamType.TEAM_1)
+                    {
+                        GameManager.Instance.PlayerTowerDestroyCount++;
+                    }
+                    else if (TeamType == eTeamType.TEAM_2)
+                    {
+                        GameManager.Instance.EnemyTowerDestroyCount++;
+                    }
+                }
+            }
         }
     }
 

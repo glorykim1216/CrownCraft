@@ -7,9 +7,9 @@ public class UI_Manager : MonoSingleton<UI_Manager>
     UI_CardDeck CardDeckUI;
     UI_ManaBar manaBarUI;
 
-    public override void Init()
-    {
-    }
+    //public override void Init()
+    //{
+    //}
 
     void Start()
     {
@@ -28,5 +28,11 @@ public class UI_Manager : MonoSingleton<UI_Manager>
     public void MoveCard(Vector3 _DestPos, string _name)
     {
         CardDeckUI.MoveCard(_DestPos, _name);
+    }
+
+    public void LoadGameOverUI(int EnemyTowerDestroyCount, int PlayerTowerDestroyCount)
+    {
+        GameObject GameOverUI = UI_Tools.Instance.ShowUI(eUIType.PF_UI_GAMEOVER);
+        GameOverUI.GetComponent<UI_GameOver>().Result(EnemyTowerDestroyCount, PlayerTowerDestroyCount);
     }
 }

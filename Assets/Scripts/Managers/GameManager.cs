@@ -14,25 +14,40 @@ public class GameManager : MonoSingleton<GameManager>
         set
         {
             mana = value;
-            if (mana > 10)
-                mana = 10;
+            if (mana > 1)
+                mana = 1;
         }
     }
     //bool IsInit = false;
 
-    public override void Init()
-    {
-    }
+    public int EnemyTowerDestroyCount = 0;
+    public int PlayerTowerDestroyCount = 0;
 
     // Use this for initialization
     void Start()
     {
         IsGameOver = false;
     }
-
+    public void LoadGame()
+    {
+        IsGameOver = false;
+        mana = 0.5f;
+        EnemyTowerDestroyCount = 0;
+        PlayerTowerDestroyCount = 0;
+    }
     // Update is called once per frame
     void Update()
     {
+        if (IsGameOver == true)
+            return;
+
+        if (EnemyTowerDestroyCount >= 3 || PlayerTowerDestroyCount >= 3)
+        {
+            IsGameOver = true;
+            Debug.Log("끝");
+            UI_Manager.Instance.LoadGameOverUI(EnemyTowerDestroyCount, PlayerTowerDestroyCount);
+        }
+
         MANA += Time.deltaTime * 0.05f;
         UI_Manager.Instance.SetMana(MANA);
     }

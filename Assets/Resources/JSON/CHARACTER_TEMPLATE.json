@@ -165,9 +165,9 @@
 			  "MELEE_1"
 			]
 		},
-		"CHARACTER_1": {
+		"Castle_King": {
 			"LEVEL": 1,
-			"HP": 6600,
+			"HP": 100,
 			"ATTACK": 75,
 			"COST": 3,
 			"SPEED": 1,
@@ -180,9 +180,9 @@
 			  "MELEE_1"
 			]
 		},
-		"CHARACTER_2": {
+		"Castle_Tower": {
 			"LEVEL": 1,
-			"HP": 6600,
+			"HP": 100,
 			"ATTACK": 75,
 			"COST": 3,
 			"SPEED": 1,

@@ -98,6 +98,7 @@ public class Scene_Manager : MonoSingleton<Scene_Manager>
                 }
                 break;
             case eSceneType.test:
+                GameManager.Instance.LoadGame();
                 break;
             default:
                 break;

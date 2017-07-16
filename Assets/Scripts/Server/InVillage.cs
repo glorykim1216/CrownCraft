@@ -6,9 +6,30 @@ public partial class GameClient
 {
     private HostID m_myP2PGroupID = HostID.HostID_None; // will be filled after joining ville is finished.
 
+    bool IsGameOver = false;
+    public bool GAME_OVER { get { return IsGameOver; } }
+
+    float mana = 0.5f;
+    public float MANA
+    {
+        get { return mana; }
+        set
+        {
+            mana = value;
+            if (mana > 10)
+                mana = 10;
+        }
+    }
+
     private void Update_InVille()
     {
+        //MANA += Time.deltaTime * 0.05f;
+        //UI_Manager.Instance.SetMana(MANA);
+    }
 
+    public void DecreaseMana(float _cost)
+    {
+        mana -= _cost;
     }
 
     private void OnGUI_InVille()
