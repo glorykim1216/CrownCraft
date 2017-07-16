@@ -47,6 +47,10 @@ public class Actor : BaseObject
     [SerializeField]
     bool bEnableBoard = true;
 
+    // Tower
+    [SerializeField]
+    GameObject Tower = null;
+
 
     private void Awake()
     {
@@ -59,7 +63,7 @@ public class Actor : BaseObject
         //    // 없으면 동작 X
         //    ai.Target = this;
         //}
-     
+
 
 
         GameCharacter gameCharacter = CharacterManager.Instance.AddCharacter(TemplateKey);
@@ -81,12 +85,12 @@ public class Actor : BaseObject
                 gameCharacter.AddSkill(data);
         }
 
-        //if (bEnableBoard == true)
-        //{
-        //    BaseBoard board = BoardManager.Instance.AddBoard(this, eBoardType.BOARD_HP);
+        if (bEnableBoard == true)
+        {
+            BaseBoard board = BoardManager.Instance.AddBoard(this, eBoardType.BOARD_HP);
 
-        //    board.SetData(ConstValue.SetData_HP, GetStatusData(eStatusData.MAX_HP), SelfCharacter.CURRENT_HP);
-        //}
+            board.SetData(ConstValue.SetData_HP, GetStatusData(eStatusData.HP), SelfCharacter.CURRENT_HP);
+        }
 
         if (transform.name.Contains("Castle"))
         {
@@ -103,6 +107,7 @@ public class Actor : BaseObject
             ai = aiObject.AddComponent<NormalAI>();
             aiObject.transform.SetParent(SelfTransform);
             ai.Target = this;           // target
+            ai.MOVESPEED = (float)gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.SPEED);
 
             // MovePath 설정
             ai.GetComponent<NormalAI>().SetMovePath(transform.position);
@@ -175,10 +180,13 @@ public class Actor : BaseObject
                 //GameManager.Instance.KillCheck(this);
             }
 
-            //// HPBoard
-            //BaseBoard board = BoardManager.Instance.GetBoardData(this, eBoardType.BOARD_HP);
-            //if (board != null)
-            //    board.SetData(ConstValue.SetData_HP, GetStatusData(eStatusData.MAX_HP), SelfCharacter.CURRENT_HP);
+            // HPBoard
+            BaseBoard board = BoardManager.Instance.GetBoardData(this, eBoardType.BOARD_HP);
+            if (board != null)
+                board.SetData(ConstValue.SetData_HP, GetStatusData(eStatusData.HP), SelfCharacter.CURRENT_HP);
+
+            // 피격 효과
+            StartCoroutine(DemageEff());
 
             //// Board 초기화
             //board = null;
@@ -210,6 +218,32 @@ public class Actor : BaseObject
         if (AI.END)
         {
             Destroy(SelfObject);
+            if (Tower != null)
+            {
+                Destroy(Tower);
+                if (SelfTransform.name.Equals("Castle_King"))
+                {
+                    if (TEAM_TYPE == eTeamType.TEAM_1)
+                    {
+                        GameManager.Instance.PlayerTowerDestroyCount = 3;
+                    }
+                    else if (TeamType == eTeamType.TEAM_2)
+                    {
+                        GameManager.Instance.EnemyTowerDestroyCount = 3;
+                    }
+                }
+                else
+                {
+                    if (TEAM_TYPE == eTeamType.TEAM_1)
+                    {
+                        GameManager.Instance.PlayerTowerDestroyCount++;
+                    }
+                    else if (TeamType == eTeamType.TEAM_2)
+                    {
+                        GameManager.Instance.EnemyTowerDestroyCount++;
+                    }
+                }
+            }
         }
     }
 
@@ -230,21 +264,21 @@ public class Actor : BaseObject
 
     private void OnEnable()
     {
-        //if (BoardManager.Instance != null)
-        //    BoardManager.Instance.ShowBoard(this, true);
+        if (BoardManager.Instance != null)
+            BoardManager.Instance.ShowBoard(this, true);
     }
 
     public void OnDisable()
     {
-        //if (BoardManager.Instance != null && GameManager.Instance.GAME_OVER == false)
-        //    BoardManager.Instance.ShowBoard(this, false);
+        if (BoardManager.Instance != null && GameManager.Instance.GAME_OVER == false)
+            BoardManager.Instance.ShowBoard(this, false);
     }
 
     // 매니저로 관리 할때, 추가와 삭제를 신경써야한다. ( 삭제해도 다른곳에서 데이터만 남아 있어 꼬일 수 있음. )
     public void OnDestroy()
     {
-        //if (BoardManager.Instance != null)
-        //    BoardManager.Instance.ClearBoard(this);
+        if (BoardManager.Instance != null)
+            BoardManager.Instance.ClearBoard(this);
 
         if (ActorManager.Instance != null)
         {
@@ -259,5 +293,13 @@ public class Actor : BaseObject
             AI.GetComponent<NormalAI>().pathRotate = 90f;
             AI.GetComponent<NormalAI>().bDeadEnd = true;
         }
+    }
+    IEnumerator DemageEff()
+    {
+        Material m = FindInChild("Model").GetComponentInChildren<SkinnedMeshRenderer>().material;
+        m.mainTextureScale = new Vector2(0, 0);
+        yield return new WaitForSeconds(0.1f);
+        m.mainTextureScale = new Vector2(1, 1);
+
     }
 }

@@ -12,7 +12,7 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "MELEE_1"
+			  "MELEE_2"
 			]
 		},
 		"ARCHER": {
@@ -87,7 +87,7 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "RANGE_1"
+			  "MELEE_2"
 			]
 		},
 		"DEATHKNIGHT": {
@@ -102,7 +102,7 @@
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "MELEE_1"
+			  "MELEE_2"
 			]
 		},
 		"DRAGON": {
@@ -140,14 +140,14 @@
 			"HP": 120,
 			"ATTACK": 41,
 			"COST": 8,
-			"SPEED": 1,
+			"SPEED": 0.5,
 			"RANGE": 5,
 			"TARGET": "GOURNDAIR",
 			"COUNT": 2,
 			"TRANSPORT": "GROUND",
 			"TYPE": "UNIT",
 			"SKILL": [
-			  "RANGE_1"
+			  "MELEE_2"
 			]
 		},
 		"SKELETON": {
@@ -165,9 +165,9 @@
 			  "MELEE_1"
 			]
 		},
-		"CHARACTER_1": {
+		"Castle_King": {
 			"LEVEL": 1,
-			"HP": 6600,
+			"HP": 100,
 			"ATTACK": 75,
 			"COST": 3,
 			"SPEED": 1,
@@ -180,9 +180,9 @@
 			  "MELEE_1"
 			]
 		},
-		"CHARACTER_2": {
+		"Castle_Tower": {
 			"LEVEL": 1,
-			"HP": 6600,
+			"HP": 100,
 			"ATTACK": 75,
 			"COST": 3,
 			"SPEED": 1,

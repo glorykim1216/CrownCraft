@@ -35,10 +35,6 @@ public partial class GameClient : MonoSingleton<GameClient>
 
     State m_state = State.Standby;
 
-    public override void Init()
-    {
-    }
-
     // Use this for initialization
     void Start()
     {
@@ -49,6 +45,9 @@ public partial class GameClient : MonoSingleton<GameClient>
             if (result == 0) // ok
             {
                 m_state = State.InVille;
+
+                // 게임시작 초기화
+                //IsGameOver = false;
             }
             else
             {

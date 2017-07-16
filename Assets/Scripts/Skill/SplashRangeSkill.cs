@@ -19,7 +19,7 @@ public class SplashRangeSkill : BaseSkill
     public override void UpdateSkill()
     {
         StackTime += Time.deltaTime;
-        if (StackTime >= 0.5f)
+        if (StackTime >= 1f)
         {
             END = true;
         }

@@ -11,6 +11,10 @@ public class SkillManager : MonoSingleton<SkillManager>
 
     Dictionary<eSkillModelType, GameObject> DicModel = new Dictionary<eSkillModelType, GameObject>();
 
+    public override void Init()
+    {
+    }
+
     private void Awake()
     {
         LoadSkillData(ConstValue.SkillDataPath);
