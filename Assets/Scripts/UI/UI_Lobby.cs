@@ -18,8 +18,10 @@ public class UI_Lobby : BaseObject
     // BattleStart Btn
     UIButton BattleStartBtn = null;
 
-    ////////////////////////////////////////////
-    //PlayerDeck PlayerDeck = null;
+	////////////////////////////////////////////
+	//PlayerDeck PlayerDeck = null;
+
+	float dTime;
 
     // Coin
     UILabel CoinLabel;
@@ -112,6 +114,8 @@ public class UI_Lobby : BaseObject
 
     private void Update()
     {
+		dTime += Time.deltaTime;
+
         CoinLabel.text = PlayerPrefs.GetInt("Test").ToString();
         TrophyLabel.text = PlayerPrefs.GetInt("Test2").ToString();
     }
@@ -119,7 +123,8 @@ public class UI_Lobby : BaseObject
     void CardGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
-        trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
+		StartCoroutine(PageChange(transform.localPosition, new Vector3(720.0f, 0f, 0f), dTime));
+        //trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(-720.0f, 0.0f);
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         boxOpenEff.gameObject.SetActive(false);
@@ -128,7 +133,8 @@ public class UI_Lobby : BaseObject
     void BattleGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
-        trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+		StartCoroutine(PageChange(transform.localPosition, new Vector3(0f, 0f, 0f), dTime));
+		//trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(0.0f, 0.0f);
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         boxOpenEff.gameObject.SetActive(false);
@@ -137,8 +143,9 @@ public class UI_Lobby : BaseObject
     void GachaGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
-        trans.localPosition = new Vector3(-720.0f, 0.0f, 0.0f);
-        trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
+		StartCoroutine(PageChange(transform.localPosition, new Vector3(-720.0f, 0f, 0f), dTime));
+		//trans.localPosition = new Vector3(-720.0f, 0.0f, 0.0f);
+		trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
 
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         boxOpenEff.gameObject.SetActive(false);
@@ -146,6 +153,8 @@ public class UI_Lobby : BaseObject
 
     void BoxOpen()
     {
+		CardManager.Instance.Gacha();
+
         //Test--------------------------------------------------
         CoinValue = PlayerPrefs.GetInt("CoinValue");
         test1 = CoinValue++;
@@ -160,6 +169,22 @@ public class UI_Lobby : BaseObject
 
         StartCoroutine(BoxOpenEff());
     }
+
+	 IEnumerator PageChange(Vector3 orgPos, Vector3 targetPos, float dTime)
+	{
+		float delta = 0f;
+		float time = 1f;
+		Transform trans = FindInChild("LOBBYGROUND");
+		while (delta <= time)
+		{
+			trans.localPosition = NGUIMath.SpringLerp(orgPos, targetPos, 10f, delta);
+			delta += Time.deltaTime;
+			yield return new WaitForEndOfFrame();
+		}
+
+		
+
+	}
 
     IEnumerator BoxOpenEff()
     {
