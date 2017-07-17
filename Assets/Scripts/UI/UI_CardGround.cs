@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class UI_CardGround : BaseObject
+public class UI_CardGround : MonoSingleton<UI_CardGround>
 {
 	bool IsEditMode = false;
 
@@ -16,6 +16,9 @@ public class UI_CardGround : BaseObject
 	int OrgSlotNumber = 0;
 	string OrgCardKey = string.Empty;
 
+	public override void Init()
+	{
+	}
 	void Start()
 	{
 		PlayerDeck = CardManager.Instance.PLAYERDECK;

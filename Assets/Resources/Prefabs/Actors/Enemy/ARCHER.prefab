@@ -1959,7 +1959,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1169412406231220}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: -0.4, y: 0.92, z: 0}
+  m_LocalPosition: {x: -0.4, y: 0.9, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4147561519870378}
@@ -2105,7 +2105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1788834534657842}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: 0.4, y: 0.92, z: 0}
+  m_LocalPosition: {x: 0.4, y: 0.9, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4144609660822474}
@@ -2649,6 +2649,7 @@ MonoBehaviour:
   TeamType: 1
   TemplateKey: ARCHER
   bEnableBoard: 1
+  Tower: {fileID: 0}
 --- !u!114 &114576981580543840
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2663,6 +2664,7 @@ MonoBehaviour:
   TeamType: 1
   TemplateKey: ARCHER
   bEnableBoard: 1
+  Tower: {fileID: 0}
 --- !u!136 &136201563115503546
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -270,7 +270,7 @@ public class Actor : BaseObject
 
     public void OnDisable()
     {
-        if (BoardManager.Instance != null && GameManager.Instance.GAME_OVER == false)
+        if (GameManager.Instance.GAME_OVER == false && BoardManager.Instance != null )
             BoardManager.Instance.ShowBoard(this, false);
     }
 
@@ -284,6 +284,7 @@ public class Actor : BaseObject
         {
             ActorManager.Instance.RemoveActor(this);
         }
+        Debug.Log("OnDestroy_Actor" + TemplateKey);
     }
 
     private void OnTriggerEnter(Collider other)
