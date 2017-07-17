@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class UI_Lobby : BaseObject
 {
+	public Transform OriginalTransform;
     // LobbyIcon Btn
     UIButton CardBtn = null;
     UIButton BattleBtn = null;
@@ -123,7 +124,7 @@ public class UI_Lobby : BaseObject
     void CardGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
-		StartCoroutine(PageChange(transform.localPosition, new Vector3(720.0f, 0f, 0f), dTime));
+		StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(720.0f, 0f, 0f), dTime));
         //trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(-720.0f, 0.0f);
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
@@ -133,7 +134,7 @@ public class UI_Lobby : BaseObject
     void BattleGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
-		StartCoroutine(PageChange(transform.localPosition, new Vector3(0f, 0f, 0f), dTime));
+		StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(0f, 0f, 0f), dTime));
 		//trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(0.0f, 0.0f);
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
@@ -143,7 +144,7 @@ public class UI_Lobby : BaseObject
     void GachaGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
-		StartCoroutine(PageChange(transform.localPosition, new Vector3(-720.0f, 0f, 0f), dTime));
+		StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(-720.0f, 0f, 0f), dTime));
 		//trans.localPosition = new Vector3(-720.0f, 0.0f, 0.0f);
 		trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
 
@@ -154,7 +155,7 @@ public class UI_Lobby : BaseObject
     void BoxOpen()
     {
 		CardManager.Instance.Gacha();
-
+		UI_CardGround.Instance.UpdateCardGround();
         //Test--------------------------------------------------
         CoinValue = PlayerPrefs.GetInt("CoinValue");
         test1 = CoinValue++;

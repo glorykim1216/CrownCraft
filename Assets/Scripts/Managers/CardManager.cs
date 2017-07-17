@@ -144,9 +144,9 @@ public class CardManager : MonoSingleton<CardManager>
 		
 		popup.Init(tempCardKey);
 
-
-
 		popup.transform.SetParent(GameObject.Find("GachaGround").transform);
+
+
 		//go.GetComponent<UI_Gacha>().Init(instance);
 	}
 
