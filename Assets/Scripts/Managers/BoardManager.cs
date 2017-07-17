@@ -7,11 +7,7 @@ public class BoardManager : MonoSingleton<BoardManager>
     Dictionary<BaseObject, List<BaseBoard>> DicBoard = new Dictionary<BaseObject, List<BaseBoard>>();
     GameObject BoardUI = null;
 
-    public override void Init()
-    {
-    }
-
-    private void Awake()
+    public void Load()
     {
         // BoardUI GameObject  Create -> UIRoot Child Set
         if (BoardUI == null)

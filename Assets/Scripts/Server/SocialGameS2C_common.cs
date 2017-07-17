@@ -14,10 +14,12 @@ namespace SocialGameS2C
 	{
 		// Message ID that replies to each RMI method. 
 			public const Nettention.Proud.RmiID ReplyLogon = (Nettention.Proud.RmiID)4000+1;
-			public const Nettention.Proud.RmiID NotifyAddUnit = (Nettention.Proud.RmiID)4000+2;
+			public const Nettention.Proud.RmiID NotifyStart = (Nettention.Proud.RmiID)4000+2;
+			public const Nettention.Proud.RmiID NotifyAddUnit = (Nettention.Proud.RmiID)4000+3;
 		// List that has RMI ID.
 		public static Nettention.Proud.RmiID[] RmiIDList = new Nettention.Proud.RmiID[] {
 			ReplyLogon,
+			NotifyStart,
 			NotifyAddUnit,
 		};
 	}

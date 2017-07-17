@@ -43,14 +43,39 @@ SngClient.Marshaler.Write(__msg, comment);
 	return RmiSend(remotes,rmiContext,__msg,
 		RmiName_ReplyLogon, Common.ReplyLogon);
 }
-public bool NotifyAddUnit(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position, string name)
+public bool NotifyStart(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID)
+{
+	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
+		__msg.SimplePacketMode = core.IsSimplePacketMode();
+		Nettention.Proud.RmiID __msgid= Common.NotifyStart;
+		__msg.Write(__msgid);
+		SngClient.Marshaler.Write(__msg, groupID);
+		
+	Nettention.Proud.HostID[] __list = new Nettention.Proud.HostID[1];
+	__list[0] = remote;
+		
+	return RmiSend(__list,rmiContext,__msg,
+		RmiName_NotifyStart, Common.NotifyStart);
+}
+
+public bool NotifyStart(Nettention.Proud.HostID[] remotes,Nettention.Proud.RmiContext rmiContext, int groupID)
+{
+	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
+__msg.SimplePacketMode = core.IsSimplePacketMode();
+Nettention.Proud.RmiID __msgid= Common.NotifyStart;
+__msg.Write(__msgid);
+SngClient.Marshaler.Write(__msg, groupID);
+		
+	return RmiSend(remotes,rmiContext,__msg,
+		RmiName_NotifyStart, Common.NotifyStart);
+}
+public bool NotifyAddUnit(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, UnityEngine.Vector3 position, string name)
 {
 	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
 		__msg.SimplePacketMode = core.IsSimplePacketMode();
 		Nettention.Proud.RmiID __msgid= Common.NotifyAddUnit;
 		__msg.Write(__msgid);
 		SngClient.Marshaler.Write(__msg, groupID);
-		SngClient.Marshaler.Write(__msg, treeID);
 		SngClient.Marshaler.Write(__msg, position);
 		SngClient.Marshaler.Write(__msg, name);
 		
@@ -61,14 +86,13 @@ public bool NotifyAddUnit(Nettention.Proud.HostID remote,Nettention.Proud.RmiCon
 		RmiName_NotifyAddUnit, Common.NotifyAddUnit);
 }
 
-public bool NotifyAddUnit(Nettention.Proud.HostID[] remotes,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position, string name)
+public bool NotifyAddUnit(Nettention.Proud.HostID[] remotes,Nettention.Proud.RmiContext rmiContext, int groupID, UnityEngine.Vector3 position, string name)
 {
 	Nettention.Proud.Message __msg=new Nettention.Proud.Message();
 __msg.SimplePacketMode = core.IsSimplePacketMode();
 Nettention.Proud.RmiID __msgid= Common.NotifyAddUnit;
 __msg.Write(__msgid);
 SngClient.Marshaler.Write(__msg, groupID);
-SngClient.Marshaler.Write(__msg, treeID);
 SngClient.Marshaler.Write(__msg, position);
 SngClient.Marshaler.Write(__msg, name);
 		
@@ -78,6 +102,7 @@ SngClient.Marshaler.Write(__msg, name);
 // RMI name declaration.
 // It is the unique pointer that indicates RMI name such as RMI profiler.
 const string RmiName_ReplyLogon="ReplyLogon";
+const string RmiName_NotifyStart="NotifyStart";
 const string RmiName_NotifyAddUnit="NotifyAddUnit";
        
 const string RmiName_First = RmiName_ReplyLogon;

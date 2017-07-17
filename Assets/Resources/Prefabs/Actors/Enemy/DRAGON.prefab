@@ -1980,7 +1980,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1014987742310846}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000004371139}
-  m_LocalPosition: {x: -2.55, y: 0.92, z: 1.46}
+  m_LocalPosition: {x: -2.55, y: 0.9, z: 1.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4059265065210756}
@@ -2643,6 +2643,7 @@ MonoBehaviour:
   TeamType: 1
   TemplateKey: DRAGON
   bEnableBoard: 1
+  Tower: {fileID: 0}
 --- !u!136 &136493211990529338
 CapsuleCollider:
   m_ObjectHideFlags: 1
