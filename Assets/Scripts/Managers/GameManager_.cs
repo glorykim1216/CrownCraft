@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoSingleton<GameManager>
+public class GameManager_ : MonoSingleton<GameManager_>
 {
-    bool IsGameOver = false;
+    bool IsGameOver = true;
     public bool GAME_OVER { get { return IsGameOver; } }
 
     float mana = 0.5f;
@@ -24,10 +24,15 @@ public class GameManager : MonoSingleton<GameManager>
     public int PlayerTowerDestroyCount = 0;
 
     // Use this for initialization
-    void Start()
-    {
-        IsGameOver = false;
-    }
+    //void Start()
+    //{
+    //    IsGameOver = false;
+    //}
+    //public override void Init()
+    //{
+    //    base.Init();
+    //}
+
     public void LoadGame()
     {
         IsGameOver = false;

@@ -3,7 +3,7 @@ using System.Collections;
 using Nettention.Proud;
 
 
-public partial class GameClient : MonoSingleton<GameClient>
+public partial class GameManager : MonoSingleton<GameManager>
 {
 
     string m_serverAddr = "127.0.0.1";
@@ -35,6 +35,13 @@ public partial class GameClient : MonoSingleton<GameClient>
 
     State m_state = State.Standby;
 
+    public void LoadGame()
+    {
+        IsGameOver = false;
+        mana = 0.5f;
+        EnemyTowerDestroyCount = 0;
+        PlayerTowerDestroyCount = 0;
+    }
     // Use this for initialization
     void Start()
     {
@@ -47,7 +54,7 @@ public partial class GameClient : MonoSingleton<GameClient>
                 m_state = State.InVille;
 
                 // 게임시작 초기화
-                //IsGameOver = false;
+                // 둘다접속시 씬전환을 시킴.
             }
             else
             {
@@ -57,7 +64,23 @@ public partial class GameClient : MonoSingleton<GameClient>
             return true;
         };
 
+        m_S2CStub.NotifyStart = (Nettention.Proud.HostID remote, Nettention.Proud.RmiContext rmiContext, int groupID) =>
+        {
+            if ((int)m_myP2PGroupID == groupID)
+            {
+                Scene_Manager.Instance.LoadScene(eSceneType.test);
+            }
+            return true;
+        };
+
         Start_InVilleRmiStub();
+    }
+
+    public void GoToLobby()
+    {
+        m_netClient.Disconnect();
+        m_netClient = new NetClient();
+        //m_netClient.Dispose();
     }
 
     // Update is called once per frame
@@ -68,60 +91,74 @@ public partial class GameClient : MonoSingleton<GameClient>
         switch (m_state)
         {
             case State.InVille:
-                Update_InVille();
+                //Update_InVille();
                 break;
         }
+
+        if (IsGameOver == true)
+            return;
+
+        if (EnemyTowerDestroyCount >= 3 || PlayerTowerDestroyCount >= 3)
+        {
+            IsGameOver = true;
+            Debug.Log("끝");
+            UI_Manager.Instance.LoadGameOverUI(EnemyTowerDestroyCount, PlayerTowerDestroyCount);
+        }
+
+        MANA += Time.deltaTime * 0.05f;
+        UI_Manager.Instance.SetMana(MANA);
     }
 
     override public void OnDestroy()
     {
+        //base.OnDestroy();
         m_netClient.Dispose();
     }
 
-    public void OnGUI()
-    {
-        switch (m_state)
-        {
-            case State.Standby:
-            case State.Connecting:
-            case State.LoggingOn:
-                OnGUI_Logon();
-                break;
-            case State.InVille:
-                OnGUI_InVille();
-                break;
-            case State.Failed:
-                GUI.Label(new Rect(10, 30, 200, 80), m_failMessage);
-                if (GUI.Button(new Rect(10, 100, 180, 30), "Quit"))
-                {
-                    Application.Quit();
-                }
-                break;
-        }
+    //public void OnGUI()
+    //{
+    //    switch (m_state)
+    //    {
+    //        case State.Standby:
+    //        case State.Connecting:
+    //        case State.LoggingOn:
+    //            OnGUI_Logon();
+    //            break;
+    //        case State.InVille:
+    //            OnGUI_InVille();
+    //            break;
+    //        case State.Failed:
+    //            GUI.Label(new Rect(10, 30, 200, 80), m_failMessage);
+    //            if (GUI.Button(new Rect(10, 100, 180, 30), "Quit"))
+    //            {
+    //                Application.Quit();
+    //            }
+    //            break;
+    //    }
 
-    }
+    //}
 
-    void OnGUI_Logon()
-    {
-        GUI.Label(new Rect(10, 10, 300, 70), "ProudNet sample: \nA Quite Basic Realtime social Ville");
-        GUI.Label(new Rect(10, 60, 180, 30), "Server Address");
-        m_serverAddr = GUI.TextField(new Rect(10, 80, 180, 30), m_serverAddr);
-        GUI.Label(new Rect(10, 110, 180, 30), "World Name");
-        m_villeName = GUI.TextField(new Rect(10, 130, 180, 30), m_villeName);
+    //void OnGUI_Logon()
+    //{
+    //    GUI.Label(new Rect(10, 10, 300, 70), "ProudNet sample: \nA Quite Basic Realtime social Ville");
+    //    GUI.Label(new Rect(10, 60, 180, 30), "Server Address");
+    //    m_serverAddr = GUI.TextField(new Rect(10, 80, 180, 30), m_serverAddr);
+    //    GUI.Label(new Rect(10, 110, 180, 30), "World Name");
+    //    m_villeName = GUI.TextField(new Rect(10, 130, 180, 30), m_villeName);
 
-        // if button is clicked
-        if (GUI.Button(new Rect(10, 190, 100, 30), m_loginButtonText))
-        {
-            if (m_state == State.Standby)
-            {
-                m_state = State.Connecting;
-                m_loginButtonText = "Connecting...";
-                IssueConnect(); // attemp to connect and logon
-            }
-        }
-    }
+    //    // if button is clicked
+    //    if (GUI.Button(new Rect(10, 190, 100, 30), m_loginButtonText))
+    //    {
+    //        if (m_state == State.Standby)
+    //        {
+    //            m_state = State.Connecting;
+    //            m_loginButtonText = "Connecting...";
+    //            IssueConnect(); // attemp to connect and logon///////////////////////////////////////////////////////////////////////
+    //        }
+    //    }
+    //}
 
-    private void IssueConnect()
+    public void IssueConnect()
     {
         // prepare network client
         m_netClient.AttachProxy(m_C2SProxy);

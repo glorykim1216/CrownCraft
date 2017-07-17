@@ -145,7 +145,7 @@ public class CardDrag : BaseObject
 
                         //--------------------------------------------------------------------------------------------------
                         // 서버에 생성을 알림
-                        GameClient.Instance.AddUnit(_pos, spriteName);
+                        GameManager.Instance.AddUnit(_pos, spriteName);
                         
                         UI_Manager.Instance.MoveCard(OrgPos, spriteName);
                         gameObject.SetActive(false);
