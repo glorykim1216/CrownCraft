@@ -247,6 +247,8 @@ public class Actor : BaseObject
                         GameManager.Instance.EnemyTowerDestroyCount++;
                     }
                 }
+
+                UI_Manager.Instance.ScoreUpdate(GameManager.Instance.EnemyTowerDestroyCount, GameManager.Instance.PlayerTowerDestroyCount);
             }
         }
     }

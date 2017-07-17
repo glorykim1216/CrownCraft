@@ -19,10 +19,12 @@ public class UI_Lobby : BaseObject
 	// BattleStart Btn
 	UIButton BattleStartBtn = null;
 
-	////////////////////////////////////////////
-	//PlayerDeck PlayerDeck = null;
+    Transform serverConnect = null;
 
-	float dTime;
+    ////////////////////////////////////////////
+    //PlayerDeck PlayerDeck = null;
+
+    float dTime;
 
 	// Coin
 	UILabel CoinLabel;
@@ -111,7 +113,10 @@ public class UI_Lobby : BaseObject
 		//------------------------------------------------------
 		TrophyLabel = FindInChild("Trophy").FindChild("Text").GetComponent<UILabel>();
 		PlayerPrefs.GetInt("Test2").ToString();
-	}
+
+        // Server Connect
+        serverConnect = FindInChild("serverConnect");
+    }
 
 	private void Update()
 	{
@@ -196,8 +201,11 @@ public class UI_Lobby : BaseObject
 
 	void BattleStart()
 	{
-		Scene_Manager.Instance.LoadScene(eSceneType.test);
-	}
+        serverConnect.gameObject.SetActive(true);
+        GameManager.Instance.IssueConnect();
+        //Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
+
+    }
 
 
 }
