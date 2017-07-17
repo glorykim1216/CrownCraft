@@ -60,7 +60,7 @@ public class UI_Card : BaseObject
 		CardImage.spriteName = TemplateKey;
 		int tempLevel;
 		CardManager.Instance.DIC_CARDLEVEL.TryGetValue(TemplateKey, out tempLevel);
-		CardLevel.text = tempLevel.ToString()+" LEVEL"; 
+		CardLevel.text = tempLevel.ToString() + " LEVEL";
 		CardMana.text = CharacterData.CHARACTER_STATUS.GetStatusData(eStatusData.COST).ToString();
 	}
 

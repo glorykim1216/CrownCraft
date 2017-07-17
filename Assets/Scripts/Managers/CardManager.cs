@@ -69,7 +69,7 @@ public class CardManager : MonoSingleton<CardManager>
 
 		return tempList;
 	}
-	public int  GetCardLevel(int index)
+	public int GetCardLevel(int index)
 	{
 		int tempLevel = 0;
 
@@ -96,7 +96,7 @@ public class CardManager : MonoSingleton<CardManager>
 			playerDeck.Add(detail[0]);
 
 
-			DicCardLevel.Add(detail[0],int.Parse( detail[1]));		//	TryGetValue(detail[0],out tempLevel);		//	(int.Parse(detail[1]));
+			DicCardLevel.Add(detail[0], int.Parse(detail[1]));      //	TryGetValue(detail[0],out tempLevel);		//	(int.Parse(detail[1]));
 
 		}
 
@@ -128,8 +128,8 @@ public class CardManager : MonoSingleton<CardManager>
 	{
 		string tempCardKey = null;
 		int tempInt = 0;
-		
-		int no = Random.Range(0, DicCardLevel.Count );
+
+		int no = Random.Range(0, DicCardLevel.Count);
 		tempCardKey = ((eActor)no).ToString();
 
 		DicCardLevel.TryGetValue(tempCardKey, out tempInt);
@@ -138,10 +138,10 @@ public class CardManager : MonoSingleton<CardManager>
 		SetLocalData();
 
 		//// 가챠 UI
-		
+
 		GameObject go = UI_Tools.Instance.ShowUI(eUIType.PF_UI_GACHA);
 		UI_Gacha popup = go.GetComponent<UI_Gacha>();
-		
+
 		popup.Init(tempCardKey);
 
 		popup.transform.SetParent(GameObject.Find("GachaGround").transform);
