@@ -94,11 +94,14 @@ public class Scene_Manager : MonoSingleton<Scene_Manager>
             case eSceneType.SCENE_LOBBY:
                 {
                     LobbyManager.Instance.LoadLobby();
-					
                 }
                 break;
             case eSceneType.test:
-                GameManager.Instance.LoadGame();
+                {
+                    GameManager.Instance.LoadGame();
+                    UI_Manager.Instance.Load();
+                    BoardManager.Instance.Load();
+                }
                 break;
             default:
                 break;
@@ -120,6 +123,8 @@ public class Scene_Manager : MonoSingleton<Scene_Manager>
                 LobbyManager.Instance.DisableLobby();
                 break;
             case eSceneType.test:
+                //ActorManager.Instance.Clear();
+                GameManager.Instance.GoToLobby();
                 break;
             default:
                 break;

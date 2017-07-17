@@ -14,57 +14,61 @@ public class ActorManager : MonoSingleton<ActorManager>
     Dictionary<eMonsterType, GameObject> DicMonsterPrefab = new Dictionary<eMonsterType, GameObject>();
 
 
-    private void Awake()
-    {
+    //private void Awake()
+    //{
         //MonsterPrefabInit();
-    }
+    //}
 
-    void MonsterPrefabInit()
+    //void MonsterPrefabInit()
+    //{
+    //    for (int i = 0; i < (int)eMonsterType.MAX; i++)
+    //    {
+    //        GameObject go = Resources.Load("Prefabs/" + ((eMonsterType)i).ToString("F")) as GameObject;
+    //        if (go == null)
+    //        {
+    //            Debug.LogError(((eMonsterType)i).ToString("F") + " Load Failed"); // ToString("F") -> enum 문자형 그대로 가져옴
+    //        }
+    //        else
+    //            DicMonsterPrefab.Add((eMonsterType)i, go);
+    //    }
+    //}
+
+    //public GameObject GetMonsterPrefab(eMonsterType type)
+    //{
+    //    if (DicMonsterPrefab.ContainsKey(type) == true)
+    //    {
+    //        return DicMonsterPrefab[type];
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError(type.ToString() + "타입의 몬스터 프리팹이 없습니다.");
+    //        return null;
+    //    }
+    //}
+
+    //public Actor InstantiateOnce(GameObject prefab, Vector3 pos)
+    //{
+    //    if (prefab == null)
+    //    {
+    //        Debug.LogError("prefab is null [ActorManager.Instantiate()]");
+    //        return null;
+    //    }
+
+    //    GameObject go = Instantiate(prefab, pos, Quaternion.identity) as GameObject;
+
+    //    if (ActorRoot == null)
+    //    {
+    //        GameObject temp = new GameObject();
+    //        temp.name = "ActorRoot";
+    //        ActorRoot = temp.transform;
+    //    }
+
+    //    go.transform.SetParent(ActorRoot);
+    //    return go.GetComponent<Actor>();
+    //}
+    public void Clear()
     {
-        for (int i = 0; i < (int)eMonsterType.MAX; i++)
-        {
-            GameObject go = Resources.Load("Prefabs/" + ((eMonsterType)i).ToString("F")) as GameObject;
-            if (go == null)
-            {
-                Debug.LogError(((eMonsterType)i).ToString("F") + " Load Failed"); // ToString("F") -> enum 문자형 그대로 가져옴
-            }
-            else
-                DicMonsterPrefab.Add((eMonsterType)i, go);
-        }
-    }
-
-    public GameObject GetMonsterPrefab(eMonsterType type)
-    {
-        if (DicMonsterPrefab.ContainsKey(type) == true)
-        {
-            return DicMonsterPrefab[type];
-        }
-        else
-        {
-            Debug.LogError(type.ToString() + "타입의 몬스터 프리팹이 없습니다.");
-            return null;
-        }
-    }
-
-    public Actor InstantiateOnce(GameObject prefab, Vector3 pos)
-    {
-        if (prefab == null)
-        {
-            Debug.LogError("prefab is null [ActorManager.Instantiate()]");
-            return null;
-        }
-
-        GameObject go = Instantiate(prefab, pos, Quaternion.identity) as GameObject;
-
-        if (ActorRoot == null)
-        {
-            GameObject temp = new GameObject();
-            temp.name = "ActorRoot";
-            ActorRoot = temp.transform;
-        }
-
-        go.transform.SetParent(ActorRoot);
-        return go.GetComponent<Actor>();
+        DicActor.Clear();
     }
 
     public void AddActor(Actor actor)
@@ -180,14 +184,5 @@ public class ActorManager : MonoSingleton<ActorManager>
             }
         }
         return nearActor;
-    }
-
-    public Actor PlayerLoad()
-    {
-        GameObject playerPrefab = Resources.Load("Prefabs/Actor/Player") as GameObject;
-
-        GameObject go = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity) as GameObject;
-
-        return go.GetComponent<Actor>();
     }
 }

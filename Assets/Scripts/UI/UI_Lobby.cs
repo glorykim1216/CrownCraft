@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class UI_Lobby : BaseObject
 {
-	public Transform OriginalTransform;
     // LobbyIcon Btn
     UIButton CardBtn = null;
     UIButton BattleBtn = null;
@@ -19,10 +18,9 @@ public class UI_Lobby : BaseObject
     // BattleStart Btn
     UIButton BattleStartBtn = null;
 
-	////////////////////////////////////////////
-	//PlayerDeck PlayerDeck = null;
-
-	float dTime;
+    Transform serverConnect = null;
+    ////////////////////////////////////////////
+    //PlayerDeck PlayerDeck = null;
 
     // Coin
     UILabel CoinLabel;
@@ -111,12 +109,13 @@ public class UI_Lobby : BaseObject
         //------------------------------------------------------
         TrophyLabel = FindInChild("Trophy").FindChild("Text").GetComponent<UILabel>();
         PlayerPrefs.GetInt("Test2").ToString();
+
+        //
+        serverConnect = FindInChild("serverConnect");
     }
 
     private void Update()
     {
-		dTime += Time.deltaTime;
-
         CoinLabel.text = PlayerPrefs.GetInt("Test").ToString();
         TrophyLabel.text = PlayerPrefs.GetInt("Test2").ToString();
     }
@@ -124,8 +123,7 @@ public class UI_Lobby : BaseObject
     void CardGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
-		StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(720.0f, 0f, 0f), dTime));
-        //trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
+        trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(-720.0f, 0.0f);
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         boxOpenEff.gameObject.SetActive(false);
@@ -134,8 +132,7 @@ public class UI_Lobby : BaseObject
     void BattleGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
-		StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(0f, 0f, 0f), dTime));
-		//trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+        trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
         trans.GetComponent<UIPanel>().clipOffset = new Vector2(0.0f, 0.0f);
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         boxOpenEff.gameObject.SetActive(false);
@@ -144,9 +141,8 @@ public class UI_Lobby : BaseObject
     void GachaGround()
     {
         Transform trans = FindInChild("LOBBYGROUND");
-		StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(-720.0f, 0f, 0f), dTime));
-		//trans.localPosition = new Vector3(-720.0f, 0.0f, 0.0f);
-		trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
+        trans.localPosition = new Vector3(-720.0f, 0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
 
         chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
         boxOpenEff.gameObject.SetActive(false);
@@ -154,8 +150,6 @@ public class UI_Lobby : BaseObject
 
     void BoxOpen()
     {
-		CardManager.Instance.Gacha();
-		UI_CardGround.Instance.UpdateCardGround();
         //Test--------------------------------------------------
         CoinValue = PlayerPrefs.GetInt("CoinValue");
         test1 = CoinValue++;
@@ -171,22 +165,6 @@ public class UI_Lobby : BaseObject
         StartCoroutine(BoxOpenEff());
     }
 
-	 IEnumerator PageChange(Vector3 orgPos, Vector3 targetPos, float dTime)
-	{
-		float delta = 0f;
-		float time = 1f;
-		Transform trans = FindInChild("LOBBYGROUND");
-		while (delta <= time)
-		{
-			trans.localPosition = NGUIMath.SpringLerp(orgPos, targetPos, 10f, delta);
-			delta += Time.deltaTime;
-			yield return new WaitForEndOfFrame();
-		}
-
-		
-
-	}
-
     IEnumerator BoxOpenEff()
     {
         boxOpenEff.gameObject.SetActive(true);
@@ -196,7 +174,10 @@ public class UI_Lobby : BaseObject
 
     void BattleStart()
     {
-        Scene_Manager.Instance.LoadScene(eSceneType.test);
+        //Scene_Manager.Instance.LoadScene(eSceneType.test);
+        serverConnect.gameObject.SetActive(true);
+        GameManager.Instance.IssueConnect();
+        //Scene_Manager.Instance.LoadScene(eSceneType.test);
     }
 
 

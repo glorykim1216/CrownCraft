@@ -21,8 +21,13 @@ public BeforeRmiInvocationDelegate BeforeRmiInvocation = delegate(Nettention.Pro
 		{ 
 			return false;
 		};
-		public delegate bool NotifyAddUnitDelegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position, string name);  
-		public NotifyAddUnitDelegate NotifyAddUnit = delegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, int treeID, UnityEngine.Vector3 position, string name)
+		public delegate bool NotifyStartDelegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID);  
+		public NotifyStartDelegate NotifyStart = delegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID)
+		{ 
+			return false;
+		};
+		public delegate bool NotifyAddUnitDelegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, UnityEngine.Vector3 position, string name);  
+		public NotifyAddUnitDelegate NotifyAddUnit = delegate(Nettention.Proud.HostID remote,Nettention.Proud.RmiContext rmiContext, int groupID, UnityEngine.Vector3 position, string name)
 		{ 
 			return false;
 		};
@@ -97,6 +102,57 @@ parameterString+=comment.ToString()+",";
 		}
 	}
 	break;
+case Common.NotifyStart:
+	{
+		Nettention.Proud.RmiContext ctx=new Nettention.Proud.RmiContext();
+		ctx.sentFrom=pa.RemoteHostID;
+		ctx.relayed=pa.IsRelayed;
+		ctx.hostTag=hostTag;
+		ctx.encryptMode = pa.EncryptMode;
+		ctx.compressMode = pa.CompressMode;
+			
+		int groupID; SngClient.Marshaler.Read(__msg,out groupID);	
+core.PostCheckReadMessage(__msg, RmiName_NotifyStart);
+		if(enableNotifyCallFromStub==true)
+		{
+			string parameterString="";
+			parameterString+=groupID.ToString()+",";
+			NotifyCallFromStub(Common.NotifyStart, RmiName_NotifyStart,parameterString);
+		}
+			
+		if(enableStubProfiling)
+		{
+			Nettention.Proud.BeforeRmiSummary summary = new Nettention.Proud.BeforeRmiSummary();
+			summary.rmiID = Common.NotifyStart;
+			summary.rmiName = RmiName_NotifyStart;
+			summary.hostID = remote;
+			summary.hostTag = hostTag;
+			BeforeRmiInvocation(summary);
+		}
+			
+		long t0 = Nettention.Proud.PreciseCurrentTime.GetTimeMs();
+			
+		// Call this method.
+		bool __ret=NotifyStart (remote,ctx , groupID );
+			
+		if(__ret==false)
+		{
+			// Error: RMI function that a user did not create has been called. 
+			core.ShowNotImplementedRmiWarning(RmiName_NotifyStart);
+		}
+			
+		if(enableStubProfiling)
+		{
+			Nettention.Proud.AfterRmiSummary summary = new Nettention.Proud.AfterRmiSummary();
+			summary.rmiID = Common.NotifyStart;
+			summary.rmiName = RmiName_NotifyStart;
+			summary.hostID = remote;
+			summary.hostTag = hostTag;
+			summary.elapsedTime = Nettention.Proud.PreciseCurrentTime.GetTimeMs()-t0;
+			AfterRmiInvocation(summary);
+		}
+	}
+	break;
 case Common.NotifyAddUnit:
 	{
 		Nettention.Proud.RmiContext ctx=new Nettention.Proud.RmiContext();
@@ -107,7 +163,6 @@ case Common.NotifyAddUnit:
 		ctx.compressMode = pa.CompressMode;
 			
 		int groupID; SngClient.Marshaler.Read(__msg,out groupID);	
-int treeID; SngClient.Marshaler.Read(__msg,out treeID);	
 UnityEngine.Vector3 position; SngClient.Marshaler.Read(__msg,out position);	
 string name; SngClient.Marshaler.Read(__msg,out name);	
 core.PostCheckReadMessage(__msg, RmiName_NotifyAddUnit);
@@ -115,7 +170,6 @@ core.PostCheckReadMessage(__msg, RmiName_NotifyAddUnit);
 		{
 			string parameterString="";
 			parameterString+=groupID.ToString()+",";
-parameterString+=treeID.ToString()+",";
 parameterString+=position.ToString()+",";
 parameterString+=name.ToString()+",";
 			NotifyCallFromStub(Common.NotifyAddUnit, RmiName_NotifyAddUnit,parameterString);
@@ -134,7 +188,7 @@ parameterString+=name.ToString()+",";
 		long t0 = Nettention.Proud.PreciseCurrentTime.GetTimeMs();
 			
 		// Call this method.
-		bool __ret=NotifyAddUnit (remote,ctx , groupID, treeID, position, name );
+		bool __ret=NotifyAddUnit (remote,ctx , groupID, position, name );
 			
 		if(__ret==false)
 		{
@@ -167,6 +221,7 @@ __fail:
 // RMI name declaration.
 // It is the unique pointer that indicates RMI name such as RMI profiler.
 const string RmiName_ReplyLogon="ReplyLogon";
+const string RmiName_NotifyStart="NotifyStart";
 const string RmiName_NotifyAddUnit="NotifyAddUnit";
        
 const string RmiName_First = RmiName_ReplyLogon;
