@@ -51,6 +51,8 @@ public class Actor : BaseObject
     [SerializeField]
     GameObject Tower = null;
 
+	// DeathEffect
+	ParticleSystem DeathParticle=null;
 
     private void Awake()
     {
@@ -176,7 +178,9 @@ public class Actor : BaseObject
             //// 죽으면
             if (OBJECT_STATE == eBaseObjectState.STATE_DIE)
             {
-                Debug.Log(gameObject.name + " 죽음!");
+				StartCoroutine(DeathEff());
+
+				Debug.Log(gameObject.name + " 죽음!");
                 //GameManager.Instance.KillCheck(this);
             }
 
@@ -302,4 +306,11 @@ public class Actor : BaseObject
         m.mainTextureScale = new Vector2(1, 1);
 
     }
+	IEnumerator DeathEff()
+	{
+		
+		GameObject particleObj = Instantiate(Resources.Load("Prefabs/DeathEffect"))as GameObject;
+		DeathParticle = (ParticleSystem)particleObj.GetComponent(typeof(ParticleSystem));
+		yield return new WaitForEndOfFrame();
+	}
 }

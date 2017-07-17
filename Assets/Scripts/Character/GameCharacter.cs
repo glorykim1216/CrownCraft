@@ -40,7 +40,9 @@ public class GameCharacter
             CurrentHP = maxHP;
 
         if (CurrentHP == 0)
+		{
             TargetComponenet.OBJECT_STATE = eBaseObjectState.STATE_DIE;
+		}
 
         Debug.Log(CurrentHP);
     }

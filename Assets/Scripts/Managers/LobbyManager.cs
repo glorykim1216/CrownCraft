@@ -10,6 +10,7 @@ public class LobbyManager : MonoSingleton<LobbyManager>
 	public void LoadLobby()
     {
         UI_Tools.Instance.ShowUI(eUIType.PF_UI_LOBBY);
+
     }
 
     public void DisableLobby()
