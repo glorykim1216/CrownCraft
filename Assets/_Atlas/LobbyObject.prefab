@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 8ae5c24a828d9864997b2c102115a158, type: 2}
   mSprites:
   - name: CardIcon
-    x: 1288
-    y: 1683
+    x: 3145
+    y: 3731
     width: 482
     height: 365
     borderLeft: 0
@@ -67,8 +67,8 @@ MonoBehaviour:
     paddingTop: 84
     paddingBottom: 63
   - name: dialog_background1_theme1
-    x: 565
-    y: 1537
+    x: 2049
+    y: 3585
     width: 722
     height: 511
     borderLeft: 0
@@ -80,8 +80,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 6
   - name: icon_49
-    x: 225
-    y: 42
+    x: 2049
+    y: 3409
     width: 57
     height: 56
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 24
   - name: item_bottle2_theme4
-    x: 1488
-    y: 1559
+    x: 2872
+    y: 3372
     width: 88
     height: 123
     borderLeft: 0
@@ -106,8 +106,8 @@ MonoBehaviour:
     paddingTop: 3
     paddingBottom: 2
   - name: item_coin1_theme8
-    x: 0
-    y: 6
+    x: 2049
+    y: 3466
     width: 120
     height: 118
     borderLeft: 0
@@ -119,8 +119,8 @@ MonoBehaviour:
     paddingTop: 6
     paddingBottom: 4
   - name: item_heart1_theme1
-    x: 427
-    y: 241
+    x: 2170
+    y: 3471
     width: 123
     height: 113
     borderLeft: 0
@@ -132,8 +132,8 @@ MonoBehaviour:
     paddingTop: 11
     paddingBottom: 4
   - name: item_magnifier2_theme20
-    x: 121
-    y: 1
+    x: 2529
+    y: 3461
     width: 98
     height: 123
     borderLeft: 0
@@ -145,8 +145,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 0
   - name: item_medal1_theme2
-    x: 1288
-    y: 1562
+    x: 2628
+    y: 3464
     width: 99
     height: 120
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 3
   - name: item_sword1_theme1
-    x: 1577
-    y: 1571
+    x: 2961
+    y: 3384
     width: 95
     height: 111
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 7
   - name: item_sword3_theme1
-    x: 1673
-    y: 1571
+    x: 3145
+    y: 3389
     width: 95
     height: 111
     borderLeft: 0
@@ -184,8 +184,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 7
   - name: item_sword3_theme1_4merge
-    x: 427
-    y: 9
+    x: 2409
+    y: 3472
     width: 119
     height: 112
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 13
     paddingBottom: 3
   - name: item_sword3_theme4
-    x: 1771
-    y: 1937
+    x: 3241
+    y: 3389
     width: 95
     height: 111
     borderLeft: 0
@@ -210,8 +210,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 7
   - name: item_treasurebox2_theme2
-    x: 427
-    y: 122
+    x: 2294
+    y: 3466
     width: 114
     height: 118
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 3
   - name: item_trophy2_theme1
-    x: 1388
-    y: 1570
+    x: 2772
+    y: 3383
     width: 99
     height: 112
     borderLeft: 0
@@ -235,9 +235,22 @@ MonoBehaviour:
     paddingRight: 14
     paddingTop: 12
     paddingBottom: 4
+  - name: LobbyPattern412412
+    x: 0
+    y: 3368
+    width: 2048
+    height: 728
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: LobbyPatton
     x: 0
-    y: 355
+    y: 2521
     width: 564
     height: 846
     borderLeft: 0
@@ -250,7 +263,7 @@ MonoBehaviour:
     paddingBottom: 0
   - name: LobbyPatton2
     x: 0
-    y: 1202
+    y: 1674
     width: 564
     height: 846
     borderLeft: 0
@@ -262,8 +275,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 0
   - name: shooting range
-    x: 0
-    y: 125
+    x: 3145
+    y: 3501
     width: 224
     height: 229
     borderLeft: 0
@@ -275,8 +288,8 @@ MonoBehaviour:
     paddingTop: 144
     paddingBottom: 139
   - name: TransferRate
-    x: 565
-    y: 936
+    x: 2772
+    y: 3496
     width: 372
     height: 600
     borderLeft: 0
@@ -288,8 +301,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 100
   - name: UnitValue
-    x: 225
-    y: 99
+    x: 3370
+    y: 3475
     width: 201
     height: 255
     borderLeft: 0

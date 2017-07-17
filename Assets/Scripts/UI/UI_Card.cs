@@ -27,11 +27,16 @@ public class UI_Card : BaseObject
 
 	UISprite CardImage;
 
+	UILabel CardLevel;
+	UILabel CardMana;
+
 
 	public void Init(string _templatekey)
 	{
 		CharacterData = CharacterManager.Instance.AddCharacter(_templatekey);
 		CardImage = FindInChild("Texture").GetComponent<UISprite>();
+		CardLevel = FindInChild("Level").GetComponent<UILabel>();
+		CardMana = FindInChild("ManaValue").GetComponent<UILabel>();
 		TemplateKey = _templatekey;
 
 	}
@@ -53,6 +58,10 @@ public class UI_Card : BaseObject
 			Debug.LogError("캐릭터 정보가 없습니다.");
 		slotNumber = slotNum;
 		CardImage.spriteName = TemplateKey;
+		int tempLevel;
+		CardManager.Instance.DIC_CARDLEVEL.TryGetValue(TemplateKey, out tempLevel);
+		CardLevel.text = tempLevel.ToString()+" LEVEL"; 
+		CardMana.text = CharacterData.CHARACTER_STATUS.GetStatusData(eStatusData.COST).ToString();
 	}
 
 	void OnClick()

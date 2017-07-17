@@ -111,10 +111,12 @@ public enum eUIType
     PF_UI_POPUP,
     PF_UI_STAGE,
     ChestCamera,
+	PF_UI_GACHA,
     PF_UI_GAME,
     PF_UI_GAMEOVER,
     //PF_UI_INVENTORY,
     //PF_UI_GACHA,
+
 }
 
 public enum eSlotType
