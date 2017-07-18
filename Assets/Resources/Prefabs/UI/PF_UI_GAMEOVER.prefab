@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4641205070451300}
   - component: {fileID: 114661025122154042}
+  - component: {fileID: 114140373682350312}
   m_Layer: 5
   m_Name: Star2
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4596623431000274}
   - component: {fileID: 114755534554743582}
+  - component: {fileID: 114266537054707428}
   m_Layer: 5
   m_Name: Star1
   m_TagString: Untagged
@@ -52,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4537519615371160}
   - component: {fileID: 114763150853321264}
+  - component: {fileID: 114823862082108646}
   m_Layer: 5
   m_Name: Star1
   m_TagString: Untagged
@@ -261,6 +264,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4028474289051572}
   - component: {fileID: 114034804465541050}
+  - component: {fileID: 114581335183405278}
   m_Layer: 5
   m_Name: Star0
   m_TagString: Untagged
@@ -293,6 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4216885086340288}
   - component: {fileID: 114182577327112038}
+  - component: {fileID: 114683009927982922}
   m_Layer: 5
   m_Name: Star2
   m_TagString: Untagged
@@ -324,6 +329,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4943626462462844}
   - component: {fileID: 114650774476260604}
+  - component: {fileID: 114285471112251240}
   m_Layer: 5
   m_Name: Star0
   m_TagString: Untagged
@@ -888,6 +894,17 @@ MonoBehaviour:
   mAtlas: {fileID: 114402867760572818, guid: 04ee6b78ce0854643a66e40c76355970, type: 2}
   mSpriteName: item_star_base_theme12
   mFillCenter: 1
+--- !u!114 &114140373682350312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1021268950127700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267e3116b5a33d9448466d126de945fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114179074479871810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1113,6 +1130,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 260c98bd9867109458fcbad3c2e3e856, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114266537054707428
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1032498004102922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267e3116b5a33d9448466d126de945fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114285471112251240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1825092638354048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267e3116b5a33d9448466d126de945fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114288203345477574
@@ -1516,6 +1555,17 @@ MonoBehaviour:
   mSortingLayerName: 
   mClipOffset: {x: 0, y: 0}
   useSortingOrder: 0
+--- !u!114 &114581335183405278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1676499243049390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267e3116b5a33d9448466d126de945fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114650774476260604
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1624,6 +1674,17 @@ MonoBehaviour:
   mAtlas: {fileID: 114402867760572818, guid: 04ee6b78ce0854643a66e40c76355970, type: 2}
   mSpriteName: item_star1_theme8
   mFillCenter: 1
+--- !u!114 &114683009927982922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755432356173470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267e3116b5a33d9448466d126de945fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114735018405198110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1800,6 +1861,17 @@ MonoBehaviour:
   mAtlas: {fileID: 114402867760572818, guid: 04ee6b78ce0854643a66e40c76355970, type: 2}
   mSpriteName: item_star1_theme8
   mFillCenter: 1
+--- !u!114 &114823862082108646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1052077081466964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267e3116b5a33d9448466d126de945fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114913319172908666
 MonoBehaviour:
   m_ObjectHideFlags: 1
