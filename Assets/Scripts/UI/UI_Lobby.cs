@@ -188,14 +188,13 @@ public class UI_Lobby : BaseObject
     {
         CoinLabel.text = PlayerPrefs.GetInt("CoinValue").ToString();
         TrophyLabel.text = PlayerPrefs.GetInt("TrophyValue").ToString();
+        TrophyValue = PlayerPrefs.GetInt("TrophyValue");
 
-        MedalValue = PlayerPrefs.GetInt("MedalValue");
-        // 렙업
-        if (TrophyValue % 20 == 0)
-        {
+        MedalValue = TrophyValue / 30;
+        if (MedalValue == 0)
             MedalValue++;
-            PlayerPrefs.SetInt("MedalValue", MedalValue);
-        }
+        PlayerPrefs.SetInt("MedalValue", MedalValue);
+
         MedalLabel.text = PlayerPrefs.GetInt("MedalValue").ToString();
     }
 
@@ -223,7 +222,7 @@ public class UI_Lobby : BaseObject
     {
         serverConnect.gameObject.SetActive(true);
         GameManager.Instance.IssueConnect();
-        //Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
+        Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
     }
 
     void GachaFail()
