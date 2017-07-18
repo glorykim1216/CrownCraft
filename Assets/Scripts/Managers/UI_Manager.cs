@@ -7,6 +7,10 @@ public class UI_Manager : MonoSingleton<UI_Manager>
     UI_CardDeck CardDeckUI;
     UI_ManaBar manaBarUI;
 
+    public UILabel RedLabel;
+    public UILabel BlueLabel;
+    public UILabel Time;
+
     public override void Init()
     {
     }
@@ -38,5 +42,19 @@ public class UI_Manager : MonoSingleton<UI_Manager>
     {
         GameObject GameOverUI = UI_Tools.Instance.ShowUI(eUIType.PF_UI_GAMEOVER);
         GameOverUI.GetComponent<UI_GameOver>().Result(EnemyTowerDestroyCount, PlayerTowerDestroyCount);
+    }
+
+    public void ScoreUpdate(int red, int blue)
+    {
+        RedLabel.text = red.ToString();
+        BlueLabel.text = blue.ToString();
+    }
+
+    public void LimitTime(float _time)
+    {
+        int minute = (int)_time/60;
+        int second = (int)_time%60;
+
+        Time.text = string.Format("{0:00} : {1:00}", minute, second);
     }
 }

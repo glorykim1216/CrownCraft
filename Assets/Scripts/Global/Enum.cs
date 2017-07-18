@@ -95,8 +95,7 @@ public enum eSceneType
     SCENE_NONE,
     SCENE_LOGO,
     SCENE_LOBBY,
-    test,
-    //SCENE_GAME,
+    SCENE_GAME,
 }
 
 public enum eUIType
