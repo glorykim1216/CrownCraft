@@ -73,13 +73,13 @@ public class UI_CardDeck : BaseObject
     public void CreateNextCard()
     {
         GameObject Nextcard = CreateCard(new Vector3(-290, -570, 0), cardDeckList[0]);
-        Nextcard.transform.localScale = Vector3.one * 0.6f;
+        Nextcard.transform.localScale = Vector3.one * 0.7f;
     }
 
     public void CreateNextCard(string _name)
     {
         GameObject Nextcard = CreateCard(new Vector3(-290, -570, 0), cardDeckList[0]);
-        Nextcard.transform.localScale = Vector3.one * 0.6f;
+        Nextcard.transform.localScale = Vector3.one * 0.7f;
         cardDeckList.Add(_name);
     }
 
