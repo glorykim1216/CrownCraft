@@ -68,9 +68,9 @@ public class Actor : BaseObject
         //    ai.Target = this;
         //}
 
-        Dictionary<string, int> DicCardLevel = CardManager.Instance.DIC_CARDLEVEL;
+        //Dictionary<string, int> DicCardLevel = CardManager.Instance.DIC_CARDLEVEL;
 
-        cardLevel = DicCardLevel[TemplateKey];
+        //cardLevel = DicCardLevel[TemplateKey];
 
         GameCharacter gameCharacter = CharacterManager.Instance.AddCharacter(TemplateKey);
 		gameCharacter.TargetComponenet = this;
