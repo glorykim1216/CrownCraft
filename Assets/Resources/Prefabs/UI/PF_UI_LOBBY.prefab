@@ -1606,7 +1606,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1625118096062200
 GameObject:
   m_ObjectHideFlags: 1
@@ -2482,7 +2482,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1616821553467872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -265, y: -90, z: 0}
+  m_LocalPosition: {x: -240, y: -90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4683126132321562}
@@ -3127,7 +3127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1740838213609466}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -87, y: -90, z: 0}
+  m_LocalPosition: {x: -80, y: -90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4899379384152474}
@@ -3795,7 +3795,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155011990905746}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 87, y: -90, z: 0}
+  m_LocalPosition: {x: 80, y: -90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4959941287025910}
@@ -4081,7 +4081,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1618840710212204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 264.99997, y: -90, z: 0}
+  m_LocalPosition: {x: 240, y: -90, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4343900924087922}
@@ -4713,7 +4713,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114017898219166138
@@ -5493,7 +5493,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3013
+  startingRenderQueue: 3014
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -5808,8 +5808,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
-  mSpriteName: Bat
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
+  mSpriteName: BAT
   mFillCenter: 1
 --- !u!114 &114161292334006394
 MonoBehaviour:
@@ -6114,7 +6114,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114201612069115580
@@ -6598,7 +6598,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114314510207623148
@@ -6689,7 +6689,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114328191061024010
@@ -6861,8 +6861,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
-  mSpriteName: Bat
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
+  mSpriteName: BARBARIAN
   mFillCenter: 1
 --- !u!114 &114384736058188666
 MonoBehaviour:
@@ -7652,7 +7652,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114508333575045060
@@ -7853,7 +7853,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114529748500731588
@@ -9009,7 +9009,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114622242827095826
@@ -10291,8 +10291,8 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
-  mSpriteName: Bat
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
+  mSpriteName: ARCHER
   mFillCenter: 1
 --- !u!114 &114815973814026268
 MonoBehaviour:
@@ -11136,7 +11136,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114942975975528396
@@ -11177,7 +11177,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3020
+  startingRenderQueue: 3021
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
