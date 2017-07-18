@@ -163,25 +163,26 @@ public class UI_Lobby : BaseObject
 
     void BoxOpen()
     {
-        //CoinChange--------------------------------------------
-        CoinValue = PlayerPrefs.GetInt("CoinValue");
-        CoinValue -= 100;
-        if (CoinValue <= 0)
-            CoinValue = 0;
-        PlayerPrefs.SetInt("CoinValue", CoinValue);
-        //------------------------------------------------------
-
         if (CoinValue >= 100)
         {
+            CoinValue = PlayerPrefs.GetInt("CoinValue");
+            CoinValue -= 100;
+            if (CoinValue <= 0)
+                CoinValue = 0;
+            PlayerPrefs.SetInt("CoinValue", CoinValue);
+
             CardManager.Instance.Gacha();
             UI_CardGround.Instance.UpdateCardGround();
 
             // 이펙트 효과
             StartCoroutine(BoxOpenEff());
         }
+        else
+        {
+            GachaFail();
+        }
 
         ScoreUpdate();
-        GachaFail();
     }
 
     void ScoreUpdate()
@@ -218,13 +219,6 @@ public class UI_Lobby : BaseObject
         chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
     }
 
-    void BattleStart()
-    {
-        serverConnect.gameObject.SetActive(true);
-        GameManager.Instance.IssueConnect();
-        Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
-    }
-
     void GachaFail()
     {
         CoinValue = PlayerPrefs.GetInt("CoinValue");
@@ -246,5 +240,12 @@ public class UI_Lobby : BaseObject
                 "코인을 다시 모아주세요~!!"
                 );
         }
+    }
+
+    void BattleStart()
+    {
+        serverConnect.gameObject.SetActive(true);
+        GameManager.Instance.IssueConnect();
+        Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
     }
 }

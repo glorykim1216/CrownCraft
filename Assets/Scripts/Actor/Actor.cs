@@ -54,21 +54,25 @@ public class Actor : BaseObject
 	// DeathEffect
 	ParticleSystem DeathParticle = null;
 
+    public int cardLevel;
+
 	private void Awake()
 	{
-		//if (TeamType == eTeamType.TEAM_2)
-		//{
-		//    GameObject aiObject = new GameObject();
-		//    aiObject.name = "TestAI";
-		//    //ai = aiObject.AddComponent<TestAI>();
-		//    aiObject.transform.SetParent(SelfTransform);
-		//    // 없으면 동작 X
-		//    ai.Target = this;
-		//}
+        //if (TeamType == eTeamType.TEAM_2)
+        //{
+        //    GameObject aiObject = new GameObject();
+        //    aiObject.name = "TestAI";
+        //    //ai = aiObject.AddComponent<TestAI>();
+        //    aiObject.transform.SetParent(SelfTransform);
+        //    // 없으면 동작 X
+        //    ai.Target = this;
+        //}
 
+        //Dictionary<string, int> DicCardLevel = CardManager.Instance.DIC_CARDLEVEL;
 
+        //cardLevel = DicCardLevel[TemplateKey];
 
-		GameCharacter gameCharacter = CharacterManager.Instance.AddCharacter(TemplateKey);
+        GameCharacter gameCharacter = CharacterManager.Instance.AddCharacter(TemplateKey);
 		gameCharacter.TargetComponenet = this;
 		SelfCharacter = gameCharacter;
 
@@ -163,14 +167,11 @@ public class Actor : BaseObject
 			SkillTemplate skillTemplate = datas[1] as SkillTemplate;
 			casterCharacter.CHARACTER_STATUS.AddStatusData("SKILL", skillTemplate.STATUS_DATA);
 
-
-			double attackDamage = casterCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.ATTACK);
-
-
-			// 2017-06-01------------------------------------------------------
-			// 순서 중요
-			casterCharacter.CHARACTER_STATUS.RemoveSattusData("SKILL"); // 스킬을 지움 -> 데미지 복구
-
+            double attackDamage = casterCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.ATTACK);
+            
+            // 2017-06-01------------------------------------------------------
+            // 순서 중요
+            casterCharacter.CHARACTER_STATUS.RemoveSattusData("SKILL"); // 스킬을 지움 -> 데미지 복구
 
 			// 피격
 			SelfCharacter.IncreaseCurrentHP(-attackDamage);
@@ -247,9 +248,7 @@ public class Actor : BaseObject
 						GameManager.Instance.EnemyTowerDestroyCount++;
 					}
 				}
-
                 UI_Manager.Instance.ScoreUpdate(GameManager.Instance.EnemyTowerDestroyCount, GameManager.Instance.PlayerTowerDestroyCount);
-
             }
 		}
 	}
@@ -302,15 +301,16 @@ public class Actor : BaseObject
 			AI.GetComponent<NormalAI>().bDeadEnd = true;
 		}
 	}
-	IEnumerator DemageEff()
+
+    IEnumerator DemageEff()
 	{
 		Material m = FindInChild("Model").GetComponentInChildren<SkinnedMeshRenderer>().material;
 		m.mainTextureScale = new Vector2(0, 0);
 		yield return new WaitForSeconds(0.1f);
 		m.mainTextureScale = new Vector2(1, 1);
-
 	}
-	void DeathEffect()
+
+    void DeathEffect()
 	{
 		ParticleSystem DeathEffect = null;
 		GameObject go = Instantiate(Resources.Load("Prefabs/DeathEffect"),transform.position,Quaternion.identity) as GameObject;
@@ -320,7 +320,5 @@ public class Actor : BaseObject
 		{
 			DeathEffect.Play();
 		}
-		
-
 	}
 }
