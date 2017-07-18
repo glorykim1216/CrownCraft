@@ -20,10 +20,6 @@ public class UI_Manager : MonoSingleton<UI_Manager>
         CardDeckUI = transform.FindChild("PF_UI_CARDDECK").GetComponent<UI_CardDeck>();
         manaBarUI = CardDeckUI.transform.FindChild("UI_ManaBar").GetComponent<UI_ManaBar>();
     }
-    void Start()
-    {
-        
-    }
 
     public void SetMana(float mana)
     {

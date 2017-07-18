@@ -33,7 +33,6 @@ public partial class GameManager
         if (EnemyTowerDestroyCount >= 3 || PlayerTowerDestroyCount >= 3 || limitTime <= 0)
         {
             IsGameOver = true;
-            Debug.Log("끝");
             UI_Manager.Instance.LoadGameOverUI(EnemyTowerDestroyCount, PlayerTowerDestroyCount);
         }
 
