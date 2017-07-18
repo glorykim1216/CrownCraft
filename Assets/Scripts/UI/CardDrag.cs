@@ -28,6 +28,9 @@ public class CardDrag : BaseObject
     bool IsUse = false;
     string spriteName;
 
+    UILabel ManaCost;
+    Transform ManaUI;
+
     public void Update()
     {
         if (IsUse == true)
@@ -50,6 +53,8 @@ public class CardDrag : BaseObject
         //OrgPos = this.transform.position;
         //OrgScale = this.transform.localScale;
         //StrOrgSprite = SelfComponent<UISprite>().spriteName;
+        ManaUI = FindInChild("Mana");
+        ManaCost = ManaUI.FindChild("ManaValue").GetComponent<UILabel>();
 
         _sprite = SelfComponent<UISprite>();
         redZone = _redZone;
@@ -65,6 +70,8 @@ public class CardDrag : BaseObject
 
         _coolTime = FindInChild("CoolTime").GetComponent<UISprite>();
         boxColl = transform.GetComponent<BoxCollider>();
+
+        ManaCost.text = gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.COST).ToString();
     }
 
     // OrgPos 위치, CoolTime 활성화
@@ -180,6 +187,7 @@ public class CardDrag : BaseObject
                 IsField = true;
                 transform.localScale = OrgScale * 2 + new Vector3(0, -1f, 0); // 크기 변경
                 SelfComponent<UISprite>().spriteName = spriteName + "_PF";
+                ManaUI.gameObject.SetActive(false);
             }
         }
         else
@@ -190,6 +198,7 @@ public class CardDrag : BaseObject
                 IsField = false;
                 transform.localScale = Vector3.zero;
                 SelfComponent<UISprite>().spriteName = spriteName;
+                ManaUI.gameObject.SetActive(true);
             }
         }
     }
