@@ -45,12 +45,10 @@ public class UI_Gacha : BaseObject
 
 	public void Init(string _cardKey)
 	{
-
 		CardKey = _cardKey;
 
 		CardImage = FindInChild("Texture").GetComponent<UISprite>();
 		CardLevel = FindInChild("Level").GetComponent<UILabel>();
-
 
 		CardImage.spriteName = CardKey;
 
@@ -74,12 +72,11 @@ public class UI_Gacha : BaseObject
 		tweenTrnasform.animationCurve = animationCurve;
 	}
 
-
-
 	public void OkClick()
 	{
 		UI_Tools.Instance.HideUI(eUIType.PF_UI_GACHA);
 	}
+
 	// 팝업 닫기
 	public void close()
 	{
@@ -95,7 +92,6 @@ public class UI_Gacha : BaseObject
 
 	IEnumerator CardPopUp()
 	{
-
 		yield return new WaitForEndOfFrame();
 	}
 }

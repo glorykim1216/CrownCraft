@@ -16,8 +16,6 @@ public class UI_CardPopup : BaseObject
 	UILabel RangeLabel;
 	UILabel CountLabel;
 
-
-
 	UIButton UseBtn;
 	UIButton ClosedBtn;
 
@@ -25,8 +23,6 @@ public class UI_CardPopup : BaseObject
 	ClosedEvent Closed;
 
 	UI_Card CardInfo;
-
-
 
 	private void Awake()
 	{

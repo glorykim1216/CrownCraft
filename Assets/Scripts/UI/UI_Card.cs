@@ -38,10 +38,7 @@ public class UI_Card : BaseObject
 		CardLevel = FindInChild("Level").GetComponent<UILabel>();
 		CardMana = FindInChild("ManaValue").GetComponent<UILabel>();
 		TemplateKey = _templatekey;
-
 	}
-
-
 
 	public void UpdateCard(int slotNum, string CardKey)
 	{
