@@ -40,6 +40,9 @@ public class UI_Lobby : BaseObject
 
     private void Awake()
     {
+        //PlayerPrefs.DeleteAll();
+
+
         // LobbyIcon Btn
         //----------------------------------------------------
         Transform trans = FindInChild("CardBtn");
@@ -102,10 +105,6 @@ public class UI_Lobby : BaseObject
         }
         BattleStartBtn = trans.GetComponent<UIButton>();
         EventDelegate.Add(BattleStartBtn.onClick, new EventDelegate(this, "BattleStart"));
-
-        PlayerPrefs.DeleteKey("CoinValue");
-        PlayerPrefs.DeleteKey("TrophyValue");
-        PlayerPrefs.DeleteKey("MedalValue");
 
         ////////////////////
         //PlayerDeck = FindInChild("BattleDeck").GetComponent<PlayerDeck>();
@@ -174,10 +173,6 @@ public class UI_Lobby : BaseObject
         CoinValue = PlayerPrefs.GetInt("CoinValue");
         CoinValue -= 100;
         PlayerPrefs.SetInt("CoinValue", CoinValue);
-
-        TrophyValue = PlayerPrefs.GetInt("TrophyValue");
-        TrophyValue += 10;
-        PlayerPrefs.SetInt("TrophyValue", TrophyValue);
         //------------------------------------------------------
 
         ScoreUpdate();
@@ -190,14 +185,14 @@ public class UI_Lobby : BaseObject
     {
         CoinLabel.text = PlayerPrefs.GetInt("CoinValue").ToString();
         TrophyLabel.text = PlayerPrefs.GetInt("TrophyValue").ToString();
+        TrophyValue = PlayerPrefs.GetInt("TrophyValue");
 
-        MedalValue   = PlayerPrefs.GetInt("MedalValue");
         // 렙업
-        if (TrophyValue % 20 == 0)
-        {
-            MedalValue++;
-            PlayerPrefs.SetInt("MedalValue", MedalValue);
-        }
+
+        MedalValue = TrophyValue / 30;
+        if (MedalValue == 0)
+            MedalValue = 1;
+        PlayerPrefs.SetInt("MedalValue", MedalValue);
         MedalLabel.text = PlayerPrefs.GetInt("MedalValue").ToString();
     }
 
@@ -225,6 +220,6 @@ public class UI_Lobby : BaseObject
     {
         serverConnect.gameObject.SetActive(true);
         GameManager.Instance.IssueConnect();
-        //Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
+        Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
     }
 }
