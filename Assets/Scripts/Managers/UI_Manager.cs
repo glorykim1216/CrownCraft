@@ -9,7 +9,7 @@ public class UI_Manager : MonoSingleton<UI_Manager>
 
     public UILabel RedLabel;
     public UILabel BlueLabel;
-
+    public UILabel Time;
 
     public override void Init()
     {
@@ -48,5 +48,13 @@ public class UI_Manager : MonoSingleton<UI_Manager>
     {
         RedLabel.text = red.ToString();
         BlueLabel.text = blue.ToString();
+    }
+
+    public void LimitTime(float _time)
+    {
+        int minute = (int)_time/60;
+        int second = (int)_time%60;
+
+        Time.text = string.Format("{0:00} : {1:00}", minute, second);
     }
 }

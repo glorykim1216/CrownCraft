@@ -29,12 +29,10 @@ public class UI_Lobby : BaseObject
 	// Coin
 	UILabel CoinLabel;
 	int CoinValue = 0;
-	int test1 = 0;
 
 	// Trophy
 	UILabel TrophyLabel;
 	int TrophyValue = 2;
-	int test2 = 0;
 
 	private void Awake()
 	{
@@ -173,8 +171,8 @@ public class UI_Lobby : BaseObject
 
     void ScoreUpdate()
     {
-        CoinLabel.text = PlayerPrefs.GetInt("Test").ToString();
-        TrophyLabel.text = PlayerPrefs.GetInt("Test2").ToString();
+        CoinLabel.text = PlayerPrefs.GetInt("CoinValue").ToString();
+        TrophyLabel.text = PlayerPrefs.GetInt("TrophyValue").ToString();
         // 렙업
     }
 
@@ -205,8 +203,7 @@ public class UI_Lobby : BaseObject
 	{
         serverConnect.gameObject.SetActive(true);
         GameManager.Instance.IssueConnect();
-        //Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
-
+        Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
     }
 
 

@@ -23,19 +23,22 @@ public partial class GameManager
     public int EnemyTowerDestroyCount = 0;
     public int PlayerTowerDestroyCount = 0;
 
-
+    float limitTime = 121;
 
     private void Update_InVille()
     {
         if (IsGameOver == true)
             return;
 
-        if (EnemyTowerDestroyCount >= 3 || PlayerTowerDestroyCount >= 3)
+        if (EnemyTowerDestroyCount >= 3 || PlayerTowerDestroyCount >= 3 || limitTime <= 0)
         {
             IsGameOver = true;
             Debug.Log("끝");
             UI_Manager.Instance.LoadGameOverUI(EnemyTowerDestroyCount, PlayerTowerDestroyCount);
         }
+
+        limitTime -= Time.deltaTime;
+        UI_Manager.Instance.LimitTime(limitTime);
 
         MANA += Time.deltaTime * 0.05f;
         UI_Manager.Instance.SetMana(MANA);
