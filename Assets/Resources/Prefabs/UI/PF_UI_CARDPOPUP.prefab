@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 4383545366997080}
   - component: {fileID: 114310130512345562}
   - component: {fileID: 114092036883877224}
+  - component: {fileID: 54430352911958988}
   m_Layer: 5
   m_Name: PF_UI_CARDPOPUP
   m_TagString: Untagged
@@ -1327,6 +1328,21 @@ Transform:
   m_Father: {fileID: 4519959352010306}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &54430352911958988
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1191583668797720}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!65 &65301224045504608
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -2072,7 +2088,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3019
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0
@@ -3354,7 +3370,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114881354107493542, guid: 64ea1f21c128ea34fbbce50e0f53eebe, type: 2}
+  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
   mSpriteName: Knight
   mFillCenter: 1
 --- !u!114 &114954359552966426
