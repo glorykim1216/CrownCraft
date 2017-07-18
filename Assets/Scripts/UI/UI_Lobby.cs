@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class UI_Lobby : BaseObject
 {
-	public Transform OriginalTransform;
-	// LobbyIcon Btn
-	UIButton CardBtn = null;
-	UIButton BattleBtn = null;
-	UIButton GachaBtn = null;
+    public Transform OriginalTransform;
+    // LobbyIcon Btn
+    UIButton CardBtn = null;
+    UIButton BattleBtn = null;
+    UIButton GachaBtn = null;
 
-	// GachaGround Btn
-	UIButton BoxBtn = null;
-	// Chest Open
-	Transform chest = null;
-	Transform boxOpenEff = null;
+    // GachaGround Btn
+    UIButton BoxBtn = null;
+    // Chest Open
+    Transform chest = null;
+    Transform boxOpenEff = null;
 
-	// BattleStart Btn
-	UIButton BattleStartBtn = null;
+    // BattleStart Btn
+    UIButton BattleStartBtn = null;
 
     Transform serverConnect = null;
 
@@ -26,91 +26,102 @@ public class UI_Lobby : BaseObject
 
     float dTime;
 
-	// Coin
-	UILabel CoinLabel;
-	int CoinValue = 0;
-	int test1 = 0;
+    // Coin
+    UILabel CoinLabel;
+    int CoinValue = 0;
 
-	// Trophy
-	UILabel TrophyLabel;
-	int TrophyValue = 2;
-	int test2 = 0;
+    // Trophy
+    UILabel TrophyLabel;
+    int TrophyValue = 0;
 
-	private void Awake()
-	{
-		// LobbyIcon Btn
-		//----------------------------------------------------
-		Transform trans = FindInChild("CardBtn");
-		if (trans == null)
-		{
-			Debug.LogError("CardBtn is Not Founded");
-			return;
-		}
-		CardBtn = trans.GetComponent<UIButton>();
-		EventDelegate.Add(CardBtn.onClick,
-			new EventDelegate(this, "CardGround"));
+    // Level
+    UILabel MedalLabel;
+    int MedalValue = 0;
 
-		// LobbyIcon Btn
-		//----------------------------------------------------
-		trans = FindInChild("BattleBtn");
-		if (trans == null)
-		{
-			Debug.LogError("BattleBtn is Not Founded");
-			return;
-		}
-		BattleBtn = trans.GetComponent<UIButton>();
-		EventDelegate.Add(BattleBtn.onClick,
-			new EventDelegate(this, "BattleGround"));
+    private void Awake()
+    {
+        // LobbyIcon Btn
+        //----------------------------------------------------
+        Transform trans = FindInChild("CardBtn");
+        if (trans == null)
+        {
+            Debug.LogError("CardBtn is Not Founded");
+            return;
+        }
+        CardBtn = trans.GetComponent<UIButton>();
+        EventDelegate.Add(CardBtn.onClick,
+            new EventDelegate(this, "CardGround"));
 
-		// LobbyIcon Btn
-		//----------------------------------------------------
-		trans = FindInChild("GachaBtn");
-		if (trans == null)
-		{
-			Debug.LogError("GachaBtn is Not Founded");
-			return;
-		}
-		GachaBtn = trans.GetComponent<UIButton>();
-		EventDelegate.Add(GachaBtn.onClick,
-			new EventDelegate(this, "GachaGround"));
+        // LobbyIcon Btn
+        //----------------------------------------------------
+        trans = FindInChild("BattleBtn");
+        if (trans == null)
+        {
+            Debug.LogError("BattleBtn is Not Founded");
+            return;
+        }
+        BattleBtn = trans.GetComponent<UIButton>();
+        EventDelegate.Add(BattleBtn.onClick,
+            new EventDelegate(this, "BattleGround"));
 
-		// GachaGround Btn
-		//-----------------------------------------------------
-		trans = FindInChild("ChestUIBtn");
-		if (trans == null)
-		{
-			Debug.LogError("ChestUIBtn is Not Founded");
-			return;
-		}
-		BoxBtn = trans.GetComponent<UIButton>();
-		EventDelegate.Add(BoxBtn.onClick, new EventDelegate(this, "BoxOpen"));
-		// Chest Instantiate
-		GameObject ChestPrefab = Resources.Load("Prefabs/UI/ChestCamera") as GameObject;
-		GameObject Chest = Instantiate(ChestPrefab);
-		chest = Chest.transform.FindChild("Chest/Chest_cover");
-		boxOpenEff = Chest.transform.FindChild("Eff_BoxOpenShine");
+        // LobbyIcon Btn
+        //----------------------------------------------------
+        trans = FindInChild("GachaBtn");
+        if (trans == null)
+        {
+            Debug.LogError("GachaBtn is Not Founded");
+            return;
+        }
+        GachaBtn = trans.GetComponent<UIButton>();
+        EventDelegate.Add(GachaBtn.onClick,
+            new EventDelegate(this, "GachaGround"));
 
-		// BattleStart Btn
-		//-----------------------------------------------------
-		trans = FindInChild("StartBtn");
-		if (trans == null)
-		{
-			Debug.LogError("BattleStartBtn is Not Founded");
-			return;
-		}
-		BattleStartBtn = trans.GetComponent<UIButton>();
-		EventDelegate.Add(BattleStartBtn.onClick, new EventDelegate(this, "BattleStart"));
+        // GachaGround Btn
+        //-----------------------------------------------------
+        trans = FindInChild("ChestUIBtn");
+        if (trans == null)
+        {
+            Debug.LogError("ChestUIBtn is Not Founded");
+            return;
+        }
+        BoxBtn = trans.GetComponent<UIButton>();
+        EventDelegate.Add(BoxBtn.onClick, new EventDelegate(this, "BoxOpen"));
+        // Chest Instantiate
+        GameObject ChestPrefab = Resources.Load("Prefabs/UI/ChestCamera") as GameObject;
+        GameObject Chest = Instantiate(ChestPrefab);
+        chest = Chest.transform.FindChild("Chest/Chest_cover");
+        boxOpenEff = Chest.transform.FindChild("Eff_BoxOpenShine");
 
-		////////////////////
-		//PlayerDeck = FindInChild("BattleDeck").GetComponent<PlayerDeck>();
+        // BattleStart Btn
+        //-----------------------------------------------------
+        trans = FindInChild("StartBtn");
+        if (trans == null)
+        {
+            Debug.LogError("BattleStartBtn is Not Founded");
+            return;
+        }
+        BattleStartBtn = trans.GetComponent<UIButton>();
+        EventDelegate.Add(BattleStartBtn.onClick, new EventDelegate(this, "BattleStart"));
 
-		// Coin
-		//------------------------------------------------------
-		CoinLabel = FindInChild("Coin").FindChild("Text").GetComponent<UILabel>();
+        PlayerPrefs.DeleteKey("CoinValue");
+        PlayerPrefs.DeleteKey("TrophyValue");
+        PlayerPrefs.DeleteKey("MedalValue");
 
-		// Trophy
-		//------------------------------------------------------
-		TrophyLabel = FindInChild("Trophy").FindChild("Text").GetComponent<UILabel>();
+        ////////////////////
+        //PlayerDeck = FindInChild("BattleDeck").GetComponent<PlayerDeck>();
+
+        // Level
+        //------------------------------------------------------
+        //LevelLabel = gameObject.transform.Find("PF_UI_LOBBYICON").transform.Find("Level").transform.Find("Text").GetComponent<UILabel>();
+        MedalLabel = FindInChild("Medal").FindChild("Text").GetComponent<UILabel>();
+
+        // Trophy
+        //------------------------------------------------------
+        TrophyLabel = FindInChild("Trophy").FindChild("Text").GetComponent<UILabel>();
+
+        // Coin
+        //------------------------------------------------------
+        CoinLabel = FindInChild("Coin").FindChild("Text").GetComponent<UILabel>();
 
         // Server Connect
         serverConnect = FindInChild("serverConnect");
@@ -118,96 +129,102 @@ public class UI_Lobby : BaseObject
         ScoreUpdate();
     }
 
-	private void Update()
-	{
-		dTime += Time.deltaTime;
+    private void Update()
+    {
+        dTime += Time.deltaTime;
+    }
 
+    void CardGround()
+    {
+        Transform trans = FindInChild("LOBBYGROUND");
+        StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(720.0f, 0f, 0f), dTime));
+        //trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(-720.0f, 0.0f);
+        chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        boxOpenEff.gameObject.SetActive(false);
+    }
 
-	}
+    void BattleGround()
+    {
+        Transform trans = FindInChild("LOBBYGROUND");
+        StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(0f, 0f, 0f), dTime));
+        //trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(0.0f, 0.0f);
+        chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        boxOpenEff.gameObject.SetActive(false);
+    }
 
-	void CardGround()
-	{
-		Transform trans = FindInChild("LOBBYGROUND");
-		StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(720.0f, 0f, 0f), dTime));
-		//trans.localPosition = new Vector3(720.0f, 0.0f, 0.0f);
-		trans.GetComponent<UIPanel>().clipOffset = new Vector2(-720.0f, 0.0f);
-		chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-		boxOpenEff.gameObject.SetActive(false);
-	}
+    void GachaGround()
+    {
+        Transform trans = FindInChild("LOBBYGROUND");
+        StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(-720.0f, 0f, 0f), dTime));
+        //trans.localPosition = new Vector3(-720.0f, 0.0f, 0.0f);
+        trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
 
-	void BattleGround()
-	{
-		Transform trans = FindInChild("LOBBYGROUND");
-		StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(0f, 0f, 0f), dTime));
-		//trans.localPosition = new Vector3(0.0f, 0.0f, 0.0f);
-		trans.GetComponent<UIPanel>().clipOffset = new Vector2(0.0f, 0.0f);
-		chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-		boxOpenEff.gameObject.SetActive(false);
-	}
+        chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+        boxOpenEff.gameObject.SetActive(false);
+    }
 
-	void GachaGround()
-	{
-		Transform trans = FindInChild("LOBBYGROUND");
-		StartCoroutine(PageChange(OriginalTransform.localPosition, new Vector3(-720.0f, 0f, 0f), dTime));
-		//trans.localPosition = new Vector3(-720.0f, 0.0f, 0.0f);
-		trans.GetComponent<UIPanel>().clipOffset = new Vector2(720.0f, 0.0f);
+    void BoxOpen()
+    {
+        CardManager.Instance.Gacha();
+        UI_CardGround.Instance.UpdateCardGround();
 
-		chest.localRotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
-		boxOpenEff.gameObject.SetActive(false);
-	}
-
-	void BoxOpen()
-	{
-		CardManager.Instance.Gacha();
-		UI_CardGround.Instance.UpdateCardGround();
-		//Test--------------------------------------------------
-		CoinValue = PlayerPrefs.GetInt("CoinValue");
+        //CoinChange--------------------------------------------
+        CoinValue = PlayerPrefs.GetInt("CoinValue");
         CoinValue -= 100;
-		PlayerPrefs.SetInt("CoinValue", CoinValue);
+        PlayerPrefs.SetInt("CoinValue", CoinValue);
+
+        TrophyValue = PlayerPrefs.GetInt("TrophyValue");
+        TrophyValue += 10;
+        PlayerPrefs.SetInt("TrophyValue", TrophyValue);
         //------------------------------------------------------
 
         ScoreUpdate();
 
+        // 이펙트 효과
         StartCoroutine(BoxOpenEff());
-	}
+    }
 
     void ScoreUpdate()
     {
-        CoinLabel.text = PlayerPrefs.GetInt("Test").ToString();
-        TrophyLabel.text = PlayerPrefs.GetInt("Test2").ToString();
+        CoinLabel.text = PlayerPrefs.GetInt("CoinValue").ToString();
+        TrophyLabel.text = PlayerPrefs.GetInt("TrophyValue").ToString();
+
+        MedalValue   = PlayerPrefs.GetInt("MedalValue");
         // 렙업
+        if (TrophyValue % 20 == 0)
+        {
+            MedalValue++;
+            PlayerPrefs.SetInt("MedalValue", MedalValue);
+        }
+        MedalLabel.text = PlayerPrefs.GetInt("MedalValue").ToString();
     }
 
     IEnumerator PageChange(Vector3 orgPos, Vector3 targetPos, float dTime)
-	{
-		float delta = 0f;
-		float time = 1f;
-		Transform trans = FindInChild("LOBBYGROUND");
-		while (delta <= time)
-		{
-			trans.localPosition = NGUIMath.SpringLerp(orgPos, targetPos, 10f, delta);
-			delta += Time.deltaTime;
-			yield return new WaitForEndOfFrame();
-		}
+    {
+        float delta = 0f;
+        float time = 1f;
+        Transform trans = FindInChild("LOBBYGROUND");
+        while (delta <= time)
+        {
+            trans.localPosition = NGUIMath.SpringLerp(orgPos, targetPos, 10f, delta);
+            delta += Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+    }
 
+    IEnumerator BoxOpenEff()
+    {
+        boxOpenEff.gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.4f);
+        chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
+    }
 
-
-	}
-
-	IEnumerator BoxOpenEff()
-	{
-		boxOpenEff.gameObject.SetActive(true);
-		yield return new WaitForSeconds(0.4f);
-		chest.localRotation = Quaternion.Euler(-90.0f, 0.0f, 0.0f);
-	}
-
-	void BattleStart()
-	{
+    void BattleStart()
+    {
         serverConnect.gameObject.SetActive(true);
         GameManager.Instance.IssueConnect();
         //Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
-
     }
-
-
 }
