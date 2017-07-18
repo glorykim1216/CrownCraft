@@ -54,8 +54,8 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 8ae5c24a828d9864997b2c102115a158, type: 2}
   mSprites:
   - name: CardIcon
-    x: 3145
-    y: 3731
+    x: 0
+    y: 1308
     width: 482
     height: 365
     borderLeft: 0
@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 24
   - name: item_bottle2_theme4
-    x: 2872
-    y: 3372
+    x: 2997
+    y: 3385
     width: 88
     height: 123
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 3
   - name: item_sword1_theme1
-    x: 2961
-    y: 3384
+    x: 3097
+    y: 3510
     width: 95
     height: 111
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 7
   - name: item_sword3_theme1
-    x: 3145
-    y: 3389
+    x: 3097
+    y: 3398
     width: 95
     height: 111
     borderLeft: 0
@@ -197,8 +197,8 @@ MonoBehaviour:
     paddingTop: 13
     paddingBottom: 3
   - name: item_sword3_theme4
-    x: 3241
-    y: 3389
+    x: 3281
+    y: 3384
     width: 95
     height: 111
     borderLeft: 0
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 3
   - name: item_trophy2_theme1
-    x: 2772
-    y: 3383
+    x: 2997
+    y: 3509
     width: 99
     height: 112
     borderLeft: 0
@@ -274,9 +274,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
+  - name: map
+    x: 2772
+    y: 3622
+    width: 508
+    height: 474
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 157
+    paddingRight: 135
+    paddingTop: 60
+    paddingBottom: 66
   - name: shooting range
-    x: 3145
-    y: 3501
+    x: 2772
+    y: 3392
     width: 224
     height: 229
     borderLeft: 0
@@ -288,7 +301,7 @@ MonoBehaviour:
     paddingTop: 144
     paddingBottom: 139
   - name: TransferRate
-    x: 2772
+    x: 3281
     y: 3496
     width: 372
     height: 600
@@ -301,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 100
   - name: UnitValue
-    x: 3370
-    y: 3475
+    x: 3654
+    y: 3841
     width: 201
     height: 255
     borderLeft: 0
