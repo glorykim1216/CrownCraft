@@ -48,11 +48,23 @@ public class UI_GameOver : BaseObject
         {
             trans = FindInChild("Blue").FindChild("Win");
             trans.gameObject.SetActive(true);
+
+            int CoinValue = PlayerPrefs.GetInt("CoinValue");
+            CoinValue += 120;
+            PlayerPrefs.SetInt("CoinValue", CoinValue);
+
+            int TrophyValue = PlayerPrefs.GetInt("TrophyValue");
+            TrophyValue += 15;
+            PlayerPrefs.SetInt("TrophyValue", TrophyValue);
         }
-        else
+        else if(EnemyTowerDestroyCount < PlayerTowerDestroyCount)
         {
             trans = FindInChild("Red").FindChild("Win");
             trans.gameObject.SetActive(true);
+        }
+        else
+        {
+            // 무승부
         }
         
     }

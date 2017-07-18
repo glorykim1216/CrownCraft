@@ -42,6 +42,7 @@ public partial class GameManager : MonoSingleton<GameManager>
         mana = 0.5f;
         EnemyTowerDestroyCount = 0;
         PlayerTowerDestroyCount = 0;
+        limitTime = 121;
     }
     // Use this for initialization
     void Start()
@@ -53,8 +54,6 @@ public partial class GameManager : MonoSingleton<GameManager>
             if (result == 0) // ok
             {
                 m_state = State.InVille;
-
-
             }
             else
             {
@@ -92,27 +91,26 @@ public partial class GameManager : MonoSingleton<GameManager>
         switch (m_state)
         {
             case State.InVille:
-                //Update_InVille();
+                Update_InVille();
                 break;
         }
 
-        if (IsGameOver == true)
-            return;
+        //if (IsGameOver == true)
+        //    return;
 
-        if (EnemyTowerDestroyCount >= 3 || PlayerTowerDestroyCount >= 3)
-        {
-            IsGameOver = true;
-            Debug.Log("끝");
-            UI_Manager.Instance.LoadGameOverUI(EnemyTowerDestroyCount, PlayerTowerDestroyCount);
-        }
+        //if (EnemyTowerDestroyCount >= 3 || PlayerTowerDestroyCount >= 3)
+        //{
+        //    IsGameOver = true;
+        //    Debug.Log("끝");
+        //    UI_Manager.Instance.LoadGameOverUI(EnemyTowerDestroyCount, PlayerTowerDestroyCount);
+        //}
 
-        MANA += Time.deltaTime * 0.05f;
-        UI_Manager.Instance.SetMana(MANA);
+        //MANA += Time.deltaTime * 0.05f;
+        //UI_Manager.Instance.SetMana(MANA);
     }
 
     override public void OnDestroy()
     {
-        //base.OnDestroy();
         m_netClient.Dispose();
     }
 
