@@ -351,7 +351,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312a784b9ad6bac46ae27f152d2c75d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TemplateKey: 
   slotNumber: 0
 --- !u!114 &114787085258483316
 MonoBehaviour:
@@ -483,7 +482,7 @@ MonoBehaviour:
   rightType: 1
   bottomType: 1
   topType: 1
-  mAtlas: {fileID: 114830069866112432, guid: 1b25704af30d7f04faaa3e9227cbf82b, type: 2}
+  mAtlas: {fileID: 114482656971393846, guid: 8999e1a87bc448f489809e5d740aae6a, type: 2}
   mSpriteName: Bat
   mFillCenter: 1
 --- !u!114 &114990319151642888
