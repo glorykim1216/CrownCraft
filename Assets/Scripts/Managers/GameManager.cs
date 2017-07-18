@@ -6,7 +6,8 @@ using Nettention.Proud;
 public partial class GameManager : MonoSingleton<GameManager>
 {
 
-    string m_serverAddr = "192.168.0.10";
+    //string m_serverAddr = "192.168.0.10";
+    string m_serverAddr = "127.0.0.1";
 
     // world name. you may consider it as user name.
     string m_villeName = "Ville";

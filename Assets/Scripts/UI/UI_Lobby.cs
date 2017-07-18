@@ -107,23 +107,22 @@ public class UI_Lobby : BaseObject
 		// Coin
 		//------------------------------------------------------
 		CoinLabel = FindInChild("Coin").FindChild("Text").GetComponent<UILabel>();
-		PlayerPrefs.GetInt("Test").ToString();
 
 		// Trophy
 		//------------------------------------------------------
 		TrophyLabel = FindInChild("Trophy").FindChild("Text").GetComponent<UILabel>();
-		PlayerPrefs.GetInt("Test2").ToString();
 
         // Server Connect
         serverConnect = FindInChild("serverConnect");
+
+        ScoreUpdate();
     }
 
 	private void Update()
 	{
 		dTime += Time.deltaTime;
 
-		CoinLabel.text = PlayerPrefs.GetInt("Test").ToString();
-		TrophyLabel.text = PlayerPrefs.GetInt("Test2").ToString();
+
 	}
 
 	void CardGround()
@@ -163,20 +162,23 @@ public class UI_Lobby : BaseObject
 		UI_CardGround.Instance.UpdateCardGround();
 		//Test--------------------------------------------------
 		CoinValue = PlayerPrefs.GetInt("CoinValue");
-		test1 = CoinValue++;
+        CoinValue -= 100;
 		PlayerPrefs.SetInt("CoinValue", CoinValue);
-		PlayerPrefs.SetInt("Test", test1);
+        //------------------------------------------------------
 
-		TrophyValue = PlayerPrefs.GetInt("TrophyValue");
-		test2 = TrophyValue++;
-		PlayerPrefs.SetInt("TrophyValue", TrophyValue);
-		PlayerPrefs.SetInt("Test2", test2);
-		//------------------------------------------------------
+        ScoreUpdate();
 
-		StartCoroutine(BoxOpenEff());
+        StartCoroutine(BoxOpenEff());
 	}
 
-	IEnumerator PageChange(Vector3 orgPos, Vector3 targetPos, float dTime)
+    void ScoreUpdate()
+    {
+        CoinLabel.text = PlayerPrefs.GetInt("Test").ToString();
+        TrophyLabel.text = PlayerPrefs.GetInt("Test2").ToString();
+        // 렙업
+    }
+
+    IEnumerator PageChange(Vector3 orgPos, Vector3 targetPos, float dTime)
 	{
 		float delta = 0f;
 		float time = 1f;

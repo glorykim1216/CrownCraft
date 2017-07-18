@@ -16,10 +16,11 @@ public class UI_CardGround : MonoSingleton<UI_CardGround>
 	int OrgSlotNumber = 0;
 	string OrgCardKey = string.Empty;
 
-	public override void Init()
-	{
-	}
-	void Start()
+    //public override void Init()
+    //{
+    //}
+
+    void Start()
 	{
 		PlayerDeck = CardManager.Instance.PLAYERDECK;
 		UpdateCardGround();
