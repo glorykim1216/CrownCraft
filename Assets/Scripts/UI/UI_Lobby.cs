@@ -34,15 +34,12 @@ public class UI_Lobby : BaseObject
     UILabel TrophyLabel;
     int TrophyValue = 0;
 
-    // Level
+    // Medal
     UILabel MedalLabel;
     int MedalValue = 0;
 
     private void Awake()
     {
-        //PlayerPrefs.DeleteAll();
-
-
         // LobbyIcon Btn
         //----------------------------------------------------
         Transform trans = FindInChild("CardBtn");
@@ -166,33 +163,39 @@ public class UI_Lobby : BaseObject
 
     void BoxOpen()
     {
-        CardManager.Instance.Gacha();
-        UI_CardGround.Instance.UpdateCardGround();
-
         //CoinChange--------------------------------------------
         CoinValue = PlayerPrefs.GetInt("CoinValue");
         CoinValue -= 100;
+        if (CoinValue <= 0)
+            CoinValue = 0;
         PlayerPrefs.SetInt("CoinValue", CoinValue);
         //------------------------------------------------------
 
-        ScoreUpdate();
+        if (CoinValue >= 100)
+        {
+            CardManager.Instance.Gacha();
+            UI_CardGround.Instance.UpdateCardGround();
 
-        // 이펙트 효과
-        StartCoroutine(BoxOpenEff());
+            // 이펙트 효과
+            StartCoroutine(BoxOpenEff());
+        }
+
+        ScoreUpdate();
+        GachaFail();
     }
 
     void ScoreUpdate()
     {
         CoinLabel.text = PlayerPrefs.GetInt("CoinValue").ToString();
         TrophyLabel.text = PlayerPrefs.GetInt("TrophyValue").ToString();
-        TrophyValue = PlayerPrefs.GetInt("TrophyValue");
 
+        MedalValue = PlayerPrefs.GetInt("MedalValue");
         // 렙업
-
-        MedalValue = TrophyValue / 30;
-        if (MedalValue == 0)
-            MedalValue = 1;
-        PlayerPrefs.SetInt("MedalValue", MedalValue);
+        if (TrophyValue % 20 == 0)
+        {
+            MedalValue++;
+            PlayerPrefs.SetInt("MedalValue", MedalValue);
+        }
         MedalLabel.text = PlayerPrefs.GetInt("MedalValue").ToString();
     }
 
@@ -220,6 +223,29 @@ public class UI_Lobby : BaseObject
     {
         serverConnect.gameObject.SetActive(true);
         GameManager.Instance.IssueConnect();
-        Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
+        //Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
+    }
+
+    void GachaFail()
+    {
+        CoinValue = PlayerPrefs.GetInt("CoinValue");
+
+        if (CoinValue < 100)
+        {
+            GameObject go = UI_Tools.Instance.ShowUI(eUIType.PF_UI_POPUP);
+            UI_Popup popup = go.GetComponent<UI_Popup>();
+
+            popup.Set(
+                () =>
+                {
+                    UI_Tools.Instance.HideUI(eUIType.PF_UI_POPUP);
+                }
+                ,
+                "실패하였습니다."
+                ,
+                "코인이 부족하여 가챠를 뽑을 수 없습니다. " +
+                "코인을 다시 모아주세요~!!"
+                );
+        }
     }
 }

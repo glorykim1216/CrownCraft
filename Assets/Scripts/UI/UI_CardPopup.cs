@@ -7,6 +7,7 @@ public delegate void ClosedEvent();
 
 public class UI_CardPopup : BaseObject
 {
+	UILabel LevelLabel;
 	UILabel NameLabel;
 	UILabel ContentsLabel;
 	UILabel AttackLabel;
@@ -16,6 +17,7 @@ public class UI_CardPopup : BaseObject
 	UILabel RangeLabel;
 	UILabel CountLabel;
 
+	UISprite CardImage;
 
 
 	UIButton UseBtn;
@@ -41,6 +43,8 @@ public class UI_CardPopup : BaseObject
 		ClosedBtn = FindInChild("ClosedBtn").GetComponent<UIButton>();
 		UseBtn = FindInChild("UseBtn").GetComponent<UIButton>();
 
+		CardImage = FindInChild("Texture").GetComponent<UISprite>();
+		LevelLabel = FindInChild("Level").GetComponent<UILabel>();
 		NameLabel = FindInChild("Name").GetComponent<UILabel>();
 		AttackLabel = FindInChild("Attack").FindChild("Value").GetComponent<UILabel>();
 		HPLabel = FindInChild("HP").FindChild("Value").GetComponent<UILabel>();
@@ -92,6 +96,12 @@ public class UI_CardPopup : BaseObject
 	{
 		if (_gameCharacter == null)
 			return;
+
+		CardImage.spriteName = _gameCharacter.CHARACTER_TEMPLATE.KEY;
+
+		int tempLevel = 0;
+		CardManager.Instance.DIC_CARDLEVEL.TryGetValue(_gameCharacter.CHARACTER_TEMPLATE.KEY, out tempLevel);
+		LevelLabel.text = tempLevel.ToString() + " LEVEL";
 
 		NameLabel.text = _gameCharacter.CHARACTER_TEMPLATE.KEY;
 		AttackLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.ATTACK).ToString();
