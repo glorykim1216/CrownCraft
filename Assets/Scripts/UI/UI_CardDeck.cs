@@ -18,7 +18,8 @@ public class UI_CardDeck : BaseObject
         }
         // 카드덱 추가
         cardDeckList = CardManager.Instance.GetPlayerDeck();
-        //cardDeckList.Add(eActor.ARCHER.ToString());
+        //cardDeckList.Add(eActor.DRAGON.ToString());
+ 
         //cardDeckList.Add(eActor.DRAGON.ToString());
         //cardDeckList.Add(eActor.WIZARD.ToString());
         //cardDeckList.Add(eActor.BAT.ToString());

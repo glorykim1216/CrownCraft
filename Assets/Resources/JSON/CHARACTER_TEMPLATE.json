@@ -168,7 +168,7 @@
 		"Castle_King": {
 			"LEVEL": 1,
 			"HP": 2500,
-			"ATTACK": 100,
+			"ATTACK": 120,
 			"COST": 3,
 			"SPEED": 1,
 			"RANGE": 1,
@@ -183,7 +183,7 @@
 		"Castle_Tower": {
 			"LEVEL": 1,
 			"HP": 2000,
-			"ATTACK": 75,
+			"ATTACK": 100,
 			"COST": 3,
 			"SPEED": 1,
 			"RANGE": 1,
