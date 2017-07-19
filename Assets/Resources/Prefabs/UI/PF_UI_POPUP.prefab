@@ -655,7 +655,7 @@ MonoBehaviour:
   mFont: {fileID: 0}
   mText: "\uC2E4\uD328\uD588\uC2B5\uB2C8\uB2E4"
   mFontSize: 50
-  mFontStyle: 1
+  mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
@@ -718,7 +718,7 @@ MonoBehaviour:
   anchorOffset: 0
   softBorderPadding: 1
   renderQueue: 0
-  startingRenderQueue: 3020
+  startingRenderQueue: 3000
   mClipTexture: {fileID: 0}
   mAlpha: 1
   mClipping: 0

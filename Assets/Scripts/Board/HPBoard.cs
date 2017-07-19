@@ -28,7 +28,7 @@ public class HPBoard : BaseBoard
             double CurrHP = (double)datas[1];
 
             ProgressBar.value = (float)(CurrHP / MaxHP);                    // (CurrHP / MaxHP) -> 퍼센트(0 ~ 1)
-            HPLabel.text = CurrHP.ToString() + " / " + MaxHP.ToString();
+            //HPLabel.text = CurrHP.ToString() + " / " + MaxHP.ToString();
         }
     }
 

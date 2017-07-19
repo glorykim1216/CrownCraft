@@ -59,7 +59,7 @@ public class BarbarianSkill : BaseSkill
         //if (actorObject != TARGET)
         //    return; // 여기 없으면 충돌한거 다 대미지
 
-        actorObject.ThrowEvent(ConstValue.EventKey_Hit, OWNER.GetData(ConstValue.ActorData_Character), SKILL_TEAMPLATE);
+        actorObject.ThrowEvent(ConstValue.EventKey_Hit, OWNER.GetData(ConstValue.ActorData_Character), SKILL_TEAMPLATE, collObject);
         //END = true;
     }
 }

@@ -246,6 +246,6 @@ public class UI_Lobby : BaseObject
     {
         serverConnect.gameObject.SetActive(true);
         GameManager.Instance.IssueConnect();
-        Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
+        //Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
     }
 }
