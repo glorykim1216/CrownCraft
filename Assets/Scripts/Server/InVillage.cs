@@ -16,8 +16,8 @@ public partial class GameManager
         set
         {
             mana = value;
-            if (mana > 10)
-                mana = 10;
+            if (mana > 1)
+                mana = 1;
         }
     }
     public int EnemyTowerDestroyCount = 0;

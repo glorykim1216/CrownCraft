@@ -125,6 +125,7 @@ public class CardDrag : BaseObject
             _sprite.color = OrgColor;
             gameObject.GetComponent<UISprite>().spriteName = spriteName;
             this.transform.localPosition = OrgPos;
+            this.transform.localScale = Vector3.one;
 
             if (IsField == true)
             {
