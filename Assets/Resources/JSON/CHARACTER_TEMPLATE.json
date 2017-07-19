@@ -11,7 +11,7 @@
       "COUNT": 1,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "HI!",
       "SKILL": [
         "MELEE_2"
       ]
@@ -27,7 +27,7 @@
       "COUNT": 2,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "RANGE_ARROW"
       ]
@@ -43,7 +43,7 @@
       "COUNT": 1,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "MELEE_BARBARIAN"
       ]
@@ -59,7 +59,7 @@
       "COUNT": 1,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "RANGE_WIZARD"
       ]
@@ -75,7 +75,7 @@
       "COUNT": 3,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "RANGE_BAT"
       ]
@@ -91,7 +91,7 @@
       "COUNT": 1,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "MELEE_2"
       ]
@@ -107,7 +107,7 @@
       "COUNT": 1,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "MELEE_2"
       ]
@@ -123,7 +123,7 @@
       "COUNT": 2,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "RANGE_DRAGON"
       ]
@@ -139,7 +139,7 @@
       "COUNT": 3,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "MELEE_1"
       ]
@@ -155,7 +155,7 @@
       "COUNT": 1,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "MELEE_2"
       ]
@@ -171,7 +171,7 @@
       "COUNT": 4,
       "TRANSPORT": "GROUND",
       "TYPE": "UNIT",
-      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "CONTENTS": "Hi!",
       "SKILL": [
         "MELEE_1"
       ]
@@ -179,7 +179,7 @@
     "Castle_King": {
       "LEVEL": 1,
       "HP": 2500,
-      "ATTACK": 100,
+      "ATTACK": 120,
       "COST": 3,
       "SPEED": 1,
       "RANGE": 1,
@@ -195,7 +195,7 @@
     "Castle_Tower": {
       "LEVEL": 1,
       "HP": 2000,
-      "ATTACK": 75,
+      "ATTACK": 100,
       "COST": 3,
       "SPEED": 1,
       "RANGE": 1,

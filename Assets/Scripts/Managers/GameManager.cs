@@ -42,7 +42,7 @@ public partial class GameManager : MonoSingleton<GameManager>
         mana = 0.5f;
         EnemyTowerDestroyCount = 0;
         PlayerTowerDestroyCount = 0;
-        limitTime = 121;
+        limitTime = 181;
     }
     // Use this for initialization
     void Start()

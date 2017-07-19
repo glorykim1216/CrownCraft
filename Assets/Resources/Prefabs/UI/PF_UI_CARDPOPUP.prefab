@@ -885,7 +885,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1289197982352454}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 74.9, y: -15, z: 0}
+  m_LocalPosition: {x: 120, y: -15, z: 0}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 4697378654620396}
@@ -2504,11 +2504,11 @@ MonoBehaviour:
   keepAspectRatio: 0
   aspectRatio: 1.5
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: 58df8bec4bb0a8c4491d82233f59f6fb, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: 7f27f161ef214b7499171498fe5db32a, type: 3}
   mFont: {fileID: 0}
-  mText: "\uC77C\uC774\uC0BC\uC0AC\uC624\uC721\uCE60\uD314\uAD6C\uC2ED\uC77C\uC774\uC0BC\uC0AC\uC624\uC721\uCE60\uD314\uAD6C\uC2ED\uC77C\uC774\uC0BC\uC0AC\uC624\uC721\uCE60\uD314\uAD6C\uC2ED\uC77C\uC774\uC0BC\uC0AC\uC624\uC721\uCE60\uD314\uAD6C\uC2ED\uC77C\uC774\uC0BC\uC0AC\uC624\uC721\uCE60\uD314\uAD6C\uC2ED"
+  mText: Hi!
   mFontSize: 30
-  mFontStyle: 1
+  mFontStyle: 0
   mAlignment: 0
   mEncoding: 1
   mMaxLineCount: 0
@@ -2739,20 +2739,20 @@ MonoBehaviour:
   updateAnchors: 1
   mColor: {r: 1, g: 1, b: 1, a: 1}
   mPivot: 4
-  mWidth: 64
-  mHeight: 50
+  mWidth: 154
+  mHeight: 18
   mDepth: 2
   mMat: {fileID: 0}
   autoResizeBoxCollider: 0
   hideIfOffScreen: 0
   keepAspectRatio: 0
-  aspectRatio: 1.28
+  aspectRatio: 8.555555
   keepCrispWhenShrunk: 1
-  mTrueTypeFont: {fileID: 12800000, guid: d07490d14c2260847a392989bc8cfbf6, type: 3}
+  mTrueTypeFont: {fileID: 12800000, guid: 7f27f161ef214b7499171498fe5db32a, type: 3}
   mFont: {fileID: 0}
-  mText: "\uC9C0\uC0C1"
-  mFontSize: 50
-  mFontStyle: 1
+  mText: GOURNDAIR
+  mFontSize: 18
+  mFontStyle: 0
   mAlignment: 1
   mEncoding: 1
   mMaxLineCount: 0
@@ -2760,7 +2760,7 @@ MonoBehaviour:
   mEffectColor: {r: 0, g: 0, b: 0, a: 1}
   mSymbols: 1
   mEffectDistance: {x: 1, y: 2}
-  mOverflow: 2
+  mOverflow: 0
   mApplyGradient: 0
   mGradientTop: {r: 1, g: 1, b: 1, a: 1}
   mGradientBottom: {r: 0.7, g: 0.7, b: 0.7, a: 1}
