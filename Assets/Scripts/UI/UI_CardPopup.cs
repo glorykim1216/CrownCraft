@@ -46,6 +46,7 @@ public class UI_CardPopup : BaseObject
 		CardImage = FindInChild("Texture").GetComponent<UISprite>();
 		LevelLabel = FindInChild("Level").GetComponent<UILabel>();
 		NameLabel = FindInChild("Name").GetComponent<UILabel>();
+		ContentsLabel = FindInChild("Contents").GetComponent<UILabel>();
 		AttackLabel = FindInChild("Attack").FindChild("Value").GetComponent<UILabel>();
 		HPLabel = FindInChild("HP").FindChild("Value").GetComponent<UILabel>();
 		TargetLabel = FindInChild("Target").FindChild("Value").GetComponent<UILabel>();
@@ -104,6 +105,8 @@ public class UI_CardPopup : BaseObject
 		LevelLabel.text = tempLevel.ToString() + " LEVEL";
 
 		NameLabel.text = _gameCharacter.CHARACTER_TEMPLATE.KEY;
+
+		ContentsLabel.text = _gameCharacter.CHARACTER_TEMPLATE.CARDCONTENTS;
 		AttackLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.ATTACK).ToString();
 		HPLabel.text = _gameCharacter.CHARACTER_STATUS.GetStatusData(eStatusData.HP).ToString();
 		TargetLabel.text = _gameCharacter.CHARACTER_TEMPLATE.CARDTARGET;

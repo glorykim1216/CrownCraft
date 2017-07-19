@@ -93,8 +93,8 @@ MonoBehaviour:
     paddingTop: 20
     paddingBottom: 24
   - name: item_bottle2_theme4
-    x: 2997
-    y: 3385
+    x: 3199
+    y: 3406
     width: 88
     height: 123
     borderLeft: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
     paddingTop: 5
     paddingBottom: 3
   - name: item_sword1_theme1
-    x: 3097
-    y: 3510
+    x: 3299
+    y: 3384
     width: 95
     height: 111
     borderLeft: 0
@@ -171,8 +171,8 @@ MonoBehaviour:
     paddingTop: 10
     paddingBottom: 7
   - name: item_sword3_theme1
-    x: 3097
-    y: 3398
+    x: 3395
+    y: 3384
     width: 95
     height: 111
     borderLeft: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
     paddingTop: 13
     paddingBottom: 3
   - name: item_sword3_theme4
-    x: 3281
+    x: 3491
     y: 3384
     width: 95
     height: 111
@@ -223,8 +223,8 @@ MonoBehaviour:
     paddingTop: 7
     paddingBottom: 3
   - name: item_trophy2_theme1
-    x: 2997
-    y: 3509
+    x: 3199
+    y: 3530
     width: 99
     height: 112
     borderLeft: 0
@@ -274,22 +274,22 @@ MonoBehaviour:
     paddingRight: 0
     paddingTop: 0
     paddingBottom: 0
-  - name: map
+  - name: MiniMap
     x: 2772
-    y: 3622
-    width: 508
-    height: 474
+    y: 3643
+    width: 526
+    height: 453
     borderLeft: 0
     borderRight: 0
     borderTop: 0
     borderBottom: 0
-    paddingLeft: 157
-    paddingRight: 135
-    paddingTop: 60
-    paddingBottom: 66
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
   - name: shooting range
     x: 2772
-    y: 3392
+    y: 3413
     width: 224
     height: 229
     borderLeft: 0
@@ -301,7 +301,7 @@ MonoBehaviour:
     paddingTop: 144
     paddingBottom: 139
   - name: TransferRate
-    x: 3281
+    x: 3299
     y: 3496
     width: 372
     height: 600
@@ -314,8 +314,8 @@ MonoBehaviour:
     paddingTop: 0
     paddingBottom: 100
   - name: UnitValue
-    x: 3654
-    y: 3841
+    x: 2997
+    y: 3387
     width: 201
     height: 255
     borderLeft: 0

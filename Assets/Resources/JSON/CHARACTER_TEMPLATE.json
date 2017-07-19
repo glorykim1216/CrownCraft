@@ -1,230 +1,245 @@
 {
 	"CHARACTER_TEMPLATE": {
-		 "KNIGHT": {
-			"LEVEL": 1,
-			"HP": 660,
-			"ATTACK": 75,
-			"COST": 3,
-			"SPEED": 1,
-			"RANGE": 1,
-			"TARGET": "GROUND",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_2"
-			]
-		},
-		"ARCHER": {
-			"LEVEL": 1,
-			"HP": 120,
-			"ATTACK": 41,
-			"COST": 3,
-			"SPEED": 1,
-			"RANGE": 5,
-			"TARGET": "GOURNDAIR",
-			"COUNT": 2,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "RANGE_ARROW"
-			]
-		},
-		"BARBARIAN": {
-			"LEVEL": 1,
-			"HP": 880,
-			"ATTACK": 120,
-			"COST": 4,
-			"SPEED": 1,
-			"RANGE": 1,
-			"TARGET": "GROUND",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_BARBARIAN"
-			]
-		},
-		"WIZARD": {
-			"LEVEL": 1,
-			"HP": 340,
-			"ATTACK": 130,
-			"COST": 5,
-			"SPEED": 1,
-			"RANGE": 5.5,
-			"TARGET": "GOURNDAIR",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "RANGE_WIZARD"
-			]
-		},
-		"BAT": {
-			"LEVEL": 1,
-			"HP": 90,
-			"ATTACK": 40,
-			"COST": 5,
-			"SPEED": 1.2,
-			"RANGE": 1,
-			"TARGET": "GROUND",
-			"COUNT": 3,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "RANGE_BAT"
-			]
-		},
-		"CACTUS": {
-			"LEVEL": 1,
-			"HP": 800,
-			"ATTACK": 160,
-			"COST": 4,
-			"SPEED": 1.5,
-			"RANGE": 1,
-			"TARGET": "GOURNDAIR",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_2"
-			]
-		},
-		"DEATHKNIGHT": {
-			"LEVEL": 1,
-			"HP": 600,
-			"ATTACK": 325,
-			"COST": 4,
-			"SPEED": 1.2,
-			"RANGE": 1,
-			"TARGET": "GROUND",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_2"
-			]
-		},
-		"DRAGON": {
-			"LEVEL": 1,
-			"HP": 800,
-			"ATTACK": 100,
-			"COST": 4,
-			"SPEED": 1.2,
-			"RANGE": 35,
-			"TARGET": "GOURNDAIR",
-			"COUNT": 2,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "RANGE_DRAGON"
-			]
-		},
-		"GHOST": {
-			"LEVEL": 1,
-			"HP": 43,
-			"ATTACK": 80,
-			"COST": 2,
-			"SPEED": 1.5,
-			"RANGE": 1,
-			"TARGET": "GROUND",
-			"COUNT": 3,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_1"
-			]
-		},
-		"GOLEM": {
-			"LEVEL": 1,
-			"HP": 3200,
-			"ATTACK": 195,
-			"COST": 8,
-			"SPEED": 0.5,
-			"RANGE": 1,
-			"TARGET": "GOURNDAIR",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_2"
-			]
-		},
-		"SKELETON": {
-			"LEVEL": 1,
-			"HP": 32,
-			"ATTACK": 32,
-			"COST": 1,
-			"SPEED": 1.2,
-			"RANGE": 1,
-			"TARGET": "GOURNDAIR",
-			"COUNT": 4,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_1"
-			]
-		},
-		"Castle_King": {
-			"LEVEL": 1,
-			"HP": 2500,
-			"ATTACK": 100,
-			"COST": 3,
-			"SPEED": 1,
-			"RANGE": 1,
-			"TARGET": "GROUND",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_1"
-			]
-		},
-		"Castle_Tower": {
-			"LEVEL": 1,
-			"HP": 2000,
-			"ATTACK": 75,
-			"COST": 3,
-			"SPEED": 1,
-			"RANGE": 1,
-			"TARGET": "GROUND",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "RANGE_ARROW"
-			]
-		},
-		"MONSTER_1": {
-			"LEVEL": 1,
-			"HP": 660,
-			"ATTACK": 75,
-			"COST": 3,
-			"SPEED": 1,
-			"RANGE": 1,
-			"TARGET": "GROUND",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_2"
-			]
-		},
-		"MONSTER_2": {
-			"LEVEL": 1,
-			"HP": 660,
-			"ATTACK": 75,
-			"COST": 3,
-			"SPEED": 1,
-			"RANGE": 1,
-			"TARGET": "GROUND",
-			"COUNT": 1,
-			"TRANSPORT": "GROUND",
-			"TYPE": "UNIT",
-			"SKILL": [
-			  "MELEE_1"
-			]
-		},
+    "KNIGHT": {
+      "LEVEL": 1,
+      "HP": 660,
+      "ATTACK": 75,
+      "COST": 3,
+      "SPEED": 1,
+      "RANGE": 1,
+      "TARGET": "GROUND",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "MELEE_2"
+      ]
+    },
+    "ARCHER": {
+      "LEVEL": 1,
+      "HP": 120,
+      "ATTACK": 41,
+      "COST": 3,
+      "SPEED": 1,
+      "RANGE": 5,
+      "TARGET": "GOURNDAIR",
+      "COUNT": 2,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "RANGE_ARROW"
+      ]
+    },
+    "BARBARIAN": {
+      "LEVEL": 1,
+      "HP": 880,
+      "ATTACK": 120,
+      "COST": 4,
+      "SPEED": 1,
+      "RANGE": 1,
+      "TARGET": "GROUND",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "MELEE_BARBARIAN"
+      ]
+    },
+    "WIZARD": {
+      "LEVEL": 1,
+      "HP": 340,
+      "ATTACK": 130,
+      "COST": 5,
+      "SPEED": 1,
+      "RANGE": 5.5,
+      "TARGET": "GOURNDAIR",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "RANGE_WIZARD"
+      ]
+    },
+    "BAT": {
+      "LEVEL": 1,
+      "HP": 90,
+      "ATTACK": 40,
+      "COST": 5,
+      "SPEED": 1.2,
+      "RANGE": 1,
+      "TARGET": "GROUND",
+      "COUNT": 3,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "RANGE_BAT"
+      ]
+    },
+    "CACTUS": {
+      "LEVEL": 1,
+      "HP": 800,
+      "ATTACK": 160,
+      "COST": 4,
+      "SPEED": 1.5,
+      "RANGE": 1,
+      "TARGET": "GOURNDAIR",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "MELEE_2"
+      ]
+    },
+    "DEATHKNIGHT": {
+      "LEVEL": 1,
+      "HP": 600,
+      "ATTACK": 325,
+      "COST": 4,
+      "SPEED": 1.2,
+      "RANGE": 1,
+      "TARGET": "GROUND",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "MELEE_2"
+      ]
+    },
+    "DRAGON": {
+      "LEVEL": 1,
+      "HP": 800,
+      "ATTACK": 100,
+      "COST": 4,
+      "SPEED": 1.2,
+      "RANGE": 35,
+      "TARGET": "GOURNDAIR",
+      "COUNT": 2,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "RANGE_DRAGON"
+      ]
+    },
+    "GHOST": {
+      "LEVEL": 1,
+      "HP": 43,
+      "ATTACK": 80,
+      "COST": 2,
+      "SPEED": 1.5,
+      "RANGE": 1,
+      "TARGET": "GROUND",
+      "COUNT": 3,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "MELEE_1"
+      ]
+    },
+    "GOLEM": {
+      "LEVEL": 1,
+      "HP": 3200,
+      "ATTACK": 195,
+      "COST": 8,
+      "SPEED": 0.5,
+      "RANGE": 1,
+      "TARGET": "GOURNDAIR",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "MELEE_2"
+      ]
+    },
+    "SKELETON": {
+      "LEVEL": 1,
+      "HP": 32,
+      "ATTACK": 32,
+      "COST": 1,
+      "SPEED": 1.2,
+      "RANGE": 1,
+      "TARGET": "GOURNDAIR",
+      "COUNT": 4,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "경갑옷을 입은 한 쌍의 원거리 공격수 입니다. 지상과 공중 유닛을 공격할 수 있지만 이 친구들에게 모자를 골라달라고 하진 마세요.",
+      "SKILL": [
+        "MELEE_1"
+      ]
+    },
+    "Castle_King": {
+      "LEVEL": 1,
+      "HP": 2500,
+      "ATTACK": 100,
+      "COST": 3,
+      "SPEED": 1,
+      "RANGE": 1,
+      "TARGET": "GROUND",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "",
+      "SKILL": [
+        "MELEE_1"
+      ]
+    },
+    "Castle_Tower": {
+      "LEVEL": 1,
+      "HP": 2000,
+      "ATTACK": 75,
+      "COST": 3,
+      "SPEED": 1,
+      "RANGE": 1,
+      "TARGET": "GROUND",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "",
+      "SKILL": [
+        "RANGE_ARROW"
+      ]
+    },
+    "MONSTER_1": {
+      "LEVEL": 1,
+      "HP": 660,
+      "ATTACK": 75,
+      "COST": 3,
+      "SPEED": 1,
+      "RANGE": 1,
+      "TARGET": "GROUND",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "",
+      "SKILL": [
+        "MELEE_2"
+      ]
+    },
+    "MONSTER_2": {
+      "LEVEL": 1,
+      "HP": 660,
+      "ATTACK": 75,
+      "COST": 3,
+      "SPEED": 1,
+      "RANGE": 1,
+      "TARGET": "GROUND",
+      "COUNT": 1,
+      "TRANSPORT": "GROUND",
+      "TYPE": "UNIT",
+      "CONTENTS": "",
+      "SKILL": [
+        "MELEE_1"
+      ]
+    },
 		
 	}
 }
