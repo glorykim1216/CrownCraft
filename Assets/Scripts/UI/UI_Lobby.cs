@@ -10,6 +10,8 @@ public class UI_Lobby : BaseObject
     UIButton BattleBtn = null;
     UIButton GachaBtn = null;
 
+    UIButton ConnectCancelBtn =null;
+
     // GachaGround Btn
     UIButton BoxBtn = null;
     // Chest Open
@@ -121,6 +123,16 @@ public class UI_Lobby : BaseObject
 
         // Server Connect
         serverConnect = FindInChild("serverConnect");
+        trans = serverConnect.FindChild("Button");
+        if (trans == null)
+        {
+            Debug.LogError("GachaBtn is Not Founded");
+            return;
+        }
+        ConnectCancelBtn = trans.GetComponent<UIButton>();
+        EventDelegate.Add(ConnectCancelBtn.onClick,
+            new EventDelegate(this, "ConnectCancel"));
+
 
         ScoreUpdate();
     }
@@ -247,5 +259,11 @@ public class UI_Lobby : BaseObject
         serverConnect.gameObject.SetActive(true);
         GameManager.Instance.IssueConnect();
         //Scene_Manager.Instance.LoadScene(eSceneType.SCENE_GAME);
+    }
+
+    void ConnectCancel()
+    {
+        GameManager.Instance.GoToLobby();
+        serverConnect.gameObject.SetActive(false);
     }
 }
